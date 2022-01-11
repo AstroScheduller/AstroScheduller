@@ -7,15 +7,16 @@ import os
 import json
 import time
 import pytz
+import tkinter
 import subprocess
-from datetime import datetime, timezone
 import xmltodict
 import numpy as np
-from xml.etree.ElementTree import Element
-from astropy.coordinates import SkyCoord, EarthLocation, AltAz
 from astropy.time import Time
 from astropy import units as u
 import matplotlib.pyplot as plt
+from datetime import datetime, timezone
+from xml.etree.ElementTree import Element
+from astropy.coordinates import SkyCoord, EarthLocation, AltAz
 
 class scheduller_ultilities() :
     def Timestamp(self, timestamp):
@@ -240,6 +241,43 @@ class scheduller_core_controller():
         
         return subprocess.Popen.poll
 
+# Reference: https://blog.csdn.net/u010039733/article/details/50004831
+class DDList(tkinter.Listbox):
+
+    def __init__(self,master,**kw):
+        kw['selectmode'] = tkinter.SINGLE
+        tkinter.Listbox.__init__(self,master,kw)
+        self.bind("<Button-1>",self.setCurrent)
+        self.bind("<B1-Motion>",self.shiftSelection)
+        self.curIndex = None
+    def setCurrent(self,event):
+        self.curIndex = self.nearest(event.y)
+    def shiftSelection(self,event):
+        i = self.nearest(event.y)
+        if i < self.curIndex:
+            x = self.get(i)
+            self.delete(i)
+            self.insert(i+1,x)
+            self.curIndex = i
+        elif i > self.curIndex:
+            x = self.get(i)
+            self.delete(i)
+            self.insert(i-1,x)
+            self.curIndex = i
+
+class scheduller_editor():
+    def __init__(self, loadedXml):
+        tk = tkinter.Tk()
+        dd = DDList(tk, height = len(loadedXml['scheduller']['sources']['object']))
+        dd.pack()
+
+        for thisObj in loadedXml['scheduller']['sources']['object']:
+            dd.insert(tkinter.END, thisObj['identifier'])
+        
+        tk.mainloop()
+
+#scheduller_editor(xmltodict.parse(open("./tests/psr_list_long.xml.gitignore").read()))
+
 class scheduller():
     loadedObsConfig = ""
     xmlText = ""
@@ -269,9 +307,22 @@ class scheduller():
 
     def plot(self):
         scheduller_plot().xml(self.xmlText)
+    
+    def edit(self):
+        pass
+
+    def save(self, filename):
+        try:
+            open(filename, "w+").write(self.xmlText)
+            print("Saved as", filename)
+        except Exception as e:
+            print("Notice: Unable to save as", self.xmlText)
+            print("Schedule is print as below:")
+            print(self.xmlText)
 
 schedullerHandle = scheduller()
-schedullerHandle.load_from_json("./tests/psr_list_long.txt.gitignore")
+#schedullerHandle.load_from_json("./tests/psr_list_long.txt.gitignore")
+schedullerHandle.load_from_xml("./tests/psr_list_debug.xml")
 schedullerHandle.schedule()
 schedullerHandle.plot()
-#schedullerHandle.edit()
+schedullerHandle.save("./tests/psr_list_debug_schedule.xml")
