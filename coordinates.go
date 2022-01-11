@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 	"time"
 )
@@ -83,7 +82,6 @@ func AltAz(object src_obj, timestamps []int64, telescope obs_tele) [][2]float64 
 		//thisLST := coord_siderial_time2(timeTimestamp2J2000Days(int64(timestamps[i])), float64(time.Unix(int64(timestamps[i]), 0).UTC().Hour()), telescope.Longitude)
 		thisLST := coord_siderial_time(float64(timestamps[i]), telescope.Longitude)
 		thisHourAngle := coord_deg_range(thisLST - object.Ra)
-		fmt.Println(thisLST)
 
 		AltAz[i][0] = math.Asin(math.Sin(object.Dec/180*math.Pi)*math.Sin(telescope.Latitude/180*math.Pi)+math.Cos(object.Dec/180*math.Pi)*math.Cos(telescope.Latitude/180*math.Pi)*math.Cos(thisHourAngle/180*math.Pi)) / math.Pi * 180
 		AltAz[i][1] = math.Acos((math.Sin(object.Dec/180*math.Pi)-math.Sin(AltAz[i][0]/180*math.Pi)*math.Sin(telescope.Latitude/180*math.Pi))/(math.Cos(AltAz[i][0]/180*math.Pi)*math.Cos(telescope.Latitude/180*math.Pi))) / math.Pi * 180
@@ -94,6 +92,54 @@ func AltAz(object src_obj, timestamps []int64, telescope obs_tele) [][2]float64 
 	}
 
 	return AltAz
+}
+
+/**
+* coord_sun_object: Get RA/Dec of the Sun (Error within 3 deg.)
+* Reference: http://www.stargazing.net/kepler/sun.html.
+ */
+func coord_sun_object(timestamp int64) src_obj {
+	var sunObj src_obj
+
+	// Find the days before/after J2000.0 (d)
+	d := timeTimestamp2J2000Days(timestamp)
+
+	// Find the Mean Longitude (L) of the Sun
+	L := coord_deg_range(280.461 + 0.9856474*d)
+
+	// Find the Mean anomaly (g) of the Sun
+	g := coord_deg_range(357.528 + 0.9856003*d)
+
+	// Find the ecliptic longitude (lambda) of the sun
+	lambda := L + 1.915*math.Sin(g) + 0.020*math.Sin(2*g)
+
+	// Find the obliquity of the ecliptic plane (epsilon)
+	epsilon := 23.439 - 0.0000004*d
+
+	// Find the Right Ascension (alpha) and Declination (delta) of the Sun
+	lambda = 134.97925
+	epsilon = 23.439351
+	Y := math.Cos(epsilon/180*math.Pi) * math.Sin(lambda/180*math.Pi)
+	X := math.Cos(lambda / 180 * math.Pi)
+
+	a := math.Atan(Y/X) / math.Pi * 180
+
+	alpha := a
+	if X < 0 {
+		alpha = a + 180
+	} else if Y < 0 && X > 0 {
+		alpha = a + 360
+	}
+
+	delta := math.Asin(math.Sin(epsilon/180*math.Pi)*math.Sin(lambda/180*math.Pi)) / math.Pi * 180
+
+	sunObj.Identifier = "SUN"
+	sunObj.Ra = alpha
+	sunObj.Dec = delta
+	sunObj.Duration = 0
+	sunObj.Rises = [][2]int64{}
+
+	return sunObj
 }
 
 func coord_deg_range(degree float64) float64 {

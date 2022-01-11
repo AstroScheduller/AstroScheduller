@@ -28,7 +28,8 @@ type obs_elev struct {
 }
 
 type obs_escp struct {
-	Sun float64 `xml:"sun"`
+	Sun      float64 `xml:"sun"`
+	SunAltAz [][]float64
 }
 
 type obs struct {
@@ -44,6 +45,8 @@ type src_obj struct {
 	Ra         float64 `xml:"ra"`
 	Dec        float64 `xml:"dec"`
 	Duration   int64   `xml:"duration"`
+	Weight     float64 `xml:"weight"`
+	Important      int     `xml:"important"`
 	Rises      [][2]int64
 	SortMark   bool
 	Schedule   schedule
@@ -83,6 +86,8 @@ type schedule struct {
 /**********************/
 var loadedObsParam obs
 var loadedSrcParam src
+var importPath string
+var exportPath string
 
 // var duration = [2]int64{1647284400, 1647294400}
 // var telescope = [3]float64{45.52, -82.681944, 0} //[Lat., Lon., Hei.] TM Tele.
@@ -94,5 +99,7 @@ var Config_RisesSearchStep int64
 var FloatConfig_RisesSearchStep float64
 var Config_SortSearchStep int64
 var FloatConfig_SortSearchStep float64
+var Config_SunSearchStep int64
+var FloatConfig_SunSearchStep float64
 
 //var Config_RisesSearchStep int64

@@ -1,0 +1,18 @@
+"filename", "language", "Go", "Python", "XML", "Ignore", "comment", "blank", "total"
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/PyInterface.py", "Python", 0, 217, 0, 0, 11, 49, 277
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/coordinates.go", "Go", 86, 0, 0, 0, 36, 32, 154
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/export.xml", "XML", 0, 0, 1040, 0, 0, 0, 1040
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/list.go", "Go", 50, 0, 0, 0, 1, 14, 65
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/main.go", "Go", 67, 0, 0, 0, 46, 15, 128
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/rises.go", "Go", 29, 0, 0, 0, 3, 6, 38
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/score.go", "Go", 34, 0, 0, 0, 0, 11, 45
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/sort.go", "Go", 179, 0, 0, 0, 21, 52, 252
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/tests/export.xml", "XML", 0, 0, 80, 0, 0, 0, 80
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/tests/psr_list_debug.xml", "XML", 0, 0, 1236, 0, 0, 1, 1237
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/tests/psr_list_debug_short.xml", "XML", 0, 0, 56, 0, 0, 8, 64
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/tests/psr_list_long.txt.gitignore", "Ignore", 0, 0, 0, 316, 3, 3, 322
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/tests/psr_list_long.xml.gitignore", "Ignore", 0, 0, 0, 5254, 0, 1, 5255
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/time.go", "Go", 16, 0, 0, 0, 10, 6, 32
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/utilities.go", "Go", 59, 0, 0, 0, 7, 19, 85
+"/Users/wenky/OneDrive - Franklin & Marshall College/Astro/AstroSchedullerGo/variables.go", "Go", 75, 0, 0, 0, 14, 17, 106
+"Total", "-", 595, 217, 2412, 5570, 152, 234, 9180

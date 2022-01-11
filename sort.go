@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -14,7 +15,13 @@ func sort_get(obsObj obs, objects []src_obj) [][]src_obj {
 		}
 	}
 
-	for i := 0; i < len(objects); i++ {
+	objNum := len(objects)
+	if objNum == 0 {
+		u_exit("NO SOURCES IMPORTED.")
+	}
+
+	for i := 0; i < objNum; i++ {
+		fmt.Printf("\rScheduling...%6.2f%s", float32(i)/float32(objNum)*100, "%")
 		sortedObjects = append(sortedObjects, sort_objects(obsObj, sort_nearest(objects, i)))
 	}
 
@@ -37,7 +44,7 @@ func sort_objects(obsObj obs, objects []src_obj) []src_obj {
 				thisGap = time - obsObj.Duration.Begin
 			}
 
-			if sort_observable(objects[i], [2]int64{time, time + objects[i].Duration}) {
+			if sort_observable(obsObj, objects[i], [2]int64{time, time + objects[i].Duration}) {
 				thisSched.Scheduled = true
 				thisSched.Key = i
 				thisSched.Duration = [2]int64{time, time + objects[i].Duration}
@@ -55,20 +62,39 @@ func sort_objects(obsObj obs, objects []src_obj) []src_obj {
 			sRiseObjKeyGap = time - obsObj.Duration.Begin
 		}
 
-		if sort_observable(objects[sRiseObjKey], [2]int64{time, time + objects[sRiseObjKey].Duration}) {
+		if sort_observable(obsObj, objects[sRiseObjKey], [2]int64{time, time + objects[sRiseObjKey].Duration}) {
 			if thisSched.Scheduled {
-				if !sort_observable(objects[sRiseObjKey], [2]int64{thisSched.Duration[1] + thisSched.Gap, thisSched.Duration[1] + thisSched.Gap + objects[sRiseObjKey].Duration}) {
+				if !sort_observable(obsObj, objects[sRiseObjKey], [2]int64{thisSched.Duration[1] + thisSched.Gap, thisSched.Duration[1] + thisSched.Gap + objects[sRiseObjKey].Duration}) {
 					thisSched.Scheduled = true
 					thisSched.Key = sRiseObjKey
 					thisSched.Duration = [2]int64{time, time + objects[sRiseObjKey].Duration}
 					thisSched.Gap = sRiseObjKeyGap
 				}
 			} else {
-				if !sort_observable(objects[sRiseObjKey], [2]int64{time + Config_SortSearchStep, time + Config_SortSearchStep + objects[sRiseObjKey].Duration}) {
+				if !sort_observable(obsObj, objects[sRiseObjKey], [2]int64{time + Config_SortSearchStep, time + Config_SortSearchStep + objects[sRiseObjKey].Duration}) {
 					thisSched.Scheduled = true
 					thisSched.Key = sRiseObjKey
 					thisSched.Duration = [2]int64{time, time + objects[sRiseObjKey].Duration}
 					thisSched.Gap = sRiseObjKeyGap
+				}
+			}
+		}
+
+		// Search & schedule for objects are marked as "important".
+		for i := 0; i < len(objects); i++ {
+			if objects[i].Important == 1 {
+				thisGap := int64(0)
+				if len(sortedObj) > 0 {
+					thisGap = sort_gap_between(obsObj, sortedObj[len(sortedObj)-1], objects[i])
+				} else {
+					thisGap = time - obsObj.Duration.Begin
+				}
+
+				if sort_observable(obsObj, objects[i], [2]int64{time, time + objects[i].Duration}) {
+					thisSched.Scheduled = true
+					thisSched.Key = i
+					thisSched.Duration = [2]int64{time, time + objects[i].Duration}
+					thisSched.Gap = thisGap
 				}
 			}
 		}
@@ -93,8 +119,10 @@ func sort_objects(obsObj obs, objects []src_obj) []src_obj {
 	return sortedObj
 }
 
-func sort_observable(object src_obj, duration [2]int64) bool {
+func sort_observable(obsObj obs, object src_obj, duration [2]int64) bool {
 	observable := false
+
+	//startTime := time.Now().UnixNano()
 
 	for i := 0; i < len(object.Rises); i++ {
 		if object.Rises[i][0] <= duration[0] && object.Rises[i][1] >= duration[1] {
@@ -102,9 +130,28 @@ func sort_observable(object src_obj, duration [2]int64) bool {
 		}
 	}
 
-	// To-do: Escape Sun
+	//endTime := time.Now().UnixNano()
+	//fmt.Println("Timer1", float64((endTime - startTime)))
+
+	for t := obsObj.Duration.Begin; t < (obsObj.Duration.Begin + object.Duration); t = t + Config_SunSearchStep {
+		//fmt.Println(t)
+		if sort_deg_to_sun(obsObj, object, t) <= obsObj.Escape.Sun {
+			return false
+		}
+	}
+
+	//endTime = time.Now().UnixNano()
+	//fmt.Println("Timer2", float64((endTime - startTime)))
+	//os.Exit(0)
 
 	return observable
+}
+
+func sort_deg_to_sun(obsObj obs, object src_obj, timestamp int64) float64 {
+	SunAltAz := AltAz(coord_sun_object(timestamp), []int64{timestamp}, obsObj.Telescope)
+	ObjAltAz := AltAz(object, []int64{timestamp}, obsObj.Telescope)
+
+	return math.Sqrt(math.Pow(SunAltAz[0][0]-ObjAltAz[0][0], 2) + math.Pow(SunAltAz[0][1]-ObjAltAz[0][1], 2))
 }
 
 func sort_discard_object(objects []src_obj, discardKey int) []src_obj {
@@ -151,6 +198,11 @@ func sort_nearest(objects []src_obj, i int) []src_obj {
 		for k := 0; k < len(objects); k++ {
 			if !objects[k].SortMark {
 				thisDistance := sort_angle_distance(objects[i], objects[k])
+
+				if objects[k].Weight > 0 {
+					thisDistance = thisDistance / objects[k].Weight
+				}
+
 				if thisDistance < nearest || nearest == float64(-1) {
 					i = k
 					nearest = thisDistance
@@ -174,6 +226,10 @@ func sort_shortest_rise(objects []src_obj) int {
 
 		for a := 0; a < len(objects[i].Rises); a++ {
 			thisRise = thisRise + int(objects[i].Rises[a][1]-objects[i].Rises[a][0])
+		}
+
+		if(objects[i].Weight > 0){
+			thisRise = int(float64(thisRise) / objects[i].Weight)
 		}
 
 		if thisRise > int(shortestKey[0]) {

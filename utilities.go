@@ -54,6 +54,8 @@ func u_file_get_file_annotated(filename string) string {
 
 			rawJson = strings.Join([]string{rawJson, thisLine}, "\n")
 		}
+	} else {
+		u_exit("File <" + filename + "> does not exists.")
 	}
 
 	defer fileObj.Close()
@@ -61,7 +63,7 @@ func u_file_get_file_annotated(filename string) string {
 }
 
 func u_exit(info string) {
-	fmt.Println("[ERROR]", info)
+	fmt.Println("\n[ERROR]", info)
 	os.Exit(0)
 }
 
