@@ -200,8 +200,11 @@ class scheduller_core_controller():
         files = os.listdir("./")
         searchedCores = list()
         for thisFile in files: 
-            if(thisFile[0:17] == "AstroSchedullerGo"):
-                searchedCores.append(thisFile)
+            try:
+                if(thisFile[0:17] == "AstroSchedullerGo"):
+                    searchedCores.append(thisFile)
+            except Exception as e:
+                pass
         
         if len(searchedCores) > 1:
             while True:
