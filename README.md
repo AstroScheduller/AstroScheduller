@@ -1,4 +1,4 @@
-![astro_scheduller](./astro_scheduller.jpg)
+![astro_scheduller](./docs/astro_scheduller.jpg)
 
 # AstroSchedullerGo 0.9.3
 
