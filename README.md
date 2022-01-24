@@ -4,7 +4,7 @@
 
 [![](https://img.shields.io/badge/license-MIT-green)](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE)
 [![](https://img.shields.io/badge/release-v0.9.3-informational)](https://github.com/xiawenke/AstroSchedullerGo/releases)
-[![](https://img.shields.io/badge/语言-简体中文-orange)](./docs/README_CHN.md)
+[![](https://img.shields.io/badge/其他文档语言-简体中文-orange)](./docs/README_CHN.md)
 
 AstroScheduller project is trying to design an algorithm for generating astronomical observation plans. The project mostly designed in GoLang Code. AstroSchedullerGo was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroScheduller).
 
