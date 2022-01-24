@@ -2,7 +2,11 @@
 
 # AstroSchedullerGo 0.9.3
 
-AstroScheduller项目尝试设计一种用于生成天文观测纲要的算法，此项目主要用GoLang代码设计。
+[![](https://img.shields.io/badge/license-MIT-green)](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE)
+[![](https://img.shields.io/badge/release-v0.9.3-informational)](https://github.com/xiawenke/AstroSchedullerGo/releases)
+[![](https://img.shields.io/badge/English-orange)](https://github.com/xiawenke/AstroSchedullerGo#readme)
+
+AstroScheduller项目尝试设计一种用于生成天文观测纲要的算法，此项目主要用GoLang代码设计。AstroSchedullerGo前身为[AstroScheduller.py](https://github.com/xiawenke/AstroSchedulle)。
 
 ## 快速开始
 
@@ -43,14 +47,16 @@ AstroScheduller程序的输入是以XML方式编写的观察参数，以下是�
             <identifier>PSR J1012+5307</identifier> <!-- 观测源的源名 -->
             <ra>153.13930897</ra> <!-- 观测源的R.A.坐标（单位为角度） -->
             <dec>53.11737904</dec> <!-- 观测源的Dec.坐标（单位为角度） -->
-            <duration>800</duration> <!-- 观测时长 -->
+            <duration>800</duration> <!-- 观测时长（单位：秒） -->
         </object>
 
         <object> <!-- 第二个观测源 -->
-            <identifier>PSR B0740-28</identifier> <!-- 观测源的源名 -->
-            <ra>115.70447083</ra> <!-- 观测源的R.A.坐标（单位为角度） -->
-            <dec>-28.37875278</dec> <!-- 观测源的Dec.坐标（单位为角度） -->
-            <duration>1200</duration> <!-- 观测时长 -->
+            <identifier>PSR B0320+39</identifier> <!-- 观测源的源名 -->
+            <ra>50.86090833</ra> <!-- 观测源的R.A.坐标（单位为角度） -->
+            <dec>39.74802778</dec> <!-- 观测源的Dec.坐标（单位为角度） -->
+            <duration>2400</duration> <!-- 观测时长（单位：秒） -->
+            <weight>0.1</weight> <!-- 观测源的权重。为0到1之间的浮点数，更大意味着权重更高。 -->
+			<important>1</important> <!-- 标记为“重要”。观测源将会有极高的权重，若important标签被标记为“1”。 -->
         </object>
       
       	... <!-- 在此之后可以添加更的观测源 -->
@@ -133,6 +139,5 @@ AstroSchedullerGo是在MIT许可下作为一个开放源码项目发布的。更
 
 ## 鸣谢
 
-我们深深地感谢中国科学院上海天文台的研究人员和学生，感谢他们的想法以及意味深长的讨论；感谢他们帮助进行算法可靠性的测试。
+我们由衷地感谢中国科学院上海天文台的研究人员和学生，感谢他们的想法以及意味深远的讨论；感谢他们帮助进行算法可靠性的测试。
 
-AstroSchedullerGo前身为[AstroScheduller.py](https://github.com/xiawenke/AstroSchedulle)。

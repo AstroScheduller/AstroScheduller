@@ -1,8 +1,12 @@
-![astro_scheduller](./docs/astro_scheduller.jpg)
+![astro_scheduller](./astro_scheduller.jpg)
 
 # AstroSchedullerGo 0.9.3
 
-AstroScheduller project is trying to design an algorithm for generating astronomical observation plans. The project mostly designed in GoLang Code. 
+[![](https://img.shields.io/badge/license-MIT-green)](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE)
+[![](https://img.shields.io/badge/release-v0.9.3-informational)](https://github.com/xiawenke/AstroSchedullerGo/releases)
+[![](https://img.shields.io/badge/简体中文-orange)](./docs/README_CHN.md)
+
+AstroScheduller project is trying to design an algorithm for generating astronomical observation plans. The project mostly designed in GoLang Code. AstroSchedullerGo was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroScheduller).
 
 ## Get Start
 
@@ -47,10 +51,12 @@ The input of the AstroScheduller Program are observation parameters written in X
         </object>
 
         <object> <!-- The second objects to be observed -->
-            <identifier>PSR B0740-28</identifier> <!-- The identifier of the object -->
-            <ra>115.70447083</ra> <!-- The R.A. of the object (Unit: Degree) -->
-            <dec>-28.37875278</dec> <!-- The Dec. of the object (Unit: Degree) -->
-            <duration>1200</duration> <!-- Amount of time (in seconds) spending on observing the object -->
+            <identifier>PSR B0320+39</identifier> <!-- The identifier of the object -->
+            <ra>50.86090833</ra> <!-- The R.A. of the object (Unit: Degree) -->
+            <dec>39.74802778</dec> <!-- The Dec. of the object (Unit: Degree) -->
+            <duration>2400</duration> <!-- Amount of time (in seconds) spending on observing the object -->
+            <weight>0.1</weight> <!-- The weight of the object, range from 0.0 to 1.0. Smaller weight is interpreted as less important. -->
+			<important>1</important> <!-- The importance marker. The object will have a higher priority in the sorting, if is marked as 1. -->
         </object>
       
       	... <!-- More objects can be added -->
@@ -135,4 +141,4 @@ AstroSchedullerGo is released as an open source project under the MIT license. S
 
 We are deeply grateful to the researchers and students at the Shanghai Astronomical Observatory of the Chinese Academy of Sciences for their thoughtful discussions and works on testing the algorithm.
 
-AstroSchedullerGo was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroScheduller).
+

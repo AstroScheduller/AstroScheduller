@@ -59,6 +59,8 @@
             <ra>50.86090833</ra>
             <dec>39.74802778</dec>
             <duration>2400</duration>
+            <weight>0.1</weight>
+			<important>1</important>
         </object>
     </sources>
 </scheduller>
