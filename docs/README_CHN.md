@@ -2,8 +2,8 @@
 
 # AstroSchedullerGo 0.9.3
 
-[![](https://img.shields.io/badge/license-MIT-green)](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE)
-[![](https://img.shields.io/badge/release-v0.9.3-informational)](https://github.com/xiawenke/AstroSchedullerGo/releases)
+[![](https://img.shields.io/badge/许可-MIT-green)](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE)
+[![](https://img.shields.io/badge/当前版本-v0.9.3-informational)](https://github.com/xiawenke/AstroSchedullerGo/releases)
 [![](https://img.shields.io/badge/language-English-orange)](https://github.com/xiawenke/AstroSchedullerGo#readme)
 
 AstroScheduller项目尝试设计一种用于生成天文观测纲要的算法，此项目主要用GoLang代码设计。AstroSchedullerGo前身为[AstroScheduller.py](https://github.com/xiawenke/AstroSchedulle)。
