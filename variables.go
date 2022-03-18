@@ -46,7 +46,7 @@ type src_obj struct {
 	Dec        float64 `xml:"dec"`
 	Duration   int64   `xml:"duration"`
 	Weight     float64 `xml:"weight"`
-	Important      int     `xml:"important"`
+	Important  int     `xml:"important"`
 	Rises      [][2]int64
 	SortMark   bool
 	Schedule   schedule
@@ -84,6 +84,7 @@ type schedule struct {
 /**********************/
 /** GLOBAL VARIABLES **/
 /**********************/
+var pyLib bool
 var loadedObsParam obs
 var loadedSrcParam src
 var importPath string

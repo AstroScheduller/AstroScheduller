@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2022-01-06 00:53:26
+ * @LastEditTime: 2022-03-17 20:57:19
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /AstroSchedullerPy/Users/wenky/Library/CloudStorage/OneDrive-Franklin&MarshallCollege/Astro/AstroSchedullerGo/list.go
+ */
 package main
 
 import (
@@ -13,13 +21,17 @@ func list_load_from_file(filename string) bool {
 	loadedSrcParam = loaded_xml.Sources
 
 	for i := 0; i < len(loadedSrcParam.Objects); i++ {
-		if loadedSrcParam.Objects[i].Important != 1{
+		if loadedSrcParam.Objects[i].Important != 1 {
 			loadedSrcParam.Objects[i].Important = 0
 		}
 
-		if loadedSrcParam.Objects[i].Weight > 1 || loadedSrcParam.Objects[i].Weight < 0{
+		if loadedSrcParam.Objects[i].Weight > 1 || loadedSrcParam.Objects[i].Weight < 0 {
 			loadedSrcParam.Objects[i].Weight = 0
 		}
+	}
+
+	if loadedObsParam.Escape.Sun != 0 {
+		loadedObsParam.Escape.Sun = loadedObsParam.Escape.Sun + 3 // For the reason that estimated AltAz overall has an 3 degree error.
 	}
 
 	return true
@@ -37,12 +49,18 @@ func list_load_xml(rawXML string) obs_config {
 	return loaded_xml
 }
 
-func list_export(obsObj obs, objects []src_obj, filename string) {
+func list_construct_xml(obsObj obs, objects []src_obj) []byte {
 	var xmlStruct obs_config
 	xmlStruct.Observation = obsObj
 	xmlStruct.Sources = src{objects}
 
 	output, _ := xml.MarshalIndent(xmlStruct, "  ", "    ")
+
+	return output
+}
+
+func list_export(obsObj obs, objects []src_obj, filename string) {
+	output := list_construct_xml(obsObj, objects)
 
 	if filename == "" {
 		os.Stdout.Write([]byte(xml.Header))
