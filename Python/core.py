@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2022-03-17 21:20:04
-LastEditTime: 2022-03-17 22:47:05
+LastEditTime: 2022-03-17 23:36:34
 LastEditors: Please set LastEditors
 Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 FilePath: /AstroSchedullerGo/Python/core.py
@@ -11,26 +11,23 @@ import os
 import json
 import requests
 import hashlib
-
-class utilities():
-    def get_dir(self, filename):
-        return os.path.abspath(os.path.dirname(filename))
-
-u = utilities()
+import ctypes
+from utilities import utilities
 
 class core():
     def __init__(self):
+        self.u = utilities()
         self.coreInfo = {
             "version": "0.9.2",
             "config": False,
             "configUrl": "https://raw.githubusercontent.com/xiawenke/AstroSchedullerGo/Dev/releases_latest/_scheduller.config",
-            "corePath": u.get_dir(__file__) + "/lib/_scheduller.so",
-            "configPath": u.get_dir(__file__) + "/lib/_scheduller.config"
+            "corePath": self.u.get_dir(__file__) + "/lib/_scheduller.so",
+            "configPath": self.u.get_dir(__file__) + "/lib/_scheduller.config"
         }
         
         # Check if the AstroSchedullerGo Module exists\
-        if(not os.path.isdir(u.get_dir(self.coreInfo["corePath"]))):
-            os.mkdir(u.get_dir(self.coreInfo["corePath"]))
+        if(not os.path.isdir(self.u.get_dir(self.coreInfo["corePath"]))):
+            os.mkdir(self.u.get_dir(self.coreInfo["corePath"]))
         
         self.get_core_info()
         
@@ -65,8 +62,11 @@ class core():
         print("Downloading AstroSchedullerGo Module...")
             
         try:
-            print(self.coreInfo["config"]
-            open(self.coreInfo["corePath"], "wb").write(requests.get(self.coreInfo["config"]["url"]).content)
+            #open(self.coreInfo["corePath"], "wb").write(requests.get(self.coreInfo["config"]["url"], stream=True).content)
+            
+            req = requests.get(self.coreInfo["config"]["url"], stream=True)
+            with open(self.coreInfo["corePath"], 'wb') as f:
+                f.write(req.content)
         except Exception as e:
             print(str(e), " -> AstroSchedullerGo Module does not exists. Try again after check the internet connection. (If you are working offline, see https://github.com/xiawenke/AstroSchedullerGo for more information.)")
             exit()
@@ -76,7 +76,7 @@ class core():
     
     def check_integrity(self):
         try:
-            if(hashlib.md5(open(self.coreInfo["corePath"], "rb").read()) == self.coreInfo["config"]["md5"]):
+            if(hashlib.md5(open(self.coreInfo["corePath"], "rb").read()).hexdigest() == self.coreInfo["config"]["md5"]):
                 print("check_integrity: pass")
                 return True
             else:
@@ -84,7 +84,20 @@ class core():
                 self.download_core()
                 return self.check_integrity()
         except Exception as e:
-            print("check_integrity: not check")
+            print("check_integrity: not check", str(e))
             return False
-            
-core()
+    
+    def reset():
+        # Delete the file.
+        return True
+    
+    def go_schedule(self, importPath, exportPath):
+        goHandle = ctypes.cdll.LoadLibrary(self.coreInfo["corePath"])
+        goHandle.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+        goHandle.py_schedule(importPath.encode(), exportPath.encode())
+        
+        if(not os.path.isfile(importPath) or not os.path.isfile(exportPath)):
+            return False
+        
+        return True
+        
