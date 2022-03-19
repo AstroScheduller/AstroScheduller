@@ -56,7 +56,7 @@ func sort_objects(obsObj obs, objects []src_obj) []src_obj {
 		sRiseObjKey := sort_shortest_rise(objects)
 
 		sRiseObjKeyGap := int64(0)
-		if len(sortedObj) > 0 {
+		if len(sortedObj) > 0 { // && sRiseObjKey >= 0
 			sRiseObjKeyGap = sort_gap_between(obsObj, sortedObj[len(sortedObj)-1], objects[sRiseObjKey])
 		} else {
 			sRiseObjKeyGap = time - obsObj.Duration.Begin
@@ -110,7 +110,7 @@ func sort_objects(obsObj obs, objects []src_obj) []src_obj {
 			time = time + Config_SortSearchStep
 		}
 
-		if time >= obsObj.Duration.End || len(sortedObj) == len(objects) {
+		if time >= obsObj.Duration.End || len(objects) <= 0 {
 			break
 		}
 
@@ -228,7 +228,7 @@ func sort_shortest_rise(objects []src_obj) int {
 			thisRise = thisRise + int(objects[i].Rises[a][1]-objects[i].Rises[a][0])
 		}
 
-		if(objects[i].Weight > 0){
+		if objects[i].Weight > 0 {
 			thisRise = int(float64(thisRise) / objects[i].Weight)
 		}
 
