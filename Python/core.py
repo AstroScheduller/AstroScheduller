@@ -7,22 +7,26 @@ Description: 打开koroFileHeader查看配置 进行设置: https://github.com/O
 FilePath: /AstroSchedullerGo/Python/core.py
 '''
 
+# go build -buildmode=c-shared -o _scheduller.so *.go
+
 import os
 import json
 import requests
 import hashlib
 import ctypes
 from utilities import utilities
+from config import config
 
 class core():
     def __init__(self):
+        self.c = config()
         self.u = utilities()
         self.coreInfo = {
             "version": "0.9.2",
             "config": False,
             "configUrl": "https://raw.githubusercontent.com/xiawenke/AstroSchedullerGo/Dev/releases_latest/_scheduller.config",
-            "corePath": self.u.get_dir(__file__) + "/lib/_scheduller.so",
-            "configPath": self.u.get_dir(__file__) + "/lib/_scheduller.config"
+            "corePath": self.c.corePath,
+            "configPath": self.c.coreConfigPath
         }
         
         # Check if the AstroSchedullerGo Module exists\
@@ -76,7 +80,7 @@ class core():
     
     def check_integrity(self):
         try:
-            if(hashlib.md5(open(self.coreInfo["corePath"], "rb").read()).hexdigest() == self.coreInfo["config"]["md5"]):
+            if(self.u.md5(open(self.coreInfo["corePath"], "rb").read()).lower() == (self.coreInfo["config"]["md5"]).lower()):
                 print("check_integrity: pass")
                 return True
             else:
@@ -87,8 +91,11 @@ class core():
             print("check_integrity: not check", str(e))
             return False
     
-    def reset():
-        # Delete the file.
+    def update(self):
+        os.unlink(self.coreInfo["corePath"])
+        os.unlink(self.coreInfo["configPath"])
+        self.__init__()
+
         return True
     
     def go_schedule(self, importPath, exportPath):
@@ -100,4 +107,3 @@ class core():
             return False
         
         return True
-        
