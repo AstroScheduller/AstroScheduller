@@ -21,12 +21,18 @@ s.add_object(
     weight= "0.2", 
     important= True
 )
+
+s1 = scheduller()
+s1.objects = s
+s1.get_schedule()
+s1.stats()
+
 # (print(s.to_dict()))
 # (print(s.to_json()))
 # print(s.to_xml())
 
-coreHandle = core()
-coreHandle.update()
+# coreHandle = core()
+# coreHandle.update()
 
 s2 = schedule()
 s2.from_xml(open("./tests/psr_list_debug.xml").read())
@@ -42,3 +48,9 @@ s3.get_schedule()
 s3.objects.to_xml()
 s3.schedule.to_xml()
 s3.stats()
+
+s4 = scheduller()
+objects = s4.objects
+objects.from_xml(open("./tests/psr_list_long.xml").read())
+s4.get_schedule()
+s4.stats()
