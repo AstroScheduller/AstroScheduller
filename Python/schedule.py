@@ -1,5 +1,4 @@
 from ctypes import util
-import json
 from math import floor
 from pexpect import ExceptionPexpect
 from sympy import ExactQuotientFailed, true
@@ -20,7 +19,7 @@ class schedule_scheduller():
         open(self.importPath, "w+").write(self.xml)
 
         if(self.core.go_schedule(self.importPath, self.exportPath)):
-            self.objectsScheduled = self.get_scheduled_return()
+            self.objects = self.get_scheduled_return()
         else:
             raise Exception("schedule", "failed")
 
@@ -38,7 +37,6 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats):
         self.c = config()
         self.observation = dict()
         self.objects = list()
-        self.objectsScheduled = list()
 
         self.observation = {
             "duration": {
@@ -154,4 +152,3 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats):
         })
 
         return True
-        

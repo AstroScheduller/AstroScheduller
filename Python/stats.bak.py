@@ -1,11 +1,11 @@
 import copy
 
-class scheduller_stats():
+class schedule_stats():
     def objects_all(self):
-        return self.objects.objects_all()
+        return self.objects
     
     def objects_scheduled(self):
-        return self.schedule.objects_all()
+        return self.objectsScheduled
 
     def objects_unscheduled(self):
         objectsUnscheduled = copy.deepcopy(self.objects_all())
@@ -84,29 +84,3 @@ class scheduller_stats():
         print("| Unscheduled Objects:", self.num_unscheduled())
         print("| Schedule Rate:", '{:.2%}'.format(self.rate_schedule()))
         print("===========================")
-
-class schedule_stats():
-    def objects_all(self):
-        return self.objects
-
-    def num_objects(self):
-        return len(self.objects_all())
-
-    def num_all_objects(self):
-        return self.num_objects()
-
-    def len_observation(self):
-        duration = 0
-
-        for thisObj in self.objects_scheduled():
-            duration = duration + thisObj["duration"]
-        
-        return duration
-    
-    def ids_objects(self):
-        ids = list()
-
-        for thisObj in self.objects_all():
-            ids.append(thisObj["identifier"])
-        
-        return ids

@@ -1,3 +1,4 @@
+from scheduller import scheduller
 from schedule import schedule
 from core import core
 
@@ -30,5 +31,14 @@ coreHandle.update()
 s2 = schedule()
 s2.from_xml(open("./tests/psr_list_debug.xml").read())
 # print(s2.to_xml())
+print(s2.num_objects())
 s2.schedule()
-s2.stats()
+print(s2.num_objects())
+#s2.stats()
+
+s3 = scheduller()
+s3.objects.from_xml(open("./tests/psr_list_long.xml").read())
+s3.get_schedule()
+s3.objects.to_xml()
+s3.schedule.to_xml()
+s3.stats()
