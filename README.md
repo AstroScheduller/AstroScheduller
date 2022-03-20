@@ -8,6 +8,11 @@
 
 AstroScheduller project is trying to design an algorithm for generating astronomical observation plans. The project mostly designed in GoLang Code. AstroSchedullerGo was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroScheduller).
 
+## To-do
+
+ - [ ] Python Packages ( Now working on... )
+ - [ ] Documentations
+
 ## Get Start
 
 #### Observation Parameters
