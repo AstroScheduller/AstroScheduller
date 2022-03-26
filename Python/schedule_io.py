@@ -1,3 +1,4 @@
+import json
 from xml.dom import minidom
 
 class schedule_from():
@@ -92,14 +93,25 @@ class schedule_from():
                 important = importantNode[0].childNodes[0].nodeValue
             except Exception as e:
                 important = 0
+
+            ### Schedule Gap
+            gap = 0
+            ScheduleNode = thisObj.getElementsByTagName("Schedule")
+            try:
+                GapNode = ScheduleNode[0].getElementsByTagName("Gap")
+                gap = GapNode[0].childNodes[0].nodeValue
+            except Exception as e:
+                pass
             
             ### Add Object
             self.add_object(
                 identifier = identifier[0].childNodes[0].nodeValue,
                 ra = ra[0].childNodes[0].nodeValue,
                 dec = dec[0].childNodes[0].nodeValue,
+                duration = duration[0].childNodes[0].nodeValue,
                 weight = weight, 
-                important = important
+                important = important, 
+                wait = gap
             )
 
 class schedule_to():

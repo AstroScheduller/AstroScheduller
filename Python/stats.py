@@ -44,6 +44,14 @@ class scheduller_stats():
         
         return duration
     
+    def len_wait(self):
+        wait = 0
+
+        for thisObj in self.objects_scheduled():
+            wait = wait + thisObj["wait"]
+        
+        return wait
+    
     def ids_objects(self):
         ids = list()
 
@@ -82,6 +90,8 @@ class scheduller_stats():
         print("| All Objects:", self.num_all())
         print("| Scheduled Objects:", self.num_scheduled())
         print("| Unscheduled Objects:", self.num_unscheduled())
+        print("| Observation Duration:", self.len_observation())
+        print("| Wait Duration:", self.len_wait())
         print("| Schedule Rate:", '{:.2%}'.format(self.rate_schedule()))
         print("===========================")
 

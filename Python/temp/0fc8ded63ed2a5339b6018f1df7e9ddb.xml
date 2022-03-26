@@ -28,7 +28,7 @@
 			</identifier>
 			<ra>69.3167</ra>
 			<dec>-47.2527</dec>
-			<duration>0</duration>
+			<duration>3555</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -38,7 +38,7 @@
 			</identifier>
 			<ra>8.53712</ra>
 			<dec>-7.36556</dec>
-			<duration>0</duration>
+			<duration>698</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -48,7 +48,7 @@
 			</identifier>
 			<ra>73.1421</ra>
 			<dec>-17.9898</dec>
-			<duration>0</duration>
+			<duration>176</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -58,7 +58,7 @@
 			</identifier>
 			<ra>73.5321</ra>
 			<dec>55.7282</dec>
-			<duration>0</duration>
+			<duration>1491</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -68,7 +68,7 @@
 			</identifier>
 			<ra>125.11</ra>
 			<dec>-13.849</dec>
-			<duration>0</duration>
+			<duration>1399</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -78,7 +78,7 @@
 			</identifier>
 			<ra>227.357</ra>
 			<dec>55.5258</dec>
-			<duration>0</duration>
+			<duration>3150</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -88,7 +88,7 @@
 			</identifier>
 			<ra>235.912</ra>
 			<dec>9.48792</dec>
-			<duration>0</duration>
+			<duration>1484</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -98,7 +98,7 @@
 			</identifier>
 			<ra>258.456</ra>
 			<dec>7.79376</dec>
-			<duration>0</duration>
+			<duration>249</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -108,7 +108,7 @@
 			</identifier>
 			<ra>293.949</ra>
 			<dec>16.2778</dec>
-			<duration>0</duration>
+			<duration>1320</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -118,7 +118,7 @@
 			</identifier>
 			<ra>312.149</ra>
 			<dec>-16.2797</dec>
-			<duration>0</duration>
+			<duration>2523</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -128,7 +128,7 @@
 			</identifier>
 			<ra>329.258</ra>
 			<dec>40.2961</dec>
-			<duration>0</duration>
+			<duration>650</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -138,7 +138,7 @@
 			</identifier>
 			<ra>348.286</ra>
 			<dec>42.8869</dec>
-			<duration>0</duration>
+			<duration>2045</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -148,7 +148,7 @@
 			</identifier>
 			<ra>97.7057</ra>
 			<dec>-28.5784</dec>
-			<duration>0</duration>
+			<duration>75</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -158,7 +158,7 @@
 			</identifier>
 			<ra>239.923</ra>
 			<dec>-44.646</dec>
-			<duration>0</duration>
+			<duration>3468</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -168,7 +168,7 @@
 			</identifier>
 			<ra>312.149</ra>
 			<dec>-16.2797</dec>
-			<duration>0</duration>
+			<duration>3253</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -178,7 +178,7 @@
 			</identifier>
 			<ra>326.05</ra>
 			<dec>-39.5664</dec>
-			<duration>0</duration>
+			<duration>3559</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -188,7 +188,7 @@
 			</identifier>
 			<ra>129.274</ra>
 			<dec>6.17071</dec>
-			<duration>0</duration>
+			<duration>2714</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -198,7 +198,7 @@
 			</identifier>
 			<ra>50.8609</ra>
 			<dec>39.748</dec>
-			<duration>0</duration>
+			<duration>3071</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -208,7 +208,7 @@
 			</identifier>
 			<ra>93.5719</ra>
 			<dec>22.5104</dec>
-			<duration>0</duration>
+			<duration>3342</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -218,7 +218,7 @@
 			</identifier>
 			<ra>97.2739</ra>
 			<dec>24.262</dec>
-			<duration>0</duration>
+			<duration>3402</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -228,7 +228,7 @@
 			</identifier>
 			<ra>125.791</ra>
 			<dec>1.98682</dec>
-			<duration>0</duration>
+			<duration>2893</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -238,7 +238,7 @@
 			</identifier>
 			<ra>126.714</ra>
 			<dec>26.623</dec>
-			<duration>0</duration>
+			<duration>1655</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -248,7 +248,7 @@
 			</identifier>
 			<ra>174.013</ra>
 			<dec>15.8543</dec>
-			<duration>0</duration>
+			<duration>931</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -258,7 +258,7 @@
 			</identifier>
 			<ra>233.043</ra>
 			<dec>27.7637</dec>
-			<duration>0</duration>
+			<duration>953</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -268,7 +268,7 @@
 			</identifier>
 			<ra>235.876</ra>
 			<dec>-6.3459</dec>
-			<duration>0</duration>
+			<duration>70</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -278,7 +278,7 @@
 			</identifier>
 			<ra>241.8</ra>
 			<dec>-0.544675</dec>
-			<duration>0</duration>
+			<duration>2746</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -288,7 +288,7 @@
 			</identifier>
 			<ra>251.258</ra>
 			<dec>-3.29922</dec>
-			<duration>0</duration>
+			<duration>2398</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -298,7 +298,7 @@
 			</identifier>
 			<ra>265.344</ra>
 			<dec>-8.6755</dec>
-			<duration>0</duration>
+			<duration>3203</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -308,7 +308,7 @@
 			</identifier>
 			<ra>275.219</ra>
 			<dec>-4.46031</dec>
-			<duration>0</duration>
+			<duration>1571</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -318,7 +318,7 @@
 			</identifier>
 			<ra>280.186</ra>
 			<dec>56.6821</dec>
-			<duration>0</duration>
+			<duration>1891</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -328,7 +328,7 @@
 			</identifier>
 			<ra>289.416</ra>
 			<dec>13.8992</dec>
-			<duration>0</duration>
+			<duration>605</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -338,7 +338,7 @@
 			</identifier>
 			<ra>301.568</ra>
 			<dec>-8.11694</dec>
-			<duration>0</duration>
+			<duration>2882</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -348,7 +348,7 @@
 			</identifier>
 			<ra>311.664</ra>
 			<dec>15.676</dec>
-			<duration>0</duration>
+			<duration>2305</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -358,7 +358,7 @@
 			</identifier>
 			<ra>311.501</ra>
 			<dec>-4.35719</dec>
-			<duration>0</duration>
+			<duration>2514</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -368,7 +368,7 @@
 			</identifier>
 			<ra>318.268</ra>
 			<dec>27.9006</dec>
-			<duration>0</duration>
+			<duration>454</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -378,7 +378,7 @@
 			</identifier>
 			<ra>318.351</ra>
 			<dec>46.7357</dec>
-			<duration>0</duration>
+			<duration>3591</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -388,7 +388,7 @@
 			</identifier>
 			<ra>326.46</ra>
 			<dec>-7.8385</dec>
-			<duration>0</duration>
+			<duration>2594</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -398,7 +398,7 @@
 			</identifier>
 			<ra>336.468</ra>
 			<dec>65.5927</dec>
-			<duration>0</duration>
+			<duration>3339</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -408,7 +408,7 @@
 			</identifier>
 			<ra>346.493</ra>
 			<dec>31.0005</dec>
-			<duration>0</duration>
+			<duration>2528</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -418,7 +418,7 @@
 			</identifier>
 			<ra>349.288</ra>
 			<dec>14.6587</dec>
-			<duration>0</duration>
+			<duration>1612</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -428,7 +428,7 @@
 			</identifier>
 			<ra>349.491</ra>
 			<dec>21.83</dec>
-			<duration>0</duration>
+			<duration>1427</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -438,7 +438,7 @@
 			</identifier>
 			<ra>356.71</ra>
 			<dec>-6.16694</dec>
-			<duration>0</duration>
+			<duration>2992</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -448,7 +448,7 @@
 			</identifier>
 			<ra>140.559</ra>
 			<dec>6.64133</dec>
-			<duration>0</duration>
+			<duration>1823</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -458,7 +458,7 @@
 			</identifier>
 			<ra>53.2473</ra>
 			<dec>54.5792</dec>
-			<duration>0</duration>
+			<duration>2982</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -468,7 +468,7 @@
 			</identifier>
 			<ra>123.748</ra>
 			<dec>74.4849</dec>
-			<duration>0</duration>
+			<duration>1909</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -478,7 +478,7 @@
 			</identifier>
 			<ra>148.289</ra>
 			<dec>7.92678</dec>
-			<duration>0</duration>
+			<duration>3488</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -488,7 +488,7 @@
 			</identifier>
 			<ra>174.013</ra>
 			<dec>15.8543</dec>
-			<duration>0</duration>
+			<duration>3072</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -498,7 +498,7 @@
 			</identifier>
 			<ra>189.918</ra>
 			<dec>24.8972</dec>
-			<duration>0</duration>
+			<duration>1626</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -508,7 +508,7 @@
 			</identifier>
 			<ra>304.516</ra>
 			<dec>28.6653</dec>
-			<duration>0</duration>
+			<duration>3064</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -518,7 +518,7 @@
 			</identifier>
 			<ra>305.654</ra>
 			<dec>28.9064</dec>
-			<duration>0</duration>
+			<duration>1650</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -528,7 +528,7 @@
 			</identifier>
 			<ra>305.708</ra>
 			<dec>51.914</dec>
-			<duration>0</duration>
+			<duration>1644</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -538,7 +538,7 @@
 			</identifier>
 			<ra>128.836</ra>
 			<dec>-45.1764</dec>
-			<duration>0</duration>
+			<duration>3427</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -548,7 +548,7 @@
 			</identifier>
 			<ra>104.951</ra>
 			<dec>14.2387</dec>
-			<duration>0</duration>
+			<duration>2091</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -558,7 +558,7 @@
 			</identifier>
 			<ra>59.7238</ra>
 			<dec>54.2205</dec>
-			<duration>0</duration>
+			<duration>3486</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -568,7 +568,7 @@
 			</identifier>
 			<ra>293.059</ra>
 			<dec>10.9926</dec>
-			<duration>0</duration>
+			<duration>1440</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -578,7 +578,7 @@
 			</identifier>
 			<ra>224.0</ra>
 			<dec>-68.7278</dec>
-			<duration>0</duration>
+			<duration>922</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -588,7 +588,7 @@
 			</identifier>
 			<ra>85.7902</ra>
 			<dec>23.485</dec>
-			<duration>0</duration>
+			<duration>440</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -598,7 +598,7 @@
 			</identifier>
 			<ra>115.704</ra>
 			<dec>-28.3788</dec>
-			<duration>0</duration>
+			<duration>3223</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -608,7 +608,7 @@
 			</identifier>
 			<ra>129.338</ra>
 			<dec>-41.5874</dec>
-			<duration>0</duration>
+			<duration>2478</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -618,7 +618,7 @@
 			</identifier>
 			<ra>271.908</ra>
 			<dec>-8.79535</dec>
-			<duration>0</duration>
+			<duration>122</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -628,7 +628,7 @@
 			</identifier>
 			<ra>271.908</ra>
 			<dec>-8.79535</dec>
-			<duration>0</duration>
+			<duration>724</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -638,7 +638,7 @@
 			</identifier>
 			<ra>287.955</ra>
 			<dec>-11.2395</dec>
-			<duration>0</duration>
+			<duration>2817</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -648,7 +648,7 @@
 			</identifier>
 			<ra>69.3167</ra>
 			<dec>-47.2527</dec>
-			<duration>0</duration>
+			<duration>2727</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -658,7 +658,7 @@
 			</identifier>
 			<ra>107.976</ra>
 			<dec>-68.5132</dec>
-			<duration>0</duration>
+			<duration>119</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -668,7 +668,7 @@
 			</identifier>
 			<ra>266.123</ra>
 			<dec>-11.5819</dec>
-			<duration>0</duration>
+			<duration>3392</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -678,7 +678,7 @@
 			</identifier>
 			<ra>294.915</ra>
 			<dec>21.6227</dec>
-			<duration>0</duration>
+			<duration>794</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -688,7 +688,7 @@
 			</identifier>
 			<ra>321.183</ra>
 			<dec>-33.9792</dec>
-			<duration>0</duration>
+			<duration>1505</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -698,7 +698,7 @@
 			</identifier>
 			<ra>258.456</ra>
 			<dec>7.79376</dec>
-			<duration>0</duration>
+			<duration>398</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -708,7 +708,7 @@
 			</identifier>
 			<ra>326.46</ra>
 			<dec>-7.8385</dec>
-			<duration>0</duration>
+			<duration>3472</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -718,7 +718,7 @@
 			</identifier>
 			<ra>240.899</ra>
 			<dec>-72.0424</dec>
-			<duration>0</duration>
+			<duration>3140</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -728,7 +728,7 @@
 			</identifier>
 			<ra>322.345</ra>
 			<dec>-57.3539</dec>
-			<duration>0</duration>
+			<duration>2444</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -738,7 +738,7 @@
 			</identifier>
 			<ra>322.345</ra>
 			<dec>-57.3539</dec>
-			<duration>0</duration>
+			<duration>2853</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -748,7 +748,7 @@
 			</identifier>
 			<ra>322.345</ra>
 			<dec>-57.3539</dec>
-			<duration>0</duration>
+			<duration>1662</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -758,7 +758,7 @@
 			</identifier>
 			<ra>250.07</ra>
 			<dec>22.4025</dec>
-			<duration>0</duration>
+			<duration>3272</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -768,7 +768,7 @@
 			</identifier>
 			<ra>312.781</ra>
 			<dec>-8.4605</dec>
-			<duration>0</duration>
+			<duration>191</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -778,7 +778,7 @@
 			</identifier>
 			<ra>349.288</ra>
 			<dec>14.6587</dec>
-			<duration>0</duration>
+			<duration>3014</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -788,7 +788,7 @@
 			</identifier>
 			<ra>69.3167</ra>
 			<dec>-47.2527</dec>
-			<duration>0</duration>
+			<duration>3226</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -798,7 +798,7 @@
 			</identifier>
 			<ra>234.292</ra>
 			<dec>11.9321</dec>
-			<duration>0</duration>
+			<duration>356</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -808,7 +808,7 @@
 			</identifier>
 			<ra>266.123</ra>
 			<dec>-11.5819</dec>
-			<duration>0</duration>
+			<duration>3376</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -818,7 +818,7 @@
 			</identifier>
 			<ra>262.59</ra>
 			<dec>-23.0754</dec>
-			<duration>0</duration>
+			<duration>913</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -828,7 +828,7 @@
 			</identifier>
 			<ra>262.59</ra>
 			<dec>-23.0754</dec>
-			<duration>0</duration>
+			<duration>1035</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -838,7 +838,7 @@
 			</identifier>
 			<ra>262.59</ra>
 			<dec>-23.0754</dec>
-			<duration>0</duration>
+			<duration>3579</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -848,7 +848,7 @@
 			</identifier>
 			<ra>288.476</ra>
 			<dec>-4.67989</dec>
-			<duration>0</duration>
+			<duration>3342</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -858,7 +858,7 @@
 			</identifier>
 			<ra>351.745</ra>
 			<dec>61.2268</dec>
-			<duration>0</duration>
+			<duration>3136</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>
@@ -868,7 +868,7 @@
 			</identifier>
 			<ra>351.745</ra>
 			<dec>61.2268</dec>
-			<duration>0</duration>
+			<duration>2681</duration>
 			<weight>1.0</weight>
 			<important>0</important>
 		</object>

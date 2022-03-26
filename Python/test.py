@@ -57,6 +57,8 @@ objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
 s4.get_schedule()
 s4.stats()
 
+print(s4.schedule.to_dict())
+
 '''
 print(s4.schedule.to_dict())
 print(s4.schedule.item(identifier = "PSR J1012+5307").move_forward(1))

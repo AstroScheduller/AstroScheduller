@@ -132,13 +132,14 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
 
         return self.observation["escape"]
     
-    def add_object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False):
+    def add_object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, wait = 0):
         identifier = str(identifier)
         ra = float(ra)
         dec = float(dec)
         duration = int(duration)
         weight = float(weight)
         important = bool(int(important)) * 1
+        wait = int(wait)
 
         if(weight > 1 or weight < 0):
             raise Exception("weight", weight)
@@ -149,7 +150,8 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
             "dec": dec, 
             "duration": duration, 
             "weight": weight, 
-            "important": important
+            "important": important,
+            "wait": wait
         })
 
         return True

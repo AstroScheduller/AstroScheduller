@@ -26,7 +26,7 @@
               <identifier>PSR B0320+39</identifier>
               <ra>50.86090833</ra>
               <dec>39.74802778</dec>
-              <duration>0</duration>
+              <duration>2400</duration>
               <weight>0.1</weight>
               <important>1</important>
               <Rises>1627119120</Rises>
@@ -82,7 +82,7 @@
                   <Scheduled>true</Scheduled>
                   <Key>3</Key>
                   <Duration>1627119120</Duration>
-                  <Duration>1627119120</Duration>
+                  <Duration>1627121520</Duration>
                   <Gap>5700</Gap>
               </Schedule>
           </object>
@@ -90,7 +90,7 @@
               <identifier>PSR B0834+06</identifier>
               <ra>129.27350833</ra>
               <dec>6.17071111</dec>
-              <duration>0</duration>
+              <duration>2400</duration>
               <weight>1</weight>
               <important>0</important>
               <Rises>1627142220</Rises>
@@ -122,7 +122,7 @@
                   <Scheduled>true</Scheduled>
                   <Key>2</Key>
                   <Duration>1627142220</Duration>
-                  <Duration>1627142220</Duration>
+                  <Duration>1627144620</Duration>
                   <Gap>156</Gap>
               </Schedule>
           </object>
@@ -130,7 +130,7 @@
               <identifier>PSR J1012+5307</identifier>
               <ra>153.13930897</ra>
               <dec>53.11737904</dec>
-              <duration>0</duration>
+              <duration>800</duration>
               <weight>1</weight>
               <important>0</important>
               <Rises>1627142220</Rises>
@@ -161,8 +161,8 @@
               <Schedule>
                   <Scheduled>true</Scheduled>
                   <Key>0</Key>
-                  <Duration>1627142376</Duration>
-                  <Duration>1627142376</Duration>
+                  <Duration>1627144776</Duration>
+                  <Duration>1627145576</Duration>
                   <Gap>78</Gap>
               </Schedule>
           </object>
@@ -170,7 +170,7 @@
               <identifier>PSR B1541+09</identifier>
               <ra>235.91172917</ra>
               <dec>9.48791667</dec>
-              <duration>0</duration>
+              <duration>2400</duration>
               <weight>1</weight>
               <important>0</important>
               <Rises>1627167120</Rises>
@@ -199,8 +199,8 @@
               <Schedule>
                   <Scheduled>true</Scheduled>
                   <Key>0</Key>
-                  <Duration>1627167354</Duration>
-                  <Duration>1627167354</Duration>
+                  <Duration>1627167254</Duration>
+                  <Duration>1627169654</Duration>
                   <Gap>165</Gap>
               </Schedule>
           </object>
