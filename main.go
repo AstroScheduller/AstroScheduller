@@ -20,7 +20,7 @@ func py_schedule(xmlPathImport, xmlPathExport *C.char) {
 
 //import "strings"
 //export py_AltAz
-func py_AltAz(ra float64, dec float64, timestamp int64, tele_lat float64, tele_lon float64, tele_alt float64) [][2]float64 {
+func py_AltAz(ra float64, dec float64, timestamp int64, tele_lat float64, tele_lon float64, tele_alt float64) string {
 	timestampSeries := []int64{timestamp}
 	source := src_obj{
 		Identifier: "PythonObject",
@@ -43,7 +43,8 @@ func py_AltAz(ra float64, dec float64, timestamp int64, tele_lat float64, tele_l
 		},
 	}
 
-	return AltAz(source, timestampSeries, telescope)
+	altazRes := AltAz(source, timestampSeries, telescope)
+	return fmt.Sprintf("%f,%f", altazRes[0][0], altazRes[0][1])
 }
 
 func main() {
