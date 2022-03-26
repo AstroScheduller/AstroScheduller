@@ -42,15 +42,48 @@ s2.schedule()
 print(s2.num_objects())
 #s2.stats()
 
+'''
 s3 = scheduller()
 s3.objects.from_xml(open("./tests/psr_list_long.xml").read())
 s3.get_schedule()
 s3.objects.to_xml()
 s3.schedule.to_xml()
 s3.stats()
+'''
 
 s4 = scheduller()
 objects = s4.objects
-objects.from_xml(open("./tests/psr_list_long.xml").read())
+objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
 s4.get_schedule()
 s4.stats()
+
+'''
+print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR J1012+5307").move_forward(1))
+print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR J1012+5307").move_backward(1))
+print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR J1012+5307").move_backward(2))
+print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR J1012+5307").assign_before(
+    s4.schedule.item(identifier = "PSR B1541+09"),
+))
+print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR J1012+5307").assign_after(
+    s4.schedule.item(identifier = "PSR B1541+09"),
+))
+print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR J1012+5307").to_begin())
+print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR J1012+5307").to_end())
+print(s4.schedule.to_dict())
+s4.schedule.append(
+    s4.objects.item(identifier = "PSR J1012+5307")
+)
+print(s4.schedule.to_dict())
+s4.schedule.insert(
+    s4.objects.item(identifier = "PSR J1012+5307"), 
+    3
+)
+print(s4.schedule.to_dict())
+'''

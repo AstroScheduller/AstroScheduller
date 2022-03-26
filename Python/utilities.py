@@ -17,3 +17,5 @@ class utilities():
     def md5(self, content):
         return hashlib.md5(content).hexdigest()
     
+    def str_format(self, content):
+        return content.replace("\n", "").replace("\r", "").replace("\t", "").strip()

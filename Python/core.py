@@ -81,7 +81,7 @@ class core():
     def check_integrity(self):
         try:
             if(self.u.md5(open(self.coreInfo["corePath"], "rb").read()).lower() == (self.coreInfo["config"]["md5"]).lower()):
-                print("check_integrity: pass")
+                # print("check_integrity: pass")
                 return True
             else:
                 print("check_integrity: not pass")

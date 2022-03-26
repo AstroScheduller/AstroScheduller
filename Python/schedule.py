@@ -7,6 +7,7 @@ from config import config
 from core import core
 from stats import schedule_stats
 from schedule_io import schedule_from, schedule_to
+from schedule_edit import schedule_edit
 
 class schedule_scheduller():
     def schedule(self):
@@ -31,7 +32,7 @@ class schedule_scheduller():
 
         return scheduled.objects
 
-class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats):
+class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, schedule_edit):
     def __init__(self):
         self.u = utilities()
         self.c = config()
