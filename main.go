@@ -15,14 +15,35 @@ func py_schedule(xmlPathImport, xmlPathExport *C.char) {
 	importPath = C.GoString(xmlPathImport)
 	exportPath = C.GoString(xmlPathExport)
 
-	/**initialize()
-
-		list_load_from_file(importPath)
-		rises_get(loadedObsParam, loadedSrcParam)
-		bestSchedule := score_get_best(loadedObsParam, loadedSrcParam.Objects, sort_get(loadedObsParam, loadedSrcParam.Objects))
-		xmlString := C.CString(string(list_construct_xml(loadedObsParam, bestSchedule)))
-	    **/
 	main()
+}
+
+//import "strings"
+//export py_AltAz
+func py_AltAz(ra float64, dec float64, timestamp int64, tele_lat float64, tele_lon float64, tele_alt float64) [][2]float64 {
+	timestampSeries := []int64{timestamp}
+	source := src_obj{
+		Identifier: "PythonObject",
+		Ra:         ra,
+		Dec:        dec,
+		Duration:   0,
+		Weight:     0,
+		Important:  0,
+		Rises:      [][2]int64{},
+		SortMark:   false,
+		Schedule:   schedule{},
+	}
+	telescope := obs_tele{
+		Latitude:  tele_lat,
+		Longitude: tele_lon,
+		Altitude:  tele_alt,
+		Velocity: obe_tele_velo{
+			Ra:  0,
+			Dec: 0,
+		},
+	}
+
+	return AltAz(source, timestampSeries, telescope)
 }
 
 func main() {
@@ -141,5 +162,6 @@ func test() {
 	**/
 
 	//fmt.Println("Testing... Done.")
-	//os.Exit(0)
+	fmt.Println(py_AltAz(112.1, 12.1, 1, 12.1, 32.1, 1.0))
+	os.Exit(0)
 }
