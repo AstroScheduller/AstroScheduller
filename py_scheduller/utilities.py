@@ -3,7 +3,7 @@ import hashlib
 
 class utilities():
     def get_dir(self, filename):
-        return os.path.abspath(os.path.dirname(filename))
+        return os.path.dirname(os.path.realpath(filename))
     
     def md5(self, content):
         return hashlib.md5(content).hexdigest()
