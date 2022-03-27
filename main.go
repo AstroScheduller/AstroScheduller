@@ -16,7 +16,40 @@ func py_schedule(xmlPathImport, xmlPathExport *C.char) {
 	importPath = C.GoString(xmlPathImport)
 	exportPath = C.GoString(xmlPathExport)
 
-	main()
+	//scheduller()
+	pyLib = false
+	//startTime := time.Now().UnixNano()
+
+	fmt.Println("_______       _____")
+	fmt.Println("___    |________  /_____________")
+	fmt.Println("__  /| |_  ___/  __/_  ___/  __ \\")
+	fmt.Println("_  ___ |(__  )/ /_ _  /   / /_/ /")
+	fmt.Println("/_/  |_/____/ \\__/ /_/    \\____/")
+	fmt.Println("")
+	fmt.Println("________     ______      _________      ___________")
+	fmt.Println("__  ___/________  /____________  /___  ____  /__  /____________")
+	fmt.Println("_____ \\_  ___/_  __ \\  _ \\  __  /_  / / /_  /__  /_  _ \\_  ___/")
+	fmt.Println("____/ // /__ _  / / /  __/ /_/ / / /_/ /_  / _  / /  __/  /")
+	fmt.Println("/____/ \\___/ /_/ /_/\\___/\\__,_/  \\__,_/ /_/  /_/  \\___//_/")
+	fmt.Println("")
+	fmt.Println("_________")
+	fmt.Println("__  ____/_____")
+	fmt.Println("_  / __ _  __ \\")
+	fmt.Println("/ /_/ / / /_/ /")
+	fmt.Println("\\____/  \\____/")
+	fmt.Println("")
+
+	fmt.Printf("Initializing...")
+	initialize()
+	//test()
+	list_load_from_file(importPath)
+	rises_get(loadedObsParam, loadedSrcParam)
+	fmt.Printf("\rInitializing... Done.   \n")
+
+	fmt.Printf("Scheduling...")
+	sortedObj := sort_get(loadedObsParam, loadedSrcParam.Objects)
+	score_get_best(loadedObsParam, loadedSrcParam.Objects, sortedObj)
+	fmt.Printf("\rScheduling... Done.   \n")
 }
 
 //export py_AltAz
@@ -55,6 +88,10 @@ func py_AltAz(raStr *C.char, decStr *C.char, timestampStr *C.char, teleLatStr *C
 }
 
 func main() {
+	scheduller()
+}
+
+func scheduller() {
 	pyLib = false
 	startTime := time.Now().UnixNano()
 
@@ -171,5 +208,5 @@ func test() {
 
 	//fmt.Println("Testing... Done.")
 	//fmt.Println(py_AltAz("112.1", "12.1", "1", "12.1", "32.1", "1.0"))
-	os.Exit(0)
+	u_exit("test")
 }

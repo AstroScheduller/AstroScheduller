@@ -32,7 +32,7 @@ s1.stats()
 # print(s.to_xml())
 
 coreHandle = core()
-# coreHandle.update()
+coreHandle.update()
 
 s2 = schedule()
 s2.from_xml(open("./tests/psr_list_debug.xml").read())

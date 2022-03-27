@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 import time
+
+from sympy import rotations
 from core import core
 
 class plot():
@@ -34,7 +36,6 @@ class plot():
         plt.title("Altitude vs. Time")
         plt.grid(True, which = "major", alpha = 0.5, linestyle = "-")
         plt.grid(True, which = "minor", alpha = 0.2, linestyle = "--")
-        plt.legend(bbox_to_anchor = (1.01, 1))
         plt.ylim(0, 90)
         plt.show()
 
@@ -57,7 +58,8 @@ class plot():
             time = time + thisObj["wait"]
 
             range = [math.floor(time * self.slices / duration), math.floor((time + thisObj["duration"]) * self.slices / duration)]
-            plt.plot(self.timestamps[range[0]: range[1]], thisObjAltAz[0][range[0]: range[1]], label=thisObj["identifier"], linewidth=4)
+            plt.plot(self.timestamps[range[0]: range[1]], thisObjAltAz[0][range[0]: range[1]], label=thisObj["identifier"], linewidth=3)
+            plt.text(self.timestamps[range[0]], thisObjAltAz[0][range[0]], thisObj["identifier"], fontsize=5, rotation=0)
             time = time + thisObj["duration"]
         
         return True

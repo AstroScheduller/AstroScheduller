@@ -39,7 +39,7 @@ class core():
         if(not os.path.isfile(self.coreInfo["corePath"])):
             self.download_core()
         
-        #self.check_integrity()
+        # self.check_integrity()
     
     def get_core_info(self):
         try:
@@ -47,8 +47,7 @@ class core():
             try:
                 self.coreInfo["config"] = self.coreInfo["config"][self.coreInfo["version"]]
             except Exception as e:
-                print("get_core_info: AstroSchedullerGo no longer support for version", self.coreInfo["version"])
-                exit()
+                raise Exception("get_core_info", "AstroSchedullerGo no longer support for version", self.coreInfo["version"])
                 
         except Exception as e:
             print(str(e), " -> working without internet connection. ")
@@ -56,8 +55,7 @@ class core():
             if(os.path.isfile(self.coreInfo["configPath"])):
                 self.coreInfo["config"] = json.loads(open(self.coreInfo["configPath"]).read())
             else:
-                print("get_core_info: Need internet to initialize. (If you are working offline, see https://github.com/xiawenke/AstroSchedullerGo for more information.)")
-                exit()
+                raise Exception("get_core_info", "Need internet to initialize. (If you are working offline, see https://github.com/xiawenke/AstroSchedullerGo for more information.)")
         
         open(self.coreInfo["configPath"], "w+").write(json.dumps(self.coreInfo["config"]))
         
@@ -73,8 +71,7 @@ class core():
             with open(self.coreInfo["corePath"], 'wb') as f:
                 f.write(req.content)
         except Exception as e:
-            print(str(e), " -> AstroSchedullerGo Module does not exists. Try again after check the internet connection. (If you are working offline, see https://github.com/xiawenke/AstroSchedullerGo for more information.)")
-            exit()
+            raise Exception(str(e), "AstroSchedullerGo Module does not exists. Try again after check the internet connection. (If you are working offline, see https://github.com/xiawenke/AstroSchedullerGo for more information.)")
         
         print("Downloading AstroSchedullerGo Module... Done.")
         return True

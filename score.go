@@ -16,10 +16,18 @@ func score_get_best(obsObj obs, objects []src_obj, sortedObjs [][]src_obj) []src
 		}
 	}
 
-	if bestScore.score == -1 {
-		u_exit("NO VALID SCHEDULE FOUND.")
+	// if best score is -1, then there is no solution
+	if bestScore.key == -1 {
+		return nil
 	}
 
+	//if bestScore.key < 0 {
+	//	fmt.Errorf("ERROR: No best solution found.")
+	//	u_exit("NO VALID SCHEDULE FOUND.")
+	//}
+
+	//fmt.Println(bestScore.key)
+	//return []src_obj{}
 	return sortedObjs[bestScore.key]
 }
 

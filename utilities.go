@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"io"
 	"io/ioutil"
 	"os"
@@ -62,9 +63,9 @@ func u_file_get_file_annotated(filename string) string {
 	return rawJson
 }
 
-func u_exit(info string) {
-	fmt.Println("\n[ERROR]", info)
-	os.Exit(0)
+func u_exit(info string) error {
+	fmt.Errorf("\n[ERROR]", info)
+	return errors.New(info)
 }
 
 func u_progress_bar(now int64, full int64) {
