@@ -1,5 +1,5 @@
 import os
-from utilities import utilities
+from .utilities import utilities
 
 class config():
     def __init__(self):

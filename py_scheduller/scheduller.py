@@ -1,7 +1,7 @@
 import copy
-from stats import scheduller_stats
-from schedule import schedule
-from plot import plot
+from .stats import scheduller_stats
+from .schedule import schedule
+from .plot import plot
 
 class scheduller(scheduller_stats, plot):
     def __init__(self):

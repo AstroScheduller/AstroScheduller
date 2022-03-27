@@ -1,4 +1,4 @@
-from utilities import utilities
+from .utilities import utilities
 
 
 class schedule_edit():

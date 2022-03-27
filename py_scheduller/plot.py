@@ -2,9 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 import time
-
-from sympy import rotations
-from core import core
+from .core import core
 
 class plot():
     def plot(self):
