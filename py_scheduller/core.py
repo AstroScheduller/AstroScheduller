@@ -11,9 +11,7 @@ FilePath: /AstroSchedullerGo/Python/core.py
 
 import os
 import json
-from sqlite3 import Timestamp
 import requests
-import hashlib
 import ctypes
 from utilities import utilities
 from config import config

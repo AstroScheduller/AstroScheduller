@@ -1,7 +1,3 @@
-from ctypes import util
-from math import floor
-from pexpect import ExceptionPexpect
-from sympy import ExactQuotientFailed, true
 from utilities import utilities
 from config import config
 from core import core

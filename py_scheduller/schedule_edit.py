@@ -1,7 +1,4 @@
 from utilities import utilities
-from ast import keyword
-from re import I
-from xml.dom.minidom import Identified
 
 
 class schedule_edit():
