@@ -1,0 +1,66 @@
+<scheduller>
+	<observation>
+		<duration>
+			<begin>1627113420</begin>
+			<end>1627213420</end>
+		</duration>
+		<telescope>
+			<latitude>32.7015</latitude>
+			<longitude>-109.891284</longitude>
+			<altitude>3185.0</altitude>
+			<velocity>
+				<ra>0.5</ra>
+				<dec>0.6</dec>
+			</velocity>
+		</telescope>
+		<elevation>
+			<minimal>30.0</minimal>
+			<maximal>80.0</maximal>
+		</elevation>
+		<escape>
+			<sun>20.0</sun>
+		</escape>
+	</observation>
+	<sources>
+		<object>
+			<identifier>PSR J1012+5307</identifier>
+			<ra>153.13930897</ra>
+			<dec>53.11737904</dec>
+			<duration>800</duration>
+			<weight>1.0</weight>
+			<important>0</important>
+		</object>
+		<object>
+			<identifier>PSR B0740-28</identifier>
+			<ra>115.70447083</ra>
+			<dec>-28.37875278</dec>
+			<duration>1200</duration>
+			<weight>1.0</weight>
+			<important>0</important>
+		</object>
+		<object>
+			<identifier>PSR B1541+09</identifier>
+			<ra>235.91172917</ra>
+			<dec>9.48791667</dec>
+			<duration>2400</duration>
+			<weight>1.0</weight>
+			<important>0</important>
+		</object>
+		<object>
+			<identifier>PSR B0834+06</identifier>
+			<ra>129.27350833</ra>
+			<dec>6.17071111</dec>
+			<duration>2400</duration>
+			<weight>1.0</weight>
+			<important>0</important>
+		</object>
+		<object>
+			<identifier>PSR B0320+39</identifier>
+			<ra>50.86090833</ra>
+			<dec>39.74802778</dec>
+			<duration>2400</duration>
+			<weight>0.1</weight>
+			<important>1</important>
+		</object>
+	</sources>
+</scheduller>

@@ -31,7 +31,7 @@ s1.stats()
 # (print(s.to_json()))
 # print(s.to_xml())
 
-# coreHandle = core()
+coreHandle = core()
 # coreHandle.update()
 
 s2 = schedule()
@@ -54,10 +54,13 @@ s3.stats()
 s4 = scheduller()
 objects = s4.objects
 objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
+#objects.from_xml(open("./tests/psr_list_long.xml").read())
 s4.get_schedule()
 s4.stats()
 
 print(s4.schedule.to_dict())
+
+s4.plot()
 
 '''
 print(s4.schedule.to_dict())

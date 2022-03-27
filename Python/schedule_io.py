@@ -69,6 +69,7 @@ class schedule_from():
         # Sources
         sources = node[0].getElementsByTagName("sources")
         ## Objects
+        lastObjectEnded = self.observation["duration"]["end"]
         objects = sources[0].getElementsByTagName("object")
         for thisObj in objects:
             ### Identifier
@@ -94,12 +95,15 @@ class schedule_from():
             except Exception as e:
                 important = 0
 
-            ### Schedule Gap
-            gap = 0
+            ### Schedule Wait
+            wait = 0
             ScheduleNode = thisObj.getElementsByTagName("Schedule")
             try:
-                GapNode = ScheduleNode[0].getElementsByTagName("Gap")
-                gap = GapNode[0].childNodes[0].nodeValue
+                DurationsNode = ScheduleNode[0].getElementsByTagName("Duration")
+                Duration = [int(DurationsNode[0].childNodes[0].nodeValue), int(DurationsNode[1].childNodes[0].nodeValue)]
+                wait = Duration[0] - lastObjectEnded
+                
+                lastObjectEnded = Duration[1]
             except Exception as e:
                 pass
             
@@ -111,7 +115,7 @@ class schedule_from():
                 duration = duration[0].childNodes[0].nodeValue,
                 weight = weight, 
                 important = important, 
-                wait = gap
+                wait = wait
             )
 
 class schedule_to():

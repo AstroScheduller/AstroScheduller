@@ -2,7 +2,7 @@
     <observation>
         <duration>
             <begin>1627113420</begin> # Unix Timestamp
-            <end>1628113420</end> # Unix Timestamp 1627171140
+            <end>1627213420</end> # Unix Timestamp 1627171140
         </duration>
 
         <telescope>

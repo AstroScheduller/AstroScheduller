@@ -38,6 +38,9 @@ class item_operation():
     def __init__(self, self_upper, index):
         self.self_upper = self_upper
         self.index = index
+    
+    def wait(self, waitTime):
+        self.self_upper.objects[self.index]["wait"] = waitTime
 
     def get_index(self):
         return self.index

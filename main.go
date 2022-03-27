@@ -7,6 +7,7 @@ import (
 	"os"
 	"time"
 )
+import "strconv"
 
 //import "strings"
 //export py_schedule
@@ -18,9 +19,15 @@ func py_schedule(xmlPathImport, xmlPathExport *C.char) {
 	main()
 }
 
-//import "strings"
 //export py_AltAz
-func py_AltAz(ra float64, dec float64, timestamp int64, tele_lat float64, tele_lon float64, tele_alt float64) *C.char {
+func py_AltAz(raStr *C.char, decStr *C.char, timestampStr *C.char, teleLatStr *C.char, teleLonStr *C.char, teleAltStr *C.char) *C.char {
+	ra, _ := strconv.ParseFloat(C.GoString(raStr), 64)
+	dec, _ := strconv.ParseFloat(C.GoString(decStr), 64)
+	timestamp, _ := strconv.ParseInt(C.GoString(timestampStr), 10, 64)
+	teleLat, _ := strconv.ParseFloat(C.GoString(teleLatStr), 64)
+	teleLon, _ := strconv.ParseFloat(C.GoString(teleLonStr), 64)
+	teleAlt, _ := strconv.ParseFloat(C.GoString(teleAltStr), 64)
+
 	timestampSeries := []int64{timestamp}
 	source := src_obj{
 		Identifier: "PythonObject",
@@ -34,9 +41,9 @@ func py_AltAz(ra float64, dec float64, timestamp int64, tele_lat float64, tele_l
 		Schedule:   schedule{},
 	}
 	telescope := obs_tele{
-		Latitude:  tele_lat,
-		Longitude: tele_lon,
-		Altitude:  tele_alt,
+		Latitude:  teleLat,
+		Longitude: teleLon,
+		Altitude:  teleAlt,
 		Velocity: obe_tele_velo{
 			Ra:  0,
 			Dec: 0,
@@ -163,6 +170,6 @@ func test() {
 	**/
 
 	//fmt.Println("Testing... Done.")
-	fmt.Println(py_AltAz(112.1, 12.1, 1, 12.1, 32.1, 1.0))
+	//fmt.Println(py_AltAz("112.1", "12.1", "1", "12.1", "32.1", "1.0"))
 	os.Exit(0)
 }
