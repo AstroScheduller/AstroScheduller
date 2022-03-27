@@ -28,7 +28,7 @@ class core():
         if(not os.path.isfile(self.coreInfo["corePath"])):
             self.download_core()
         
-        # self.check_integrity()
+        self.check_integrity()
     
     def get_core_info(self):
         try:
