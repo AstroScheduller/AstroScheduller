@@ -71,9 +71,7 @@ extern "C" {
 
 //import "strings"
 extern void py_schedule(char* xmlPathImport, char* xmlPathExport);
-
-//import "strings"
-extern char* py_AltAz(GoFloat64 ra, GoFloat64 dec, GoInt64 timestamp, GoFloat64 tele_lat, GoFloat64 tele_lon, GoFloat64 tele_alt);
+extern char* py_AltAz(char* raStr, char* decStr, char* timestampStr, char* teleLatStr, char* teleLonStr, char* teleAltStr);
 
 #ifdef __cplusplus
 }
