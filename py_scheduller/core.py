@@ -72,7 +72,14 @@ class core():
                 return True
             else:
                 print("check_integrity: not pass")
-                self.download_core()
+                input("Download new version of AstroSchedullerGo Module? (y/n)")
+                
+                if input("y/n: ").lower() == "y":
+                    self.update()
+                    return True
+                elif input("y/n: ").lower() == "n":
+                    return False
+
                 return self.check_integrity()
         except Exception as e:
             print("check_integrity: not check", str(e))
