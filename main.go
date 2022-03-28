@@ -55,11 +55,12 @@ func py_AltAz(raStr *C.char, decStr *C.char, timestampStr *C.char, teleLatStr *C
 }
 
 func main() {
+	pyLib = false
+
 	scheduller()
 }
 
 func scheduller() {
-	pyLib = false
 	startTime := time.Now().UnixNano()
 
 	fmt.Println("_______       _____")
@@ -87,6 +88,7 @@ func scheduller() {
 	list_load_from_file(importPath)
 	rises_get(loadedObsParam, loadedSrcParam)
 	fmt.Printf("\rInitializing... Done.   \n")
+	fmt.Println("...loaded from file:", importPath)
 
 	fmt.Printf("Scheduling...")
 	bestSchedule := score_get_best(loadedObsParam, loadedSrcParam.Objects, sort_get(loadedObsParam, loadedSrcParam.Objects))
@@ -95,6 +97,7 @@ func scheduller() {
 	fmt.Printf("Exporting...")
 	list_export(loadedObsParam, bestSchedule, exportPath)
 	fmt.Printf("\rExporting... Done.   ")
+	fmt.Println("...exported to file:", exportPath)
 
 	fmt.Println()
 	fmt.Println()

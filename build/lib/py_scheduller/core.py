@@ -4,6 +4,8 @@ import os
 import json
 import requests
 import ctypes
+
+from sympy import im
 from .utilities import utilities
 from .config import config
 
@@ -19,15 +21,10 @@ class core():
             "configPath": self.c.coreConfigPath
         }
         
-        # Check if the AstroSchedullerGo Module exists\
-        if(not os.path.isdir(self.u.get_dir(self.coreInfo["corePath"]))):
-            os.mkdir(self.u.get_dir(self.coreInfo["corePath"]))
-        
+        # Update Core Config
         self.get_core_info()
         
-        if(not os.path.isfile(self.coreInfo["corePath"])):
-            self.download_core()
-        
+        # Check if the AstroScheduller Core File is Valid
         self.check_integrity()
     
     def get_core_info(self):
@@ -66,6 +63,10 @@ class core():
         return True
     
     def check_integrity(self):
+        if(not os.path.isfile(self.coreInfo["corePath"])):
+            print("AstroSchedullerGo Module does not exists. Downloading...")
+            self.download_core()
+
         try:
             if(self.u.md5(open(self.coreInfo["corePath"], "rb").read()).lower() == (self.coreInfo["config"]["md5"]).lower()):
                 # print("check_integrity: pass")
@@ -79,7 +80,8 @@ class core():
                     self.download_core()
                     return True
                 elif (response == "n"):
-                    return False
+                    print("skipped.")
+                    return True
 
                 return self.check_integrity()
         except Exception as e:
@@ -94,6 +96,8 @@ class core():
         return True
     
     def go_schedule(self, importPath, exportPath):
+        print(importPath, exportPath)
+        print(importPath.encode(), exportPath.encode())
         goHandle = ctypes.cdll.LoadLibrary(self.coreInfo["corePath"])
         goHandle.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
         goHandle.py_schedule(importPath.encode(), exportPath.encode())
