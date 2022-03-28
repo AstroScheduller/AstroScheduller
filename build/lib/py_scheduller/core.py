@@ -96,8 +96,6 @@ class core():
         return True
     
     def go_schedule(self, importPath, exportPath):
-        print(importPath, exportPath)
-        print(importPath.encode(), exportPath.encode())
         goHandle = ctypes.cdll.LoadLibrary(self.coreInfo["corePath"])
         goHandle.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
         goHandle.py_schedule(importPath.encode(), exportPath.encode())
