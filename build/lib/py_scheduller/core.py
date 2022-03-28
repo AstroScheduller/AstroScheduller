@@ -72,12 +72,13 @@ class core():
                 return True
             else:
                 print("check_integrity: not pass")
-                input("Download new version of AstroSchedullerGo Module? (y/n)")
-                
-                if input("y/n: ").lower() == "y":
+                response = input("Download new version of AstroSchedullerGo Module? (y/n)")
+
+                if (response == "y"):
                     self.update()
+                    self.download_core()
                     return True
-                elif input("y/n: ").lower() == "n":
+                elif (response == "n"):
                     return False
 
                 return self.check_integrity()

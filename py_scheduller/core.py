@@ -76,10 +76,11 @@ class core():
 
                 if (response == "y"):
                     self.update()
+                    self.download_core()
                     return True
                 elif (response == "n"):
                     return False
-                    
+
                 return self.check_integrity()
         except Exception as e:
             print("check_integrity: not check", str(e))
