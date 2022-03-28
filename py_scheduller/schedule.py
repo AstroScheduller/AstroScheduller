@@ -18,7 +18,7 @@ class schedule_scheduller():
         if(self.core.go_schedule(self.importPath, self.exportPath)):
             self.objects = self.get_scheduled_return()
         else:
-            raise Exception("schedule", "failed")
+            raise Exception("schedule", "failed", self.exportPath)
 
         return True
     
