@@ -85,6 +85,7 @@ type schedule struct {
 /** GLOBAL VARIABLES **/
 /**********************/
 var pyLib bool
+var VERSION = "0.9.3"
 var loadedObsParam obs
 var loadedSrcParam src
 var importPath string

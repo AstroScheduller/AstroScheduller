@@ -16,6 +16,7 @@ func py_schedule(xmlPathImport, xmlPathExport *C.char) {
 	importPath = C.GoString(xmlPathImport)
 	exportPath = C.GoString(xmlPathExport)
 
+	fmt.Println("AstroSchedullerGo v" + VERSION + " is now running in Python mode.")
 	scheduller()
 }
 
@@ -57,12 +58,6 @@ func py_AltAz(raStr *C.char, decStr *C.char, timestampStr *C.char, teleLatStr *C
 func main() {
 	pyLib = false
 
-	scheduller()
-}
-
-func scheduller() {
-	startTime := time.Now().UnixNano()
-
 	fmt.Println("_______       _____")
 	fmt.Println("___    |________  /_____________")
 	fmt.Println("__  /| |_  ___/  __/_  ___/  __ \\")
@@ -82,6 +77,19 @@ func scheduller() {
 	fmt.Println("\\____/  \\____/")
 	fmt.Println("")
 
+	scheduller()
+
+	fmt.Println()
+	fmt.Println()
+	fmt.Println("=================")
+	fmt.Println("The schedule has been successfully generated. (v" + VERSION + " Dev.)")
+	fmt.Println("AstroSchedullerGo is released as an open source project under the MIT license. See https://github.com/xiawenke/AstroSchedullerGo for more information.")
+	fmt.Println("")
+}
+
+func scheduller() {
+	startTime := time.Now().UnixNano()
+
 	fmt.Printf("Initializing...")
 	initialize()
 	//test()
@@ -98,13 +106,6 @@ func scheduller() {
 	list_export(loadedObsParam, bestSchedule, exportPath)
 	fmt.Printf("\rExporting... Done.   ")
 	fmt.Println("...exported to file:", exportPath)
-
-	fmt.Println()
-	fmt.Println()
-	fmt.Println("=================")
-	fmt.Println("The schedule has been successfully generated. (v0.9.1 Dev.)")
-	fmt.Println("AstroSchedullerGo is released as an open source project under the MIT license. See https://github.com/xiawenke/AstroSchedullerGo for more information.")
-	fmt.Println("")
 
 	endTime := time.Now().UnixNano()
 	fmt.Println("Completed: ", float64(endTime-startTime)/math.Pow(10, 9), "sec.")
