@@ -14,9 +14,10 @@ class core():
         self.c = config()
         self.u = utilities()
         self.coreInfo = {
-            "version": "0.9.2",
+            "version": "*",
             "config": False,
             "configUrl": "https://raw.githubusercontent.com/xiawenke/AstroSchedullerGo/Dev/releases_latest/_scheduller.config",
+            "platform": self.c.platform,
             "corePath": self.c.corePath,
             "configPath": self.c.coreConfigPath
         }
@@ -31,7 +32,7 @@ class core():
         try:
             self.coreInfo["config"] = json.loads(requests.get(self.coreInfo["configUrl"]).text)
             try:
-                self.coreInfo["config"] = self.coreInfo["config"][self.coreInfo["version"]]
+                self.coreInfo["config"] = self.coreInfo["config"][self.coreInfo["version"]][self.coreInfo["platform"]]
             except Exception as e:
                 raise Exception("get_core_info", "AstroSchedullerGo no longer support for version", self.coreInfo["version"])
                 
@@ -49,10 +50,9 @@ class core():
     
     def download_core(self):
         print("Downloading AstroSchedullerGo Module...")
+        print("", "Get ", self.coreInfo["config"]["url"])
             
         try:
-            #open(self.coreInfo["corePath"], "wb").write(requests.get(self.coreInfo["config"]["url"], stream=True).content)
-            
             req = requests.get(self.coreInfo["config"]["url"], stream=True)
             with open(self.coreInfo["corePath"], 'wb') as f:
                 f.write(req.content)

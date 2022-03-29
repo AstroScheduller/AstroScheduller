@@ -4,6 +4,7 @@ from .utilities import utilities
 class config():
     def __init__(self):
         self.u = utilities()
+        self.platform = self.u.get_platform()
         self.libPath = self.u.get_dir(__file__) + "/rel_lib"
         self.tempPath = self.u.get_dir(__file__) + "/temp"
         self.corePath = self.libPath + "/_scheduller.so"
