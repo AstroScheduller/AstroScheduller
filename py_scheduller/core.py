@@ -50,10 +50,9 @@ class core():
     
     def download_core(self):
         print("Downloading AstroSchedullerGo Module...")
+        print("", "Get ", self.coreInfo["config"]["url"])
             
         try:
-            #open(self.coreInfo["corePath"], "wb").write(requests.get(self.coreInfo["config"]["url"], stream=True).content)
-            
             req = requests.get(self.coreInfo["config"]["url"], stream=True)
             with open(self.coreInfo["corePath"], 'wb') as f:
                 f.write(req.content)
