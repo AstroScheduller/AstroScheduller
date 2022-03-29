@@ -104,7 +104,7 @@ func scheduller() {
 
 	fmt.Printf("Exporting...")
 	list_export(loadedObsParam, bestSchedule, exportPath)
-	fmt.Printf("\rExporting... Done.   ")
+	fmt.Printf("\rExporting... Done.   \n")
 	fmt.Println("...exported to file:", exportPath)
 
 	endTime := time.Now().UnixNano()
