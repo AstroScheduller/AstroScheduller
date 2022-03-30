@@ -28,6 +28,3 @@ md5 ./releases_latest/_scheduller_windows_amd64.dll
 
 echo "=========================="
 echo "Finished."
-
-CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -ldflags '-s -w --extldflags "-static -fpic"' main.go
-
