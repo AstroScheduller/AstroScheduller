@@ -17,7 +17,8 @@ func sort_get(obsObj obs, objects []src_obj) [][]src_obj {
 
 	objNum := len(objects)
 	if objNum == 0 {
-		u_exit("NO SOURCES IMPORTED.")
+		fmt.Println("No object to observe.")
+		return [][]src_obj{}
 	}
 
 	for i := 0; i < objNum; i++ {

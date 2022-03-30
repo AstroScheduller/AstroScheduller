@@ -179,5 +179,5 @@ func test() {
 
 	//fmt.Println("Testing... Done.")
 	//fmt.Println(py_AltAz("112.1", "12.1", "1", "12.1", "32.1", "1.0"))
-	u_exit("test")
+	//u_exit("test")
 }

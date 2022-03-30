@@ -42,8 +42,7 @@ func list_load_xml(rawXML string) obs_config {
 	err_obs := xml.Unmarshal([]byte(rawXML), &loaded_xml)
 
 	if err_obs != nil {
-		fmt.Println("INFO: ", err_obs)
-		u_exit("Fatal Error while loading configurations (observation).")
+		fmt.Println("Error:", err_obs)
 	}
 
 	return loaded_xml

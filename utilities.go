@@ -56,7 +56,8 @@ func u_file_get_file_annotated(filename string) string {
 			rawJson = strings.Join([]string{rawJson, thisLine}, "\n")
 		}
 	} else {
-		u_exit("File <" + filename + "> does not exists.")
+		fmt.Println("File not found:", filename)
+		return ""
 	}
 
 	defer fileObj.Close()
