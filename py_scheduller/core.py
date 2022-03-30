@@ -4,6 +4,7 @@ import os
 import json
 import requests
 import ctypes
+import shutil
 
 from sympy import im
 from .utilities import utilities
@@ -48,12 +49,15 @@ class core():
         
         return True
     
-    def download_core(self):
+    def download_core(self, url = False):
+        if(url == False):
+            url = self.coreInfo["config"]["url"]
+
         print("Downloading AstroSchedullerGo Module...")
-        print("", "Get ", self.coreInfo["config"]["url"])
+        print("", "Get ", url)
             
         try:
-            req = requests.get(self.coreInfo["config"]["url"], stream=True)
+            req = requests.get(url, stream=True)
             with open(self.coreInfo["corePath"], 'wb') as f:
                 f.write(req.content)
         except Exception as e:
@@ -72,11 +76,11 @@ class core():
                 # print("check_integrity: pass")
                 return True
             else:
-                print("check_integrity: not pass")
+                print("New version of AstroSchedullerGo Module is available. Update by script 'py_scheduller.core.core().update()'")
+                '''
                 response = input("Download new version of AstroSchedullerGo Module? (y/n)")
 
                 if (response == "y"):
-                    self.update()
                     self.download_core()
                     return True
                 elif (response == "n"):
@@ -84,17 +88,37 @@ class core():
                     return True
 
                 return self.check_integrity()
+                '''
         except Exception as e:
-            print("check_integrity: not check", str(e))
+            # print("check_integrity: not check", str(e))
             return False
     
     def update(self):
-        os.unlink(self.coreInfo["corePath"])
-        os.unlink(self.coreInfo["configPath"])
-        self.__init__()
+        print("Updating AstroSchedullerGo Module...")
+
+        self.get_core_info() # Update Core Config
+        self.download_core() # Download Core
+        self.check_integrity() # Check Integrity
 
         return True
-    
+
+    def install(self, filename):
+        print("Installing AstroSchedullerGo Module...")
+        print("", "Get ", filename)
+            
+        if(self.u.is_url(filename)):
+            if(self.download_core(url = filename)):
+                return True
+            else:
+                raise Exception("install", "failed to download.")
+        elif(self.u.is_filename(filename)):
+            try:
+                shutil.copyfile(filename, self.coreInfo["corePath"])
+                print("Installing AstroSchedullerGo Module from local file... Done.")
+                return True
+            except IOError as e:
+                raise Exception("install", "failed to copy.")
+        
     def go_schedule(self, importPath, exportPath):
         goHandle = ctypes.cdll.LoadLibrary(self.coreInfo["corePath"])
         goHandle.argtypes = [ctypes.c_char_p, ctypes.c_char_p]

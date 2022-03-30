@@ -59,3 +59,14 @@ class utilities():
     def get_platform(self):
         return device().get_platform() + "/" + device().get_arch()
     
+    def is_url(self, url):
+        try:
+            return url.startswith("http://") or url.startswith("https://")
+        except Exception as e:
+            return False
+    
+    def is_filename(self, filename):
+        try:
+            return os.path.isfile(filename)
+        except Exception as e:
+            return False
