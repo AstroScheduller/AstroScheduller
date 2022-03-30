@@ -3,4 +3,5 @@
 ./AstroSchedullerGo_for_Python.egg-info
 ./build
 ./.CodeCounter
+./.VSCodeCounter
 ./
