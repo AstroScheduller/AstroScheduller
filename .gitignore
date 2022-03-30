@@ -1,0 +1,6 @@
+*.DS_Store
+./py_scheduller/__pycache__
+./AstroSchedullerGo_for_Python.egg-info
+./build
+./.CodeCounter
+./
