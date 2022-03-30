@@ -2,13 +2,11 @@ package main
 
 import (
 	"bufio"
-	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
 	"strings"
-
-	"golang.org/x/exp/errors/fmt"
 )
 
 func u_file_get_contents(filename string) (string, bool) {
@@ -62,11 +60,6 @@ func u_file_get_file_annotated(filename string) string {
 
 	defer fileObj.Close()
 	return rawJson
-}
-
-func u_exit(info string) error {
-	fmt.Errorf("\n[ERROR]", info)
-	return errors.New(info)
 }
 
 func u_progress_bar(now int64, full int64) {
