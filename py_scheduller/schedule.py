@@ -4,6 +4,7 @@ from .core import core
 from .stats import schedule_stats
 from .schedule_io import schedule_from, schedule_to
 from .schedule_edit import schedule_edit
+from .plot import schedule_plot
 
 class schedule_scheduller():
     def schedule(self):
@@ -28,7 +29,7 @@ class schedule_scheduller():
 
         return scheduled.objects
 
-class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, schedule_edit):
+class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, schedule_edit, schedule_plot):
     def __init__(self):
         self.u = utilities()
         self.c = config()

@@ -1,9 +1,8 @@
 import copy
 from .stats import scheduller_stats
 from .schedule import schedule
-from .plot import plot
 
-class scheduller(scheduller_stats, plot):
+class scheduller(scheduller_stats):
     def __init__(self):
         self.objects = schedule()
         self.schedule = schedule()
@@ -13,3 +12,6 @@ class scheduller(scheduller_stats, plot):
         self.schedule.schedule()
 
         return self.schedule
+    
+    def plot(self):
+        return self.schedule.plot()
