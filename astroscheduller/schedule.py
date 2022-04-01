@@ -1,3 +1,4 @@
+from os import unlink
 from .utilities import utilities
 from .config import config
 from .core import core
@@ -11,14 +12,17 @@ class schedule_scheduller():
         self.xml = self.to_xml()
         self.core = core()
 
-        self.importPath = self.c.tempPath + "/" + self.u.md5(self.xml.encode()) + ".xml"
-        self.exportPath = self.c.tempPath + "/" + self.u.md5(self.xml.encode()) + ".export.xml"
+        self.importPath = self.c.tempPath + "/" + self.core.prefix + self.u.md5(self.xml.encode()) + ".xml"
+        self.exportPath = self.c.tempPath + "/" + self.core.prefix + self.u.md5(self.xml.encode()) + ".export.xml"
         
         open(self.importPath, "w+").write(self.xml)
 
         if(self.core.go_schedule(self.importPath, self.exportPath)):
             self.objects = self.get_scheduled_return()
+            unlink(self.importPath)
+            unlink(self.exportPath)
         else:
+            unlink(self.importPath)
             raise Exception("schedule", "failed", self.exportPath)
 
         return True

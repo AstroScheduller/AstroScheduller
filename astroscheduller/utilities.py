@@ -1,7 +1,6 @@
 import os
 import hashlib
 
-
 class device():
     def is_mac(self):
         return os.name == "posix" and os.uname()[0] == "Darwin"

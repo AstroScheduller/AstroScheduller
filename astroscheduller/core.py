@@ -14,6 +14,7 @@ class core():
     def __init__(self):
         self.c = config()
         self.u = utilities()
+        self.prefix = "ash.core."
         self.coreInfo = {
             "version": "*",
             "config": False,
@@ -150,4 +151,3 @@ class core():
             Azs.append(thisRes[1])
             
         return [Alts, Azs]
-    
