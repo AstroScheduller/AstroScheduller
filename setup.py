@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="AstroSchedullerGo for Python",
+    name="AstroScheduller",
     version="0.9.3",
     author="Wenky",
     author_email="wxia1@fandm.edu",
