@@ -1,9 +1,11 @@
 import copy
 from .stats import scheduller_stats
 from .schedule import schedule
+from .config import config
 
 class scheduller(scheduller_stats):
     def __init__(self):
+        self.config = config()
         self.objects = schedule()
         self.schedule = schedule()
 

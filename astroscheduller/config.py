@@ -18,3 +18,10 @@ class config():
             os.makedirs(path)
 
         return True
+    
+    def auto_clean(self):
+        for file in os.listdir(self.tempPath):
+            if os.path.isfile(os.path.join(self.tempPath, file)):
+                if os.stat(os.path.join(self.tempPath, file)).st_mtime < (time.time() - (30 * 24 * 60 * 60)):
+                    os.remove(os.path.join(self.tempPath, file))
+        return True
