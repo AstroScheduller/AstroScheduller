@@ -64,8 +64,11 @@ class utilities():
         except Exception as e:
             return False
     
-    def is_filename(self, filename):
+    def is_file(self, filename):
         try:
             return os.path.isfile(filename)
         except Exception as e:
             return False
+    
+    def is_filename(self, filename):
+        self.is_file(filename)

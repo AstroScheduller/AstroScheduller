@@ -1,8 +1,12 @@
 import json
+from .utilities import utilities
 from xml.dom import minidom
 
 class schedule_from():
     def from_xml(self, xmlString):
+        if(utilities().is_file(xmlString)):
+            xmlString = open(xmlString, "r+").read()
+
         xml = minidom.parseString(xmlString)
         node = xml.getElementsByTagName("scheduller")
 
@@ -119,16 +123,22 @@ class schedule_from():
             )
 
 class schedule_to():
-    def to_dict(self):
+    def to_dict(self, filename = False):
+        if(filename != False):
+            return self.to_json(filename)
+
         return {
             "observation": self.observation, 
             "object": self.objects
         }
     
-    def to_json(self):
+    def to_json(self, filename = False):
+        if(filename != False):
+            return open(filename, "w+").write(json.dumps(self.to_dict()))
+
         return json.dumps(self.to_dict())
 
-    def to_xml(self):
+    def to_xml(self, filename = False):
         xmlHandle = minidom.Document() 
         
         # Observation
@@ -237,4 +247,99 @@ class schedule_to():
         xml.appendChild(observation)
         xml.appendChild(sources)
 
+        if(filename != False):
+            return open(filename, "w+").write(xml.toprettyxml())
+
         return xml.toprettyxml()
+    
+    def to_csv(self, filename = False):
+        csv = ""
+        csv += "Identifier, R.A., Dec., Duration, Weight, Important, Wait\n"
+        for thisObj in self.objects:
+            csv += str(thisObj["identifier"]) + ", "
+            csv += str(thisObj["ra"]) + ", "
+            csv += str(thisObj["dec"]) + ", "
+            csv += str(thisObj["duration"]) + ", "
+            csv += str(thisObj["weight"]) + ", "
+            csv += str(thisObj["important"]) + ", "
+            csv += str(thisObj["wait"]) + "\n"
+        
+        '''
+        csv += " , , , , , , , \n"
+        csv += "Additional Information, , , , , , , \n"
+        csv += "Observation, " + "Timestamp: " + str(self.observation["duration"]["begin"] )+ " - " + str(self.observation["duration"]["end"]) + "\n"
+        csv += "Tele. Loca., " + "Latitude: " + str(self.observation["telescope"]["latitude"]) + ", " + "Longitude: " + str(self.observation["telescope"]["longitude"]) + ", " + "Altitude: "  + str(self.observation["telescope"]["altitude"]) + "\n"
+        csv += "Tele. Elev., " + str(self.observation["elevation"]["minimal"]) + " - " + str(self.observation["elevation"]["maximal"]) + " Deg. \n"
+        csv += "Tele. Escp, " + str(self.observation["escape"]["sun"]) + " Deg. \n"
+        csv += "Object Number, " + str(len(self.objects)) + "\n"
+        '''
+        
+        if(filename != False):
+            return open(filename, "w+").write(csv)
+
+        return csv
+    
+    def to_table(self, filename = False):
+        table = ""
+        table += "| Identifier | RA | Dec | Duration | Weight | Important |\n"
+        table += "| --- | --- | --- | --- | --- | --- |\n"
+        for thisObj in self.objects:
+            table += "| " + thisObj["identifier"] + " | "
+            table += str(thisObj["ra"]) + " | "
+            table += str(thisObj["dec"]) + " | "
+            table += str(thisObj["duration"]) + " | "
+            table += str(thisObj["weight"]) + " | "
+            table += str(thisObj["important"]) + " |\n"
+        
+        if(filename != False):
+            return open(filename, "w+").write(table)
+
+        return table
+    
+    def to_html(self, filename = False):
+        html = ""
+        html += "<table>\n"
+        html += "<tr>\n"
+        html += "<th>Identifier</th>\n"
+        html += "<th>RA</th>\n"
+        html += "<th>Dec</th>\n"
+        html += "<th>Duration</th>\n"
+        html += "<th>Weight</th>\n"
+        html += "<th>Important</th>\n"
+        html += "</tr>\n"
+        for thisObj in self.objects:
+            html += "<tr>\n"
+            html += "<td>" + thisObj["identifier"] + "</td>\n"
+            html += "<td>" + str(thisObj["ra"]) + "</td>\n"
+            html += "<td>" + str(thisObj["dec"]) + "</td>\n"
+            html += "<td>" + str(thisObj["duration"]) + "</td>\n"
+            html += "<td>" + str(thisObj["weight"]) + "</td>\n"
+            html += "<td>" + str(thisObj["important"]) + "</td>\n"
+            html += "</tr>\n"
+        html += "</table>\n"
+
+        if(filename != False):
+            return open(filename, "w+").write(html)
+
+        return html
+
+    def to_latex(self, filename = False):
+        latex = ""
+        latex += "\\begin{table}\n"
+        latex += "\\begin{tabular}{|l|l|l|l|l|l|}\n"
+        latex += "\\hline\n"
+        latex += "Identifier & RA & Dec & Duration & Weight & Important \\\\ \\hline\n"
+        for thisObj in self.objects:
+            latex += thisObj["identifier"] + " & "
+            latex += str(thisObj["ra"]) + " & "
+            latex += str(thisObj["dec"]) + " & "
+            latex += str(thisObj["duration"]) + " & "
+            latex += str(thisObj["weight"]) + " & "
+            latex += str(thisObj["important"]) + " \\\\ \\hline\n"
+        latex += "\\end{tabular}\n"
+        latex += "\\end{table}\n"
+
+        if(filename != False):
+            return open(filename, "w+").write(latex)
+
+        return latex
