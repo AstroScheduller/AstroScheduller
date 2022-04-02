@@ -1,8 +1,17 @@
-from scheduller import scheduller
-from schedule import schedule
-from core import core
+import astroscheduller as ash
 
-s = schedule()
+
+###############################
+# Test core functions         #
+###############################
+ash.core().update()
+ash.core().install("/Users/wenky/Documents/GitHub/AstroSchedullerGo/releases_latest/_scheduller_darwin_amd64.so")
+
+
+###############################
+# Test schObj functions       #
+###############################
+s = ash.schedule()
 s.set_duration(begin = 1627110000, end = 1627196340, format = "timestamp")
 s.set_telescope(latitude = 32.7015, longitude = -109.891284, altitude = 3185, velocity = [0.5, 0.6])
 s.set_elevation(minimal = 30, maximal = 80)
@@ -22,46 +31,49 @@ s.add_object(
     important= True
 )
 
-s1 = scheduller()
+
+###############################
+# Test scheduller functions   #
+###############################
+s1 = ash.scheduller()
 s1.objects = s
 s1.get_schedule()
 s1.stats()
 
-# (print(s.to_dict()))
-# (print(s.to_json()))
-# print(s.to_xml())
 
-coreHandle = core()
-coreHandle.update()
-
-s2 = schedule()
-s2.from_xml(open("./tests/psr_list_debug.xml").read())
-# print(s2.to_xml())
-print(s2.num_objects())
-s2.schedule()
-print(s2.num_objects())
-#s2.stats()
-
-'''
-s3 = scheduller()
-s3.objects.from_xml(open("./tests/psr_list_long.xml").read())
-s3.get_schedule()
-s3.objects.to_xml()
-s3.schedule.to_xml()
-s3.stats()
-'''
-
-s4 = scheduller()
+###############################
+# Test IO functions           #
+###############################
+s4 = ash.scheduller()
 objects = s4.objects
 objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
-#objects.from_xml(open("./tests/psr_list_long.xml").read())
+objects.from_xml(open("./tests/psr_list_long.xml").read())
 s4.get_schedule()
+schedule = s4.schedule
+schedule.to_xml("./tests/xml_export.xml")
+schedule.to_dict("./tests/dict_export.json")
+schedule.to_json("./tests/json_export.json")
+schedule.to_csv("./tests/csv_export.csv")
+schedule.to_table("./tests/table_export.txt")
+schedule.to_html("./tests/html_export.html")
+schedule.to_latex("./tests/latex_export.tex")
+
+
+###############################
+# Test stats functions        #
+###############################
 s4.stats()
 
-print(s4.schedule.to_dict())
+###############################
+# Test plot functions         #
+###############################
+ashPlot = s4.plot()
+ashPlot.show()
+ashPlot.save("./tests/plot_export.pdf")
 
-s4.plot()
-
+###############################
+# Test edit functions         #
+###############################
 '''
 print(s4.schedule.to_dict())
 print(s4.schedule.item(identifier = "PSR J1012+5307").move_forward(1))
