@@ -73,7 +73,7 @@ class schedule_from():
         # Sources
         sources = node[0].getElementsByTagName("sources")
         ## Objects
-        lastObjectEnded = self.observation["duration"]["end"]
+        lastObjectEnded = self.observation["duration"]["begin"]
         objects = sources[0].getElementsByTagName("object")
         for thisObj in objects:
             ### Identifier
