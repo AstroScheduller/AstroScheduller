@@ -1,4 +1,5 @@
 *.DS_Store
+*.bak
 ./astroscheduller/__pycache__
 ./AstroSchedullerGo_for_Python.egg-info
 ./build
