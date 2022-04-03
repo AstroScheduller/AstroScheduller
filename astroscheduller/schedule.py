@@ -134,7 +134,7 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         return self.observation["escape"]
     
     def add_object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, wait = 0):
-        identifier = str(identifier)
+        identifier = self.u.str_format(str(identifier))
         ra = float(ra)
         dec = float(dec)
         duration = int(duration)

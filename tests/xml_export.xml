@@ -23,9 +23,7 @@
 	</observation>
 	<sources>
 		<object>
-			<identifier>
-				J2150+5247
-			</identifier>
+			<identifier>J2150+5247</identifier>
 			<ra>327.657</ra>
 			<dec>52.7971</dec>
 			<duration>1200</duration>
@@ -33,9 +31,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2149+6329
-			</identifier>
+			<identifier>J2149+6329</identifier>
 			<ra>327.494</ra>
 			<dec>63.4954</dec>
 			<duration>1200</duration>
@@ -43,9 +39,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2206+6151
-			</identifier>
+			<identifier>J2206+6151</identifier>
 			<ra>331.575</ra>
 			<dec>61.8661</dec>
 			<duration>1800</duration>
@@ -53,9 +47,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2337+6151
-			</identifier>
+			<identifier>J2337+6151</identifier>
 			<ra>354.274</ra>
 			<dec>61.8505</dec>
 			<duration>3600</duration>
@@ -63,9 +55,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2354+6155
-			</identifier>
+			<identifier>J2354+6155</identifier>
 			<ra>358.52</ra>
 			<dec>61.9297</dec>
 			<duration>900</duration>
@@ -73,9 +63,7 @@
 			<important>1</important>
 		</object>
 		<object>
-			<identifier>
-				J2325+6316
-			</identifier>
+			<identifier>J2325+6316</identifier>
 			<ra>351.305</ra>
 			<dec>63.2812</dec>
 			<duration>1800</duration>
@@ -83,9 +71,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2321+6024
-			</identifier>
+			<identifier>J2321+6024</identifier>
 			<ra>350.48</ra>
 			<dec>60.4085</dec>
 			<duration>900</duration>
@@ -93,9 +79,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2326+6113
-			</identifier>
+			<identifier>J2326+6113</identifier>
 			<ra>351.745</ra>
 			<dec>61.2268</dec>
 			<duration>600</duration>
@@ -103,9 +87,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2305+3100
-			</identifier>
+			<identifier>J2305+3100</identifier>
 			<ra>346.493</ra>
 			<dec>31.0005</dec>
 			<duration>1200</duration>
@@ -113,9 +95,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2313+4253
-			</identifier>
+			<identifier>J2313+4253</identifier>
 			<ra>348.286</ra>
 			<dec>42.8869</dec>
 			<duration>600</duration>
@@ -123,9 +103,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2346-0609
-			</identifier>
+			<identifier>J2346-0609</identifier>
 			<ra>356.71</ra>
 			<dec>-6.16694</dec>
 			<duration>1800</duration>
@@ -133,9 +111,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2229+6205
-			</identifier>
+			<identifier>J2229+6205</identifier>
 			<ra>337.424</ra>
 			<dec>62.0933</dec>
 			<duration>2400</duration>
@@ -143,9 +119,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2330-2005
-			</identifier>
+			<identifier>J2330-2005</identifier>
 			<ra>352.612</ra>
 			<dec>-20.0915</dec>
 			<duration>1800</duration>
@@ -161,9 +135,7 @@
 			<important>1</important>
 		</object>
 		<object>
-			<identifier>
-				J2240+5832
-			</identifier>
+			<identifier>J2240+5832</identifier>
 			<ra>340.179</ra>
 			<dec>58.5438</dec>
 			<duration>600</duration>
@@ -171,9 +143,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2257+5909
-			</identifier>
+			<identifier>J2257+5909</identifier>
 			<ra>344.491</ra>
 			<dec>59.1541</dec>
 			<duration>1800</duration>
@@ -181,9 +151,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2113+2754
-			</identifier>
+			<identifier>J2113+2754</identifier>
 			<ra>318.268</ra>
 			<dec>27.9006</dec>
 			<duration>600</duration>
@@ -191,9 +159,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2108+4441
-			</identifier>
+			<identifier>J2108+4441</identifier>
 			<ra>317.085</ra>
 			<dec>44.6969</dec>
 			<duration>900</duration>
@@ -201,9 +167,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2113+4644
-			</identifier>
+			<identifier>J2113+4644</identifier>
 			<ra>318.351</ra>
 			<dec>46.7357</dec>
 			<duration>600</duration>
@@ -211,9 +175,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2157+4017
-			</identifier>
+			<identifier>J2157+4017</identifier>
 			<ra>329.258</ra>
 			<dec>40.2961</dec>
 			<duration>900</duration>
@@ -221,9 +183,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2219+4754
-			</identifier>
+			<identifier>J2219+4754</identifier>
 			<ra>334.951</ra>
 			<dec>47.915</dec>
 			<duration>1800</duration>
@@ -231,9 +191,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2055+3630
-			</identifier>
+			<identifier>J2055+3630</identifier>
 			<ra>313.881</ra>
 			<dec>36.506</dec>
 			<duration>900</duration>
@@ -241,9 +199,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0612+3721
-			</identifier>
+			<identifier>J0612+3721</identifier>
 			<ra>93.1837</ra>
 			<dec>37.3612</dec>
 			<duration>900</duration>
@@ -251,9 +207,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0525+1115
-			</identifier>
+			<identifier>J0525+1115</identifier>
 			<ra>81.4854</ra>
 			<dec>11.2553</dec>
 			<duration>1800</duration>
@@ -261,9 +215,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0614+2229
-			</identifier>
+			<identifier>J0614+2229</identifier>
 			<ra>93.5719</ra>
 			<dec>22.5104</dec>
 			<duration>600</duration>
@@ -271,9 +223,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0629+2415
-			</identifier>
+			<identifier>J0629+2415</identifier>
 			<ra>97.2739</ra>
 			<dec>24.262</dec>
 			<duration>900</duration>
@@ -281,9 +231,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0454+5543
-			</identifier>
+			<identifier>J0454+5543</identifier>
 			<ra>73.5321</ra>
 			<dec>55.7282</dec>
 			<duration>900</duration>
@@ -291,9 +239,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0502+4654
-			</identifier>
+			<identifier>J0502+4654</identifier>
 			<ra>75.519</ra>
 			<dec>46.9017</dec>
 			<duration>1200</duration>
@@ -301,9 +247,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0450-1248
-			</identifier>
+			<identifier>J0450-1248</identifier>
 			<ra>72.5365</ra>
 			<dec>-12.8019</dec>
 			<duration>2400</duration>
@@ -311,9 +255,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0826+2637
-			</identifier>
+			<identifier>J0826+2637</identifier>
 			<ra>126.714</ra>
 			<dec>26.623</dec>
 			<duration>600</duration>
@@ -321,9 +263,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0601-0527
-			</identifier>
+			<identifier>J0601-0527</identifier>
 			<ra>90.4957</ra>
 			<dec>-5.46417</dec>
 			<duration>1200</duration>
@@ -331,9 +271,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0823+0159
-			</identifier>
+			<identifier>J0823+0159</identifier>
 			<ra>125.791</ra>
 			<dec>1.98682</dec>
 			<duration>600</duration>
@@ -341,9 +279,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0621+0336
-			</identifier>
+			<identifier>J0621+0336</identifier>
 			<ra>95.2968</ra>
 			<dec>3.61264</dec>
 			<duration>2400</duration>
@@ -351,9 +287,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0922+0638
-			</identifier>
+			<identifier>J0922+0638</identifier>
 			<ra>140.559</ra>
 			<dec>6.64133</dec>
 			<duration>480</duration>
@@ -361,9 +295,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1115+5030
-			</identifier>
+			<identifier>J1115+5030</identifier>
 			<ra>168.91</ra>
 			<dec>50.5034</dec>
 			<duration>1200</duration>
@@ -371,9 +303,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0943+1631
-			</identifier>
+			<identifier>J0943+1631</identifier>
 			<ra>145.875</ra>
 			<dec>16.5269</dec>
 			<duration>1200</duration>
@@ -381,9 +311,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0953+0755
-			</identifier>
+			<identifier>J0953+0755</identifier>
 			<ra>148.289</ra>
 			<dec>7.92678</dec>
 			<duration>300</duration>
@@ -391,9 +319,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1022+1001
-			</identifier>
+			<identifier>J1022+1001</identifier>
 			<ra>155.742</ra>
 			<dec>10.0313</dec>
 			<duration>3600</duration>
@@ -401,9 +327,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1136+1551
-			</identifier>
+			<identifier>J1136+1551</identifier>
 			<ra>174.013</ra>
 			<dec>15.8543</dec>
 			<duration>300</duration>
@@ -411,9 +335,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0908-1739
-			</identifier>
+			<identifier>J0908-1739</identifier>
 			<ra>137.159</ra>
 			<dec>-17.6605</dec>
 			<duration>600</duration>
@@ -421,9 +343,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1024-0719
-			</identifier>
+			<identifier>J1024-0719</identifier>
 			<ra>156.161</ra>
 			<dec>-7.32196</dec>
 			<duration>3600</duration>
@@ -431,9 +351,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1239+2453
-			</identifier>
+			<identifier>J1239+2453</identifier>
 			<ra>189.918</ra>
 			<dec>24.8972</dec>
 			<duration>600</duration>
@@ -441,9 +359,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1041-1942
-			</identifier>
+			<identifier>J1041-1942</identifier>
 			<ra>160.401</ra>
 			<dec>-19.7038</dec>
 			<duration>900</duration>
@@ -451,9 +367,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1041-1942
-			</identifier>
+			<identifier>J1041-1942</identifier>
 			<ra>160.401</ra>
 			<dec>-19.7038</dec>
 			<duration>1800</duration>
@@ -461,9 +375,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1509+5531
-			</identifier>
+			<identifier>J1509+5531</identifier>
 			<ra>227.357</ra>
 			<dec>55.5258</dec>
 			<duration>900</duration>
@@ -471,9 +383,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1518+4904
-			</identifier>
+			<identifier>J1518+4904</identifier>
 			<ra>229.57</ra>
 			<dec>49.0762</dec>
 			<duration>3600</duration>
@@ -481,9 +391,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1532+2745
-			</identifier>
+			<identifier>J1532+2745</identifier>
 			<ra>233.043</ra>
 			<dec>27.7637</dec>
 			<duration>1200</duration>
@@ -491,9 +399,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1257-1027
-			</identifier>
+			<identifier>J1257-1027</identifier>
 			<ra>194.27</ra>
 			<dec>-10.4516</dec>
 			<duration>1800</duration>
@@ -509,9 +415,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1543-0620
-			</identifier>
+			<identifier>J1543-0620</identifier>
 			<ra>235.876</ra>
 			<dec>-6.3459</dec>
 			<duration>1200</duration>
@@ -519,9 +423,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1607-0032
-			</identifier>
+			<identifier>J1607-0032</identifier>
 			<ra>241.8</ra>
 			<dec>-0.544675</dec>
 			<duration>900</duration>
@@ -529,9 +431,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1713+0747
-			</identifier>
+			<identifier>J1713+0747</identifier>
 			<ra>258.456</ra>
 			<dec>7.79376</dec>
 			<duration>600</duration>
@@ -539,9 +439,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1740+1311
-			</identifier>
+			<identifier>J1740+1311</identifier>
 			<ra>265.031</ra>
 			<dec>13.1991</dec>
 			<duration>600</duration>
@@ -549,9 +447,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1741+1351
-			</identifier>
+			<identifier>J1741+1351</identifier>
 			<ra>265.367</ra>
 			<dec>13.9093</dec>
 			<duration>1800</duration>
@@ -559,9 +455,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J0814+7429
-			</identifier>
+			<identifier>J0814+7429</identifier>
 			<ra>123.748</ra>
 			<dec>74.4849</dec>
 			<duration>600</duration>
@@ -569,9 +463,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1955+5059
-			</identifier>
+			<identifier>J1955+5059</identifier>
 			<ra>298.828</ra>
 			<dec>50.9987</dec>
 			<duration>1500</duration>
@@ -579,9 +471,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2002+4050
-			</identifier>
+			<identifier>J2002+4050</identifier>
 			<ra>300.683</ra>
 			<dec>40.8483</dec>
 			<duration>1200</duration>
@@ -589,9 +479,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2022+5154
-			</identifier>
+			<identifier>J2022+5154</identifier>
 			<ra>305.708</ra>
 			<dec>51.914</dec>
 			<duration>480</duration>
@@ -599,9 +487,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2023+5037
-			</identifier>
+			<identifier>J2023+5037</identifier>
 			<ra>305.925</ra>
 			<dec>50.6263</dec>
 			<duration>480</duration>
@@ -609,9 +495,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2027+4557
-			</identifier>
+			<identifier>J2027+4557</identifier>
 			<ra>306.818</ra>
 			<dec>45.9658</dec>
 			<duration>1800</duration>
@@ -619,9 +503,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J2037+3621
-			</identifier>
+			<identifier>J2037+3621</identifier>
 			<ra>309.364</ra>
 			<dec>36.3567</dec>
 			<duration>1200</duration>
@@ -629,9 +511,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1954+2923
-			</identifier>
+			<identifier>J1954+2923</identifier>
 			<ra>298.594</ra>
 			<dec>29.3881</dec>
 			<duration>900</duration>
@@ -639,9 +519,7 @@
 			<important>0</important>
 		</object>
 		<object>
-			<identifier>
-				J1932+1059
-			</identifier>
+			<identifier>J1932+1059</identifier>
 			<ra>293.059</ra>
 			<dec>10.9926</dec>
 			<duration>300</duration>
