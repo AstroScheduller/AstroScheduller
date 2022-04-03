@@ -4,6 +4,10 @@ from .utilities import utilities
 
 class config():
     def __init__(self):
+        ''' 
+        Initialize the config object.
+        '''
+
         self.u = utilities()
         self.platform = self.u.get_platform()
         self.libPath = self.u.get_dir(__file__) + "/ashlib"
@@ -15,12 +19,25 @@ class config():
         self.check_dir(self.tempPath)
 
     def check_dir(self, path):
+        '''
+        Check if a directory exists.
+        path: The path to the directory.
+
+        return: True if the directory exists, False if not.
+        '''
+
         if not os.path.exists(path):
             os.makedirs(path)
 
         return True
     
     def auto_clean(self):
+        '''
+        Clean the temp directory.
+
+        return: True if the directory was cleaned, False if not.
+        '''
+
         for file in os.listdir(self.tempPath):
             if os.path.isfile(os.path.join(self.tempPath, file)):
                 if os.stat(os.path.join(self.tempPath, file)).st_mtime < (time.time() - (30 * 24 * 60 * 60)):

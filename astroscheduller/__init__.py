@@ -3,4 +3,4 @@ from .schedule import *
 from .core import *
 from .config import *
 
-config().auto_clean()
+config().auto_clean() # Clean up old temporary files.

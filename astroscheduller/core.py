@@ -12,6 +12,10 @@ from .config import config
 
 class core():
     def __init__(self):
+        '''
+        Initialize Core
+        '''
+
         self.c = config()
         self.u = utilities()
         self.prefix = "ash.core."
@@ -31,6 +35,12 @@ class core():
         self.check_integrity()
     
     def get_core_info(self):
+        '''
+        Get Core Info from the Github
+
+        Return: True if success
+        '''
+
         try:
             self.coreInfo["config"] = json.loads(requests.get(self.coreInfo["configUrl"]).text)
             try:
@@ -51,6 +61,13 @@ class core():
         return True
     
     def download_core(self, url = False):
+        '''
+        Download Core
+        url: url to download from
+
+        Return: True if success
+        '''
+
         if(url == False):
             url = self.coreInfo["config"]["url"]
 
@@ -68,6 +85,12 @@ class core():
         return True
     
     def check_integrity(self):
+        '''
+        Check if the AstroScheduller Core File is Valid
+
+        Return: True if passed; False if failed
+        '''
+
         if(not os.path.isfile(self.coreInfo["corePath"])):
             print("AstroSchedullerGo Module does not exists. Downloading...")
             self.download_core()
@@ -95,6 +118,12 @@ class core():
             return False
     
     def update(self):
+        '''
+        Update Core
+
+        Return: True if success
+        '''
+
         print("Updating AstroSchedullerGo Module...")
 
         self.get_core_info() # Update Core Config
@@ -104,6 +133,13 @@ class core():
         return True
 
     def install(self, filename):
+        '''
+        Install Core from file
+        filename: file to install
+
+        Return: True if success
+        '''
+
         print("Installing AstroSchedullerGo Module...")
         print("", "Get ", filename)
             
@@ -121,6 +157,14 @@ class core():
                 raise Exception("install", "failed to copy.")
         
     def go_schedule(self, importPath, exportPath):
+        '''
+        GoLang Schedule
+        importPath: path to import schedule from
+        exportPath: path to export schedule to
+
+        Return: True if success
+        '''
+
         goHandle = ctypes.cdll.LoadLibrary(self.coreInfo["corePath"])
         goHandle.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
         goHandle.py_schedule(importPath.encode(), exportPath.encode())
@@ -131,6 +175,18 @@ class core():
         return True
     
     def go_AltAz_raw(self, ra, dec, timestamp, tele_lat, tele_long, tele_alt):
+        '''
+        GoLang AltAz Raw
+        ra: right ascension in degree
+        dec: declination in degree
+        timestamp: timestamp in unix time
+        tele_lat: telescope latitude in degree
+        tele_long: telescope longitude in degree
+        tele_alt: telescope altitude in meter
+
+        Return: [alt, az]
+        '''
+
         goHandle = ctypes.cdll.LoadLibrary(self.coreInfo["corePath"])
         #goHandle.py_AltAz.argtypes = [ctypes.c_float, ctypes.c_float, ctypes.c_int64, ctypes.c_float, ctypes.c_float, ctypes.c_float]
         goHandle.py_AltAz.restype = ctypes.c_char_p
@@ -142,6 +198,15 @@ class core():
             raise Exception("go_AltAz: " + str(e), "unexpected core return")
 
     def go_AltAz(self, observation, object, timestamps):
+        '''
+        GoLang AltAz
+        observation: observation object
+        object: "object" object
+        timestamps: timestamps in unix time (list)
+
+        Return: [alts, azs]
+        '''
+
         Alts = list()
         Azs = list()
 

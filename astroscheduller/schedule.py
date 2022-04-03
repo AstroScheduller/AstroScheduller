@@ -9,6 +9,12 @@ from .plot import schedule_plot
 
 class schedule_scheduller():
     def schedule(self):
+        '''
+        Generate a schedule.
+
+        return: True if the schedule was generated, False if not.
+        '''
+
         self.xml = self.to_xml()
         self.core = core()
 
@@ -28,6 +34,12 @@ class schedule_scheduller():
         return True
     
     def get_scheduled_return(self):
+        '''
+        Get the scheduled return.
+
+        return: The scheduled return.
+        '''
+
         scheduled = schedule()
         scheduled.from_xml(open(self.exportPath, "r+").read())
 
@@ -35,6 +47,10 @@ class schedule_scheduller():
 
 class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, schedule_edit, schedule_plot):
     def __init__(self):
+        '''
+        Initialize a schedule object.
+        '''
+
         self.u = utilities()
         self.c = config()
         self.observation = dict()
@@ -64,6 +80,15 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         }
 
     def set_duration(self, begin, end, format = "timestamp"):
+        '''
+        Set the duration of the observation. 
+        begin: The begin of the observation. (e.g. 1234567890.0 or "2018-01-01 00:00:00")
+        end: The end of the observation. (e.g. 1234567890.0 or "2018-01-01 00:00:00")
+        format: The format of the begin and end, default: "Timestamp".
+
+        return: The duration of the observation.
+        '''
+
         begin = int(begin)
         end = int(end)
 
@@ -82,6 +107,16 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         return self.observation["duration"]
 
     def set_telescope(self, latitude = 0, longitude = 0, altitude = 0, velocity = [0.5, 0.5]):
+        '''
+        Set the telescope.
+        latitude: The latitude of the telescope in degree. (e.g. "50.0")
+        longitude: The longitude of the telescope in degree. (e.g. "10.0")
+        altitude: The altitude of the telescope in meters. (e.g. "500.0")
+        velocity: The velocity of the telescope, a list: [V_ra, V_dec] in deg./sec.. (e.g. [0.5, 0.5], default: [0.5, 0.5])
+        
+        return: The telescope object.
+        '''
+
         latitude = float(latitude)
         longitude = float(longitude)
         altitude = float(altitude)
@@ -109,6 +144,14 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         return self.observation["telescope"]
 
     def set_elevation(self, minimal = 0, maximal = 90):
+        '''
+        Set the elevation.
+        minimal: The minimal elevation in degree. (5 = minimal elevation 5 degree)
+        maximal: The maximal elevation in degree. (90 = maximal elevation 90 degree)
+
+        return: The elevation object.
+        '''
+
         minimal = float(minimal)
         maximal = float(maximal)
 
@@ -124,6 +167,13 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         return self.observation["elevation"]
     
     def set_escape(self, sun = 0):
+        '''
+        Set the escape (stay away) from celestial objects. 
+        Sun: Stay away from the Sun in degree. (0 = no stay away; 5 = stay away from the Sun 5 degree)
+
+        return: The escape object.
+        '''
+        
         sun = float(sun)
 
         if(sun < 0 or sun > 90):
@@ -134,6 +184,19 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         return self.observation["escape"]
     
     def add_object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, wait = 0):
+        '''
+        Add an object to the observation.
+        identifier: The identifier of the object.(e.g. "M31")
+        ra: The right ascension of the object in degree. (e.g. "50.0")
+        dec: The declination of the object in degree. (e.g. "10.0")
+        duration: The duration of the observation in seconds. (e.g. "3600")
+        weight: The weight of the object. (0 - 1.0, default: 1.0)
+        important: Is the object important? (True/False, default: False).
+        wait: The wait time in seconds. (e.g. "3600")
+
+        return: True if the object was added, False if not.
+        '''
+
         identifier = self.u.str_format(str(identifier))
         ra = float(ra)
         dec = float(dec)

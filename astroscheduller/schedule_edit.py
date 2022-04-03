@@ -3,10 +3,30 @@ from .utilities import utilities
 
 class schedule_edit():
     def __init__(self):
+        '''
+        Initialize a schedule object.
+        '''
+
         self.u = utilities()
         self.a = 1
 
     def item(self, **kwargs):
+        '''
+        Get an item from the schedule.
+        Provide one or more of the following arguments:
+        - identifier: The identifier of the item.
+        - index: The index of the item.
+        - ra: The right ascension of the item.
+        - dec: The declination of the item.
+        - duration: The duration of the item.
+        - weight: The weight of the item.
+        - important: Is the item important?
+
+        Return:
+        The item.
+        If more than one object is found, exception will be raised.
+        '''
+
         itemKeys = ["identifier", "ra", "dec", "duration", "weight", "important"]
 
         for kwargsKey in kwargs:
@@ -26,26 +46,55 @@ class schedule_edit():
             raise Exception("item", findedItem, "not found or more than one")
     
     def append(self, item):
+        '''
+        Append an item to the schedule.
+        '''
+
         self.objects.append(item.get_object())
     
     def insert(self, item, index):
+        '''
+        Insert an item to the schedule.
+        '''
+
         self.objects.insert(index, item.get_object())
 
 class item_operation():
     def __init__(self, self_upper, index):
+        '''
+        Initialize an item object.
+        '''
+
         self.self_upper = self_upper
         self.index = index
     
     def wait(self, waitTime):
+        '''
+        Get the wait time of the object in seconds.
+        '''
+
         self.self_upper.objects[self.index]["wait"] = waitTime
 
     def get_index(self):
+        '''
+        Get the index of the item.
+        '''
+
         return self.index
     
     def get_object(self):
+        '''
+        Get the object of the item.
+        '''
+
         return self.self_upper.objects_all()[self.index]
 
     def move_forward(self, step = 1):
+        '''
+        Move the item forward.
+        step: The step to move forward.
+        '''
+
         thisObj = self.self_upper.objects_all()[self.index]
         nextObj = self.self_upper.objects_all()[self.index + step]
         
@@ -55,6 +104,10 @@ class item_operation():
         self.index = self.index + step
 
     def move_backward(self, step = 1):
+        '''
+        Move the item backward.
+        step: The step to move backward.
+        '''
         thisObj = self.self_upper.objects_all()[self.index]
         prevObj = self.self_upper.objects_all()[self.index - step]
         
@@ -64,6 +117,11 @@ class item_operation():
         self.index = self.index - step
 
     def assign_before(self, item):
+        '''
+        Assign the item before the item.
+        item: to assign before this item.
+        '''
+
         itemIndex = item.get_index()
         thisObj = self.self_upper.objects_all()[self.index]
 
@@ -80,6 +138,11 @@ class item_operation():
         self.index = itemIndex
 
     def assign_after(self, item):
+        '''
+        Assign the item after the item.
+        item: to assign after this item.
+        '''
+
         itemIndex = item.get_index() + 1
         thisObj = self.self_upper.objects_all()[self.index]
 
@@ -96,6 +159,10 @@ class item_operation():
         self.index = itemIndex
 
     def to_begin(self):
+        '''
+        Move the item to the begin of the schedule.
+        '''
+        
         thisObj = self.self_upper.objects_all()[self.index]
 
         del self.self_upper.objects[self.index]
@@ -104,6 +171,10 @@ class item_operation():
         self.index = 0
 
     def to_end(self):
+        '''
+        Move the item to the end of the schedule.
+        '''
+        
         thisObj = self.self_upper.objects_all()[self.index]
 
         del self.self_upper.objects[self.index]
@@ -112,6 +183,10 @@ class item_operation():
         self.index = len(self.self_upper.objects) - 1
 
     def remove(self):
+        '''
+        Remove the item from the schedule.
+        '''
+        
         del self.self_upper.objects[self.index]
 
         self.index = -1

@@ -5,8 +5,16 @@ from sympy import true
 from .utilities import utilities
 from xml.dom import minidom
 
+# schedule/objects load functions
 class schedule_from():
     def from_xml(self, xmlString):
+        '''
+        Loads the schedule from an XML string.
+        xmlString: xml string
+
+        return: objects
+        '''
+
         if(utilities().is_file(xmlString)):
             xmlString = open(xmlString, "r+").read()
 
@@ -125,8 +133,16 @@ class schedule_from():
                 wait = wait
             )
 
+# schedule/objects save functions
 class schedule_to():
     def to_dict(self, filename = False):
+        '''
+        Saves the schedule to a dictionary.
+        filename: filename
+
+        return: dictionary
+        '''
+
         if(filename != False):
             return self.to_json(filename)
 
@@ -136,12 +152,26 @@ class schedule_to():
         }
     
     def to_json(self, filename = False):
+        '''
+        Saves the schedule to a json file.
+        filename: filename
+
+        return: jsonText
+        '''
+
         if(filename != False):
             return open(filename, "w+").write(json.dumps(self.to_dict()))
 
         return json.dumps(self.to_dict())
 
     def to_xml(self, filename = False):
+        '''
+        Saves the schedule to an xml file.
+        filename: filename
+
+        return: xmlText
+        '''
+
         xmlHandle = minidom.Document() 
         
         # Observation
@@ -256,6 +286,13 @@ class schedule_to():
         return xml.toprettyxml()
     
     def to_csv(self, filename = False):
+        '''
+        Saves the schedule to a csv file.
+        filename: filename
+
+        return: csvText
+        '''
+
         csv = ""
         csv += "Identifier, R.A., Dec., Duration, Weight, Important, Wait\n"
         for thisObj in self.objects:
@@ -283,6 +320,13 @@ class schedule_to():
         return csv
     
     def to_table(self, filename = False):
+        '''
+        Saves the schedule to a table.
+        filename: filename
+
+        return: tableText
+        '''
+
         table = ""
         table += "| Identifier | RA | Dec | Duration | Weight | Important |\n"
         table += "| --- | --- | --- | --- | --- | --- |\n"
@@ -300,6 +344,13 @@ class schedule_to():
         return table
     
     def to_html(self, filename = False):
+        '''
+        Saves the schedule to a html file.
+        filename: filename
+
+        return: htmlText
+        '''
+
         html = ""
         html += "<table>\n"
         html += "<tr>\n"
@@ -327,6 +378,13 @@ class schedule_to():
         return html
 
     def to_latex(self, filename = False):
+        '''
+        Saves the schedule to a latex file.
+        filename: filename
+
+        return: latexText
+        '''
+
         latex = ""
         latex += "\\begin{table}\n"
         latex += "\\begin{tabular}{|l|l|l|l|l|l|}\n"
@@ -347,8 +405,15 @@ class schedule_to():
 
         return latex
 
+# scheduller session IO functions
 class scheduller_io():
     def save(self, filename):
+        '''
+        Saves the scheduller session in to *.ash file.
+        filename: filename
+
+        return: True
+        '''
         # Check if filename has .ash extension
         if(filename[-4:] != ".ash"):
             filename += ".ash"
@@ -370,6 +435,13 @@ class scheduller_io():
         return filename
     
     def load(self, filename):
+        '''
+        Loads the scheduller session from *.ash file.
+        filename: filename
+
+        return: True
+        '''
+
         with open(filename, 'rb') as infile:
             ashSession = pickle.load(infile)
 
@@ -381,4 +453,11 @@ class scheduller_io():
         return True
     
     def open(self, filename):
+        '''
+        Opens the scheduller session from *.ash file.
+        filename: filename
+        
+        return: True
+        '''
+        
         return self.load(filename)

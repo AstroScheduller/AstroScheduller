@@ -6,6 +6,10 @@ from .core import core
 
 class plot():
     def __init__(self, self_upper):
+        '''
+        Initialize the plotter.
+        '''
+
         self.observation = self_upper.observation
         self.objects = self_upper.objects
         self.objects_all = self_upper.objects_all
@@ -18,9 +22,17 @@ class plot():
         self.plot()
 
     def __call__(self):
+        '''
+        Call the plotter.
+        '''
+
         self.plot()        
 
     def plot(self, save=False):
+        '''
+        Plot the schedule.
+        save: filename to save the plot to.
+        '''
         plt.figure(figsize=[18, 8])
 
         self.plot_settings()
@@ -46,6 +58,10 @@ class plot():
         plt.ylim(0, 90)
 
     def plot_settings(self):
+        '''
+        Plot the settings.
+        '''
+
         plt.vlines(self.observation["duration"]["begin"], 0, 90, colors="r", linewidth=2)
         plt.vlines(self.observation["duration"]["end"], 0, 90, colors="r", linewidth=2)
         plt.fill_between([self.observation["duration"]["begin"], self.observation["duration"]["end"]], self.observation["elevation"]["maximal"], 90, color="k", alpha=0.2)
@@ -54,6 +70,10 @@ class plot():
         return True
 
     def plot_schedules(self):
+        '''
+        Plot the schedules.
+        '''
+
         time = 0
         duration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
 
@@ -71,6 +91,10 @@ class plot():
         return True
 
     def plot_altitudes(self):
+        '''
+        Plot the altitudes.
+        '''
+
         for thisObj in self.objects_all():
             thisObjAltAz = self.c.go_AltAz(self.observation, thisObj, self.timestamps)
             plt.plot(self.timestamps, thisObjAltAz[0], "k-", linewidth=1, alpha=0.2)
@@ -78,16 +102,34 @@ class plot():
         return True
     
     def show(self):
+        '''
+        Show the plot.
+        '''
+
         thisPlt = plt.gcf()
 
         return thisPlt.show()
 
     def save(self, savePath):
+        '''
+        Save the plot.
+        savePath: path to save the plot to.
+        '''
+
         return plt.savefig(savePath)
     
     def savefig(self, savePath):
+        '''
+        Save the plot.
+        savePath: path to save the plot to.
+        '''
+
         return self.save(savePath)
 
 class schedule_plot():
     def plot(self):
+        '''
+        Plot the schedule.
+        '''
+        
         return plot(self)
