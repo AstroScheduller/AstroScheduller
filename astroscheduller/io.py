@@ -1,4 +1,7 @@
 import json
+import pickle
+
+from sympy import true
 from .utilities import utilities
 from xml.dom import minidom
 
@@ -343,3 +346,39 @@ class schedule_to():
             return open(filename, "w+").write(latex)
 
         return latex
+
+class scheduller_io():
+    def save(self, filename):
+        # Check if filename has .ash extension
+        if(filename[-4:] != ".ash"):
+            filename += ".ash"
+
+        ashSession = {
+            "objects": {
+                "observation": self.objects.observation,
+                "objects": self.objects.objects
+            }, 
+            "schedule": {
+                "observation": self.schedule.observation,
+                "objects": self.schedule.objects
+            }
+        }
+
+        with open(filename, 'wb') as outfile:
+            pickle.dump(ashSession, outfile)
+
+        return filename
+    
+    def load(self, filename):
+        with open(filename, 'rb') as infile:
+            ashSession = pickle.load(infile)
+
+        self.objects.observation = ashSession["objects"]["observation"]
+        self.objects.objects = ashSession["objects"]["objects"]
+        self.schedule.observation = ashSession["schedule"]["observation"]
+        self.schedule.objects = ashSession["schedule"]["objects"]
+
+        return True
+    
+    def open(self, filename):
+        return self.load(filename)

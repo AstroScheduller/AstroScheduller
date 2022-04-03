@@ -3,7 +3,7 @@ from .utilities import utilities
 from .config import config
 from .core import core
 from .stats import schedule_stats
-from .schedule_io import schedule_from, schedule_to
+from .io import schedule_from, schedule_to
 from .schedule_edit import schedule_edit
 from .plot import schedule_plot
 

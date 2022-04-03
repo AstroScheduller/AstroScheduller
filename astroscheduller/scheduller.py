@@ -2,8 +2,9 @@ import copy
 from .stats import scheduller_stats
 from .schedule import schedule
 from .config import config
+from .io import scheduller_io
 
-class scheduller(scheduller_stats):
+class scheduller(scheduller_stats, scheduller_io):
     def __init__(self):
         self.config = config()
         self.objects = schedule()

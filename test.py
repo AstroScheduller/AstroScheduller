@@ -1,16 +1,15 @@
 import astroscheduller as ash
 
-
-###############################
-# Test core functions         #
-###############################
+################################
+# Test core functions          #
+################################
 ash.core().update()
 ash.core().install("/Users/wenky/Documents/GitHub/AstroSchedullerGo/releases_latest/_scheduller_darwin_amd64.so")
+print("🟢 ash.core: OK 👌")
 
-
-###############################
-# Test schObj functions       #
-###############################
+################################
+# Test schObj functions        #
+################################
 s = ash.schedule()
 s.set_duration(begin = 1627110000, end = 1627196340, format = "timestamp")
 s.set_telescope(latitude = 32.7015, longitude = -109.891284, altitude = 3185, velocity = [0.5, 0.6])
@@ -30,20 +29,20 @@ s.add_object(
     weight= "0.2", 
     important= True
 )
+print("🟢 ash.schedule: OK 👌")
 
-
-###############################
-# Test scheduller functions   #
-###############################
+################################
+# Test scheduller functions    #
+################################
 s1 = ash.scheduller()
 s1.objects = s
 s1.get_schedule()
 s1.stats()
+print("🟢 ash.scheduller: OK 👌")
 
-
-###############################
-# Test IO functions           #
-###############################
+################################
+# Test Schedule IO functions   #
+################################
 s4 = ash.scheduller()
 objects = s4.objects
 objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
@@ -57,23 +56,40 @@ schedule.to_csv("./tests/csv_export.csv")
 schedule.to_table("./tests/table_export.txt")
 schedule.to_html("./tests/html_export.html")
 schedule.to_latex("./tests/latex_export.tex")
+print("🟢 Schedule IO: OK 👌")
 
 
-###############################
-# Test stats functions        #
-###############################
+################################
+# Test Scheduller IO functions #
+################################
+s5 = ash.scheduller()
+s5.load(s4.save("./tests/scheduller_session"))
+if(s5.objects.observation == s4.objects.observation and
+   s5.objects.objects == s4.objects.objects and
+   s5.schedule.observation == s4.schedule.observation and
+   s5.schedule.objects == s4.schedule.objects):
+    print("🟢 Scheduller IO: OK 👌")
+else:
+    print("🔴 Scheduller IO: Failed ❌")
+
+
+################################
+# Test stats functions         #
+################################
 s4.stats()
+print("🟢 ash.stats: OK 👌")
 
-###############################
-# Test plot functions         #
-###############################
+################################
+# Test plot functions          #
+################################
 ashPlot = s4.plot()
 ashPlot.show()
 ashPlot.save("./tests/plot_export.pdf")
+print("🟢 ash.plot: OK 👌")
 
-###############################
-# Test edit functions         #
-###############################
+################################
+# Test edit functions          #
+################################
 '''
 print(s4.schedule.to_dict())
 print(s4.schedule.item(identifier = "PSR J1012+5307").move_forward(1))
@@ -104,3 +120,4 @@ s4.schedule.insert(
 )
 print(s4.schedule.to_dict())
 '''
+print("🟢 ash.edit: OK 👌")
