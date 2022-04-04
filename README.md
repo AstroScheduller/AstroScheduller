@@ -7,16 +7,17 @@
 [![](https://img.shields.io/badge/python-3.6+-orange)]()
 [![](https://img.shields.io/badge/golang-1.1+-blue)]()
 
-The AstroScheduller Project is developing a user-friendly Python Package with an algorithm for planning astronomical observations. This project was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroSchedullerPy).
+The AstroScheduller project is developing a user-friendly Python package with an algorithm for planning astronomical observations. This project was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroSchedullerPy).
 
 ## To-do
 
  - [ ] Python Packages ( Now working on... )
- - [ ] Documentations
+ - [ ] Documentations & Wikis
 
 ## Documentations
 
- - 
+ - [AstroScheduller Wiki](https://github.com/xiawenke/AstroScheduller/wiki)
+ - [Appendix: Technical Documentation for AstroSchedullerGo](./docs/app_astroschedullergo_tech.md)
 
 ## License
 
