@@ -2,9 +2,9 @@
 
 # AstroSchedullerGo 0.9.3
 
-[![](https://img.shields.io/badge/许可-MIT-green)](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE)
-[![](https://img.shields.io/badge/当前版本-v0.9.3-informational)](https://github.com/xiawenke/AstroSchedullerGo/releases)
-[![](https://img.shields.io/badge/document%20available%20in-English-orange)](https://github.com/xiawenke/AstroSchedullerGo#readme)
+[![](https://img.shields.io/badge/许可-MIT-green)](https://github.com/xiawenke/AstroScheduller/blob/Dev/LICENSE)
+[![](https://img.shields.io/badge/当前版本-v0.9.3-informational)](https://github.com/xiawenke/AstroScheduller/releases)
+[![](https://img.shields.io/badge/document%20available%20in-English-orange)](./app_astroschedullergo_tech_CHN.md)
 
 AstroScheduller项目尝试设计一种用于生成天文观测纲要的算法，此项目主要用GoLang代码设计。AstroSchedullerGo前身为[AstroScheduller.py](https://github.com/xiawenke/AstroSchedulle)。
 
@@ -65,11 +65,11 @@ AstroScheduller程序的输入是以XML方式编写的观察参数，以下是�
 </scheduller>
 ```
 
-如果你已经有了项目[AstroScheduller.py](https://github.com/xiawenke/AstroScheduller)的 "源表"，该列表可以通过[PyInterface.py](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/PyInterface.py)转换为XML格式的观测参数。
+如果你已经有了项目[AstroScheduller.py](https://github.com/xiawenke/AstroScheduller)的 "源表"，该列表可以通过[PyInterface.py](https://github.com/xiawenke/AstroScheduller/blob/Dev/PyInterface.py)转换为XML格式的观测参数。
 
 ### 生成观测纲要
 
-1. 在准备好观测参数后，从[Releases](https://github.com/xiawenke/AstroSchedullerGo/releases)下载最新预编译的AstroSchedullerGo程序（或从源代码编译）。
+1. 在准备好观测参数后，从[Releases](https://github.com/xiawenke/AstroScheduller/releases)下载最新预编译的AstroSchedullerGo程序（或从源代码编译）。
 
 2. 打开一个新的命令行工具并切换到当前目录。
 
@@ -87,7 +87,7 @@ AstroScheduller程序的输入是以XML方式编写的观察参数，以下是�
 
 ### PyInterface.py 脚本
 
-[PyInterface.py](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/PyInterface.py)是一个带有 "scheduller() "类的Python脚本，可以用来更高效和方便地运行程序。要使用这个脚本，请从[release](https://github.com/xiawenke/AstroSchedullerGo/releases)获得一个最新的预编译的AstroSchedullerGo程序，并将其保存在与脚本相同的目录中。
+[PyInterface.py](https://github.com/xiawenke/AstroScheduller/blob/Dev/PyInterface.py)是一个带有 "scheduller() "类的Python脚本，可以用来更高效和方便地运行程序。要使用这个脚本，请从[release](https://github.com/xiawenke/AstroScheduller/releases)获得一个最新的预编译的AstroSchedullerGo程序，并将其保存在与脚本相同的目录中。
 
 在许多类被声明后，脚本的末尾，可以使用以下命令：
 
@@ -131,11 +131,11 @@ AstroScheduller程序的输入是以XML方式编写的观察参数，以下是�
 
    
 
-在[PyInterface.py](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/PyInterface.py)的末尾有一个实例供参考。
+在[PyInterface.py](https://github.com/xiawenke/AstroScheduller/blob/Dev/PyInterface.py)的末尾有一个实例供参考。
 
 ## 许可
 
-AstroSchedullerGo是在MIT许可下作为一个开放源码项目发布的。更多信息见[LICENSE](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE)。
+AstroSchedullerGo是在MIT许可下作为一个开放源码项目发布的。更多信息见[LICENSE](https://github.com/xiawenke/AstroScheduller/blob/Dev/LICENSE)。
 
 ## 鸣谢
 

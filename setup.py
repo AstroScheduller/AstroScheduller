@@ -12,7 +12,7 @@ setuptools.setup(
     description="AstroScheduller algorithms and packages for planning astronomical observations.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/xiawenke/AstroSchedullerGo",
+    url="https://github.com/xiawenke/AstroScheduller",
     packages=setuptools.find_packages(),
     install_requires=[
         'numpy',
