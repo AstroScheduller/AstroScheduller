@@ -26,5 +26,3 @@ The AstroScheduller Project and AstroSchedullerGo is released as an open source 
 ## Acknowledgement
 
 We are deeply grateful to the researchers and students at the Shanghai Astronomical Observatory of the Chinese Academy of Sciences for their thoughtful discussions and works on testing the algorithm.
-
-
