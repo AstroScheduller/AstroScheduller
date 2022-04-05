@@ -15,7 +15,7 @@ The `Astropy` Package is not required by the AstroScheduller. However, it is hig
 
 ### Using setup.py
 
-**Since the preview version of the AstroScheduller Package is not yet published into the PyPi, setup.py can be used to install the package.** 
+**Since the preview version of the AstroScheduller Package is not yet published into the PyPi, `setup.py` can be used to install the package.** 
 
 Firstly clone the project from the Github before installing AstroScheduller with the setup.py:
 ``` shell
