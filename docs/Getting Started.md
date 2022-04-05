@@ -95,4 +95,6 @@ obsPlan.plot().show()                                        # Plot the schedule
 obsPlan.schedule.to_table("./example.txt")                   # Export the schedule to a table
 ```
 
-In this example, a pre-prepared XML format file is read and automatically planned. In the end, the planning results are presented in three different formats: some stats, a plot, and a table. In addition to importing XML format files, AstroScheduller also supports some more flexible ways of importing objects to be observed -- see other examples or further chapters for more information. 
+In this example, a pre-prepared XML format file is read and automatically planned. In the end, the planning results are presented in three different formats: some stats, a plot, and a table. 
+
+In addition to importing XML format files, AstroScheduller also supports some more flexible ways of importing objects to be observed -- it's much more powerful than this simple demonstration. To go further, please see other examples or later chapters. 
