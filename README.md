@@ -16,13 +16,13 @@ The AstroScheduller project is developing a user-friendly Python package with an
 
 ## Documentations
 
- - [AstroScheduller Wiki](https://github.com/xiawenke/AstroScheduller/wiki)
+ - [Documentations on AstroScheduller Wiki](https://github.com/xiawenke/AstroScheduller/wiki)
  - [Appendix: Technical Documentation for AstroSchedullerGo](./docs/app_astroschedullergo_tech.md)
 
 ## License
 
-The AstroScheduller Project and AstroSchedullerGo is released as an open source project under the MIT license. See [LICENSE](https://github.com/xiawenke/AstroScheduller/blob/Dev/LICENSE) for more information. 
+The AstroScheduller Project and AstroSchedullerGo are released as open source projects under the MIT license. See [LICENSE](https://github.com/xiawenke/AstroScheduller/blob/Dev/LICENSE) for more information. 
 
 ## Acknowledgement
 
-We are deeply grateful to the researchers and students at the Shanghai Astronomical Observatory of the Chinese Academy of Sciences for their thoughtful discussions and works on testing the algorithm.
+We are deeply grateful to the researchers and students at the Shanghai Astronomical Observatory of the Chinese Academy of Sciences for their thoughtful discussions and work on testing the algorithm.
