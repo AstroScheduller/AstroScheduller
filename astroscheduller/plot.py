@@ -106,16 +106,16 @@ class plot():
         Show the plot.
         '''
 
-        thisPlt = plt.gcf()
+        plt.show()
 
-        return thisPlt.show()
+        return True
 
     def save(self, savePath):
         '''
         Save the plot.
         savePath: path to save the plot to.
         '''
-
+        
         return plt.savefig(savePath)
     
     def savefig(self, savePath):
@@ -131,5 +131,5 @@ class schedule_plot():
         '''
         Plot the schedule.
         '''
-        
+
         return plot(self)

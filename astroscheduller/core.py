@@ -46,7 +46,7 @@ class core():
             try:
                 self.coreInfo["config"] = self.coreInfo["config"][self.coreInfo["version"]][self.coreInfo["platform"]]
             except Exception as e:
-                raise Exception("get_core_info", "AstroSchedullerGo no longer support for version", self.coreInfo["version"], self.coreInfo["platform"])
+                raise Exception("get_core_info", "The pre-build version of the AstroScheduller Module is not available for this platform. ", self.coreInfo["version"], self.coreInfo["platform"])
                 
         except Exception as e:
             print(str(e), " -> working without internet connection. ")

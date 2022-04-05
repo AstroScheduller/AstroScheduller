@@ -1,4 +1,5 @@
 import copy
+from sympy import EX
 from .stats import scheduller_stats
 from .schedule import schedule
 from .config import config
