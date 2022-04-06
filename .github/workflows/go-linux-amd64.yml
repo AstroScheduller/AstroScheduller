@@ -23,3 +23,6 @@ jobs:
 
     - name: Build (c-shared)
       run: go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64.so ./*.go
+  
+    - name: Commit
+      run: git commit -m "Update scheduller_linux_amd64"
