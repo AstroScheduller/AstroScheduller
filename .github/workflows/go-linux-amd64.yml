@@ -23,6 +23,20 @@ jobs:
 
     - name: Build (c-shared)
       run: go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64.so ./*.go
-  
-    - name: Commit
-      run: git commit -m "Update scheduller_linux_amd64"
+      
+    - name: Checkout Merge
+      # You may pin to the exact commit or the version.
+      # uses: check-spelling/checkout-merge@95ebaa619c352f0b95071896b6c29df5729598d9
+      uses: check-spelling/checkout-merge@v0.0.0
+      with:
+        # This commit will be refetched (to give the merge the best chance of
+    succceeding) and used as the base for the merge.
+
+        base_ref: # optional, default is ${{ github.event.pull_request.base.sha }}
+        # This commit will be fetched and merged into the base commit.
+
+        head_ref: # optional, default is ${{ github.event.pull_request.head.sha }}
+        # Relative path under $GITHUB_WORKSPACE to the repository
+        path: # optional, default is .
+        # Suppress reporting errors (consumers would report the message themselves)
+        do_not_report: # optional, default is 
