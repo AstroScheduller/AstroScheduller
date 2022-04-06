@@ -1,0 +1,39 @@
+name: Go
+
+on:
+  push:
+    branches: [ Dev ]
+  pull_request:
+    branches: [ Dev ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.17
+
+    - name: Build
+      run: go build -o ./releases_latest/scheduller_linux_amd64 ./*.go
+
+    - name: Build (c-shared)
+      run: go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64.so ./*.go
+      
+    - name: Simple commit
+      # You may pin to the exact commit or the version.
+      # uses: zwaldowski/git-commit-action@66730766679672410dc04830ae6389f4376c8c94
+      uses: zwaldowski/git-commit-action@v1
+      with:
+        # Directory to create commit in
+        working_directory: ./ # optional, default is .
+        # Commit message
+        commit_message: Update scheduller_linux-amd64 # default is Automated commit
+        # Name to use for commit author
+        author_name: Github Actions # optional, default is GitHub Actions
+        # Email to use for commit author
+        author_email: actions@github.com # optional, default is actions@github.com
