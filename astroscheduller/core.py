@@ -6,7 +6,6 @@ import requests
 import ctypes
 import shutil
 
-from sympy import im
 from .utilities import utilities
 from .config import config
 

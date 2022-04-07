@@ -151,7 +151,7 @@ echo
 # Build AstroSchedullerGo Module
 echo "Building AstroSchedullerGo Module..."
 echo "=========================="
-go build -o ./_scheduller.so ./*.go
+go build -buildmode=c-shared -o ./_scheduller.so ./*.go
 echo "=========================="
 echo "Finished."
 
