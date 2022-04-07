@@ -27,6 +27,9 @@ class core():
             "corePath": self.c.corePath,
             "configPath": self.c.coreConfigPath
         }
+
+        # Update Core Config
+        core().get_core_info()
     
     def get_core_info(self):
         '''
