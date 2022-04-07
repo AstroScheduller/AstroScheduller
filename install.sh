@@ -56,6 +56,24 @@ echo
 
 # Check if Python is installed
 if [ -z "$PYTHON_EXE" ]; then
+
+    echo "Installing Anaconda..."
+    echo ""
+    echo "==================== INSTRUCTIONS ===================="
+    echo "1. Press ENTER when Anaconda Installer asks following: "
+    echo "> Anaconda3 will now be installed into this location:"
+    echo "> /root/anaconda3"
+    echo ""
+    echo "2. Type 'yes' when Anaconda Installer asks following: "
+    echo "> Do you wish the installer to initialize Anaconda3 "
+    echo "> in your /root/.bashrc ? [yes|no]"
+    echo "======================================================="
+    echo ""
+
+    # Press enter to continue
+    echo "Press ENTER to continue install Anaconda..."
+    read answer
+
   # If platform is Mac OS X
     if [ "$(uname)" = "Darwin" ]; then
         # Install Anaconda - MacOS

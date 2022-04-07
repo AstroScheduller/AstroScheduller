@@ -26,12 +26,6 @@ class core():
             "corePath": self.c.corePath,
             "configPath": self.c.coreConfigPath
         }
-        
-        # Update Core Config
-        self.get_core_info()
-        
-        # Check if the AstroScheduller Core File is Valid
-        self.check_integrity()
     
     def get_core_info(self):
         '''
@@ -164,8 +158,16 @@ class core():
                 print("Installing AstroSchedullerGo Module from internet... Done.")
             else:
                 raise Exception("install", "failed to download.")
-        elif(self.u.is_filename(filename)):
+        else:
+            filename = os.path.abspath(filename)
+
             try:
+                if(not os.path.isfile(filename)):
+                    raise Exception("install", "file does not exists.")
+
+                if(os.path.isfile(self.coreInfo["corePath"])):
+                    os.remove(self.coreInfo["corePath"])
+                
                 shutil.copyfile(filename, self.coreInfo["corePath"])
                 print("Installing AstroSchedullerGo Module from local file... Done.")
             except IOError as e:
