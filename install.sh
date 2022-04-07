@@ -98,6 +98,7 @@ fi
 
 echo
 
+: '
 # Check if Python is installed
 if [ -z "$PYTHON_EXE" ]; then
   # If platform is Mac OS X
@@ -124,6 +125,7 @@ if [ -z "$PYTHON_EXE" ]; then
         echo "Finished."
     fi
 fi
+'
 
 echo
 
