@@ -54,8 +54,8 @@ fi
 
 echo
 
-# Check if Anaconda is installed
-if [ -z "$CONDA_EXE" ]; then
+# Check if Python is installed
+if [ -z "$PYTHON_EXE" ]; then
   # If platform is Mac OS X
     if [ "$(uname)" = "Darwin" ]; then
         # Install Anaconda - MacOS
@@ -132,7 +132,17 @@ echo
 # Install Python Package in ./setup.py
 echo "Installing AstroScheduller Package..."
 echo "=========================="
-python setup.py install
+# Check if pip is installed
+if [ -z "$(which pip)" ]; then
+    # Check if sudo is installed
+    if [ -z "$(which sudo)" ]; then
+        apt-get install -y python-pip
+    else
+        sudo apt-get install -y python-pip
+    fi
+fi
+# Install AstroScheduler
+pip install ./
 echo "=========================="
 echo "Finished."
 
