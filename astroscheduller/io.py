@@ -1,7 +1,6 @@
 import json
 import pickle
 
-from sympy import true
 from .utilities import utilities
 from xml.dom import minidom
 

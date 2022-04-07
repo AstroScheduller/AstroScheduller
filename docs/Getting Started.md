@@ -10,7 +10,7 @@ There are several python packages are required to run the AstroScheduller are li
  - matplotlib
  - requests
 
-The `Astropy` Package is not required by the AstroScheduller. However, it is highly recommended to have it once, since several AstroScheduller functions are compatible with Astropy objects (such as coordinates and time objects). 
+The `Astropy` Package is not required by the AstroScheduller. However, it is highly recommended, since several AstroScheduller functions are compatible with Astropy objects (such as coordinates and time objects). 
 
 
 ### Using setup.py
