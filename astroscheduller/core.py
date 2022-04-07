@@ -30,6 +30,9 @@ class core():
 
         # Update Core Config
         core().get_core_info()
+
+        # Check if the AstroScheduller Core File is Valid
+        core().check_integrity()
     
     def get_core_info(self):
         '''
