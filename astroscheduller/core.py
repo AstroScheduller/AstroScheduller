@@ -82,6 +82,23 @@ class core():
         
         print("Downloading AstroSchedullerGo Module... Done.")
         return True
+
+    def check_validaity(self, path = False):
+        '''
+        Check if the AstroScheduller Core File is Valid
+
+        Return: True if passed; False if failed
+        '''
+
+        if(path == False):
+            path = self.coreInfo["corePath"]
+
+        try:
+            ctypes.cdll.LoadLibrary(path)
+        except Exception as e:
+            return False
+
+        return True
     
     def check_integrity(self):
         '''
@@ -144,16 +161,20 @@ class core():
             
         if(self.u.is_url(filename)):
             if(self.download_core(url = filename)):
-                return True
+                print("Installing AstroSchedullerGo Module from internet... Done.")
             else:
                 raise Exception("install", "failed to download.")
         elif(self.u.is_filename(filename)):
             try:
                 shutil.copyfile(filename, self.coreInfo["corePath"])
                 print("Installing AstroSchedullerGo Module from local file... Done.")
-                return True
             except IOError as e:
                 raise Exception("install", "failed to copy.")
+        
+        if(self.check_validaity()):
+            return True
+        else:
+            raise Exception("install", "AstroSchedullerGo Module is invalid.")
         
     def go_schedule(self, importPath, exportPath):
         '''
