@@ -1,6 +1,7 @@
 # go build -buildmode=c-shared -o _scheduller.so *.go
 
 import os
+import time
 import json
 import requests
 import ctypes
@@ -60,6 +61,9 @@ class core():
 
         Return: True if success
         '''
+
+        print("The AstroSchedullerGo Module will be downloaded. Press Ctrl+C to cancel.")
+        time.sleep(3)
 
         if(url == False):
             url = self.coreInfo["config"]["url"]
