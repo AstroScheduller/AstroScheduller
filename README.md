@@ -11,7 +11,7 @@ The AstroScheduller project is developing a user-friendly Python package with an
 
 ## To-do
 
- - [ ] Python Packages ( Now working on... )
+ - [ ] Known Issue: ctypes: invalid ELF header
  - [ ] Documentations & Wikis
 
 ## Documentations
