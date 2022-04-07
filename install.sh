@@ -55,7 +55,7 @@ fi
 echo
 
 # Check if Python is installed
-if [ -z "$PYTHON_EXE" ]; then
+if [ -z "$python" ]; then
 
     echo "Installing Anaconda..."
     echo ""
