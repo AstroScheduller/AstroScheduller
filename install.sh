@@ -160,7 +160,8 @@ echo
 # Install AstroSchedullerGo Module
 echo "Installing AstroSchedullerGo Module..."
 echo "=========================="
-python -c 'import astroscheduller as ash; ash.core().install("_scheduller.so")'
+cd ../AstroScheduller
+python -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
 echo "=========================="
 echo "Finished."
 
