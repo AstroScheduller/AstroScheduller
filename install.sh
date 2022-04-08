@@ -58,7 +58,7 @@ echo
 
 # Check if Python is installed
 echo "Installing Anaconda..."
-if [ -z "$python" ]; then
+if [ -z "$python3" ]; then
     echo "Python is installed. Skipped."
 else
     echo ""
@@ -127,9 +127,9 @@ echo "Installing AstroScheduller Package..."
 echo "=========================="
 
 if [ -z "$(which sudo)" ]; then
-    sudo apt-get install -y python-pip
+    sudo apt-get install -y python3-pip
 else
-    apt-get install -y python-pip   
+    apt-get install -y python3-pip
 fi
 
 # Install AstroScheduler
