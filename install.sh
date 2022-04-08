@@ -25,33 +25,27 @@ fi
 
 echo
 
-# Check if Go is installed
-if [ -z "$GOPATH" ]; then
-    echo "Go encironment is detected. Skipped."
-else
-  # If platform is Mac OS X
-    if [ "$(uname)" = "Darwin" ]; then
-        # Install Go - MacOS
-        echo "Installing Go..."
-        echo "=========================="
-        brew install go
-        echo "=========================="
-        echo "Finished."
+echo "Installing Go..."
+# If platform is Mac OS X
+if [ "$(uname)" = "Darwin" ]; then
+    # Install Go - MacOS
+    echo "=========================="
+    brew install go
+    echo "=========================="
+    echo "Finished."
+fi
+# If platform is Linux
+if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+    # Install Go - Linux
+    echo "=========================="
+    # Check if sudo is installed
+    if [ -z "$(which sudo)" ]; then
+        sudo apt-get install -y golang
+    else
+        apt-get install -y golang
     fi
-  # If platform is Linux
-    if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-        # Install Go - Linux
-        echo "Installing Go..."
-        echo "=========================="
-        # Check if sudo is installed
-        if [ -z "$(which sudo)" ]; then
-            sudo apt-get install -y golang
-        else
-            apt-get install -y golang
-        fi
-        echo "=========================="
-        echo "Finished."
-    fi
+    echo "=========================="
+    echo "Finished."
 fi
 
 echo
