@@ -64,7 +64,6 @@ fi
 echo "Installing Anaconda..."
 if [ -z "$python" ]; then
     echo "Python is installed. Skipped."
-fi
 else
     echo ""
     echo "==================== INSTRUCTIONS ===================="
