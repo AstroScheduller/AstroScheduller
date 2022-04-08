@@ -18,7 +18,7 @@ Demo on Google Colab: [Examples](https://colab.research.google.com/drive/1pnGP9p
 
 ## Documentations
 
- - [Documentations on AstroScheduller Wiki](https://github.com/xiawenke/AstroScheduller/wiki)
+ - [AstroScheduller Tutorial & Documentations on Github Wiki](https://github.com/xiawenke/AstroScheduller/wiki)
  - [Appendix: Technical Documentation for AstroSchedullerGo](./docs/app_astroschedullergo_tech.md)
 
 ## License
