@@ -9,6 +9,8 @@
 
 The AstroScheduller project is developing a user-friendly Python package with an algorithm for planning astronomical observations. This project was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroSchedullerPy).
 
+Demo on Google Colab: [Example](https://colab.research.google.com/drive/1pnGP9p53ELxzyRdV7aMAa21Q0RGHIbaM?usp=sharing)
+
 ## To-do
 
  - [ ] Known Issue: ctypes: invalid ELF header
