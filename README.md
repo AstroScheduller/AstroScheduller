@@ -13,8 +13,8 @@ Demo on Google Colab: [Examples](https://colab.research.google.com/drive/1pnGP9p
 
 ## To-do
 
- - [ ] Known Issue: ctypes: invalid ELF header
  - [ ] Documentations & Wikis
+ - [ ] A User-friendly GUI
 
 ## Documentations
 
