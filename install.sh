@@ -45,9 +45,9 @@ else
         echo "=========================="
         # Check if sudo is installed
         if [ -z "$(which sudo)" ]; then
-            apt-get install -y golang
-        else
             sudo apt-get install -y golang
+        else
+            apt-get install -y golang
         fi
         echo "=========================="
         echo "Finished."
@@ -103,9 +103,9 @@ else
         else
             # Check if sudo is installed
             if [ -z "$(which sudo)" ]; then
-                apt-get install -y wget
-            else
                 sudo apt-get install -y wget
+            else
+                apt-get install -y wget
             fi
         fi
 
@@ -122,51 +122,16 @@ fi
 
 echo
 
-: '
-# Check if Python is installed
-if [ -z "$PYTHON_EXE" ]; then
-  # If platform is Mac OS X
-    if [ "$(uname)" = "Darwin" ]; then
-        # Install Python - MacOS
-        echo "Installing Python..."
-        echo "=========================="
-        brew install python
-        echo "=========================="
-        echo "Finished."
-    fi
-  # If platform is Linux
-    if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-        # Install Python - Linux
-        echo "Installing Python..."
-        echo "=========================="
-        # Check if sudo is installed
-        if [ -z "$(which sudo)" ]; then
-            apt-get install -y python
-        else
-            sudo apt-get install -y python
-        fi
-        echo "=========================="
-        echo "Finished."
-    fi
-fi
-'
-
-echo
-
 # Install Python Package in ./setup.py
 echo "Installing AstroScheduller Package..."
 echo "=========================="
-# Check if pip is installed
-if [ -z "$(which pip)" ]; then
-    echo "pip in detected. Skipped."
+
+if [ -z "$(which sudo)" ]; then
+    sudo apt-get install -y python-pip
 else
-    # Check if sudo is installed
-    if [ -z "$(which sudo)" ]; then
-        apt-get install -y python-pip
-    else
-        sudo apt-get install -y python-pip
-    fi
+    apt-get install -y python-pip   
 fi
+
 # Install AstroScheduler
 pip install ./
 echo "=========================="
