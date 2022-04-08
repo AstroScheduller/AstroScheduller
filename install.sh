@@ -56,10 +56,6 @@ fi
 
 echo
 
-if [ -z "$python" ]; then
-echo "yes"
-fi
-
 # Check if Python is installed
 echo "Installing Anaconda..."
 if [ -z "$python" ]; then
@@ -86,7 +82,8 @@ else
         # Install Anaconda - MacOS
         echo "Installing Anaconda..."
         echo "=========================="
-        brew install anaconda
+        wget https://repo.anaconda.com/archive/Anaconda3-2021.11-MacOSX-x86_64.pkg
+        bash Anaconda3-2021.11-MacOSX-x86_64.pkg
 
         # Set Anaconda path
         export PATH="~/opt/anaconda3/bin:$PATH"
@@ -101,7 +98,9 @@ else
         echo "=========================="
 
         # Check if wget is installed
-        if [ -z "$(which wget)" ]; then
+        if [ -z "$(wget)" ]; then
+            echo "wget is detected. Skipped."
+        else
             # Check if sudo is installed
             if [ -z "$(which sudo)" ]; then
                 apt-get install -y wget
@@ -110,7 +109,7 @@ else
             fi
         fi
 
-        wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Linux-x86_64.sh
+        wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
         bash Anaconda3-5.3.1-Linux-x86_64.sh
 
         # Set Anaconda path
@@ -159,6 +158,8 @@ echo "Installing AstroScheduller Package..."
 echo "=========================="
 # Check if pip is installed
 if [ -z "$(which pip)" ]; then
+    echo "pip in detected. Skipped."
+else
     # Check if sudo is installed
     if [ -z "$(which sudo)" ]; then
         apt-get install -y python-pip
