@@ -134,6 +134,7 @@ fi
 
 # Install AstroScheduler
 pip install ./
+pip3 install ./
 echo "=========================="
 echo "Finished."
 
@@ -153,6 +154,7 @@ echo "Installing AstroSchedullerGo Module..."
 echo "=========================="
 cd ../
 python -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
+python3 -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
 echo "=========================="
 echo "Finished."
 
