@@ -27,6 +27,8 @@ echo
 
 # Check if Go is installed
 if [ -z "$GOPATH" ]; then
+    echo "Go encironment is detected. Skipped."
+else
   # If platform is Mac OS X
     if [ "$(uname)" = "Darwin" ]; then
         # Install Go - MacOS
@@ -54,10 +56,16 @@ fi
 
 echo
 
-# Check if Python is installed
 if [ -z "$python" ]; then
+echo "yes"
+fi
 
-    echo "Installing Anaconda..."
+# Check if Python is installed
+echo "Installing Anaconda..."
+if [ -z "$python" ]; then
+    echo "Python is installed. Skipped."
+fi
+else
     echo ""
     echo "==================== INSTRUCTIONS ===================="
     echo "1. Press ENTER when Anaconda Installer asks following: "
@@ -178,7 +186,7 @@ echo
 # Install AstroSchedullerGo Module
 echo "Installing AstroSchedullerGo Module..."
 echo "=========================="
-cd ../AstroScheduller
+cd ../
 python -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
 echo "=========================="
 echo "Finished."
