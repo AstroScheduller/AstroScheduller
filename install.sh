@@ -16,12 +16,10 @@ echo "  - Anaconda"
 echo "  - Python"
 echo "  - AstroScheduler"
 echo "  - AstroScheduler Go Module"
-echo "Do you want to continue? (y/n)"
-read answer
-if [ "$answer" != "y" ]; then
-    echo "Exiting..."
-    exit
-fi
+echo "Press ctrl+c to exit to continue."
+
+# Wait 3 seconds
+sleep 3
 
 echo
 
