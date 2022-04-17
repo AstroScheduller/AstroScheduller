@@ -14,7 +14,7 @@ Demo on Google Colab:
 
 ## To-do
 
-See [todo.md](./docs/todo.md)
+See [todo.md](./docs/todo.md). 
 
 ## Documentations
 
