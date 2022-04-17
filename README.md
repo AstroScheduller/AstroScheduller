@@ -14,8 +14,7 @@ Demo on Google Colab:
 
 ## To-do
 
- - [ ] Documentations & Wikis
- - [ ] A User-friendly GUI
+See [todo.md](./docs/todo.md)
 
 ## Documentations
 
