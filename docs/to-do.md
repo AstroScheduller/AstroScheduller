@@ -1,0 +1,4 @@
+ - [ ] Compatible with Astropy
+  - [ ] Add Objects 
+ - [ ] Documentations & Wikis
+ - [ ] A User-friendly GUI
