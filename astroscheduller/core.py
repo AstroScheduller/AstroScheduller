@@ -51,7 +51,7 @@ class core():
             if(os.path.isfile(self.coreInfo["configPath"])):
                 self.coreInfo["config"] = json.loads(open(self.coreInfo["configPath"]).read())
             else:
-                raise Exception("get_core_info", "Need internet to initialize. (If you are working offline, see https://github.com/xiawenke/AstroScheduller for more information.)")
+                raise Exception("get_core_info", "Need internet to initialize. (If you are working offline, see https://github.com/AstroScheduller/AstroScheduller for more information.)")
         
         open(self.coreInfo["configPath"], "w+").write(json.dumps(self.coreInfo["config"]))
         
@@ -79,7 +79,7 @@ class core():
             with open(self.coreInfo["corePath"], 'wb') as f:
                 f.write(req.content)
         except Exception as e:
-            raise Exception(str(e), "AstroSchedullerGo Module does not exists. Try again after check the internet connection. (If you are working offline, see https://github.com/xiawenke/AstroScheduller for more information.)")
+            raise Exception(str(e), "AstroSchedullerGo Module does not exists. Try again after check the internet connection. (If you are working offline, see https://github.com/AstroScheduller/AstroScheduller for more information.)")
         
         print("Downloading AstroSchedullerGo Module... Done.")
         return True

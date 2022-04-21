@@ -19,7 +19,7 @@ The `Astropy` Package is not required by the AstroScheduller. However, it is hig
 
 Firstly clone the project from the Github before installing AstroScheduller with the setup.py:
 ``` shell
-git clone https://github.com/xiawenke/AstroScheduller.git
+git clone https://github.com/AstroScheduller/AstroScheduller.git
 ```
 
 Switch to the `AstroScheduller` directory:

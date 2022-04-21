@@ -2,12 +2,12 @@
 
 # AstroScheduller 0.9.3
 
-[![](https://img.shields.io/badge/license-MIT-green)](https://github.com/xiawenke/AstroScheduller/blob/Dev/LICENSE)
-[![](https://img.shields.io/badge/release-v0.9.3-informational)](https://github.com/xiawenke/AstroScheduller/releases)
+[![](https://img.shields.io/badge/license-MIT-green)](https://github.com/AstroScheduller/AstroScheduller/blob/Dev/LICENSE)
+[![](https://img.shields.io/badge/release-v0.9.3-informational)](https://github.com/AstroScheduller/AstroScheduller/releases)
 [![](https://img.shields.io/badge/python-3.6+-orange)]()
-[![CodeQL](https://github.com/xiawenke/AstroScheduller/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/xiawenke/AstroScheduller/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/AstroScheduller/AstroScheduller/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/AstroScheduller/AstroScheduller/actions/workflows/codeql-analysis.yml)
 
-The AstroScheduller project is developing a user-friendly Python package with an algorithm for planning astronomical observations. This project was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroSchedullerPy).
+The AstroScheduller project is developing a user-friendly Python package with an algorithm for planning astronomical observations. This project was taken from a previous project [AstroScheduller.py](https://github.com/AstroScheduller/AstroSchedullerPy).
 
 Demo on Google Colab: 
  - [Introduction to AstroScheduller](https://colab.research.google.com/drive/1pnGP9p53ELxzyRdV7aMAa21Q0RGHIbaM?usp=sharing)
@@ -18,12 +18,12 @@ See [todo.md](./docs/todo.md).
 
 ## Documentations
 
- - [AstroScheduller Tutorial & Documentations on Github Wiki](https://github.com/xiawenke/AstroScheduller/wiki)
+ - [AstroScheduller Tutorial & Documentations on Github Wiki](https://github.com/AstroScheduller/AstroScheduller/wiki)
  - [Appendix: Technical Documentation for AstroSchedullerGo](./docs/app_astroschedullergo_tech.md)
 
 ## License
 
-The AstroScheduller Project and AstroSchedullerGo are released as open source projects under the MIT license. See [LICENSE](https://github.com/xiawenke/AstroScheduller/blob/Dev/LICENSE) for more information. 
+The AstroScheduller Project and AstroSchedullerGo are released as open source projects under the MIT license. See [LICENSE](https://github.com/AstroScheduller/AstroScheduller/blob/Dev/LICENSE) for more information. 
 
 ## Acknowledgement
 

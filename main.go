@@ -83,7 +83,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("=================")
 	fmt.Println("The schedule has been successfully generated. (v" + VERSION + " Dev.)")
-	fmt.Println("AstroSchedullerGo is released as an open source project under the MIT license. See https://github.com/xiawenke/AstroScheduller for more information.")
+	fmt.Println("AstroSchedullerGo is released as an open source project under the MIT license. See https://github.com/AstroScheduller/AstroScheduller for more information.")
 	fmt.Println("")
 }
 

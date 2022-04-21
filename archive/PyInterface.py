@@ -230,7 +230,7 @@ class scheduller_core_controller():
             try:
                 selectedCore = searchedCores[0]
             except Exception as e:
-                print("No core found... See https://github.com/xiawenke/AstroScheduller for documentation.")
+                print("No core found... See https://github.com/AstroScheduller/AstroScheduller for documentation.")
                 print("Note: The file name of the core should begin with \"AstroSchedullerGo\". E.g.: AstroSchedullerGo_v0_9_1_dev_MacOSX")
                 exit()
                 

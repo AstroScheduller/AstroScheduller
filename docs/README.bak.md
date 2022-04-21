@@ -59,11 +59,11 @@ The input of the AstroScheduller Program are observation parameters written in X
 </scheduller>
 ```
 
-If you already have a "Source List" for project [AstroScheduller.py](https://github.com/xiawenke/AstroScheduller), the list can be converted to the XML style observation parameters by [PyInterface.py](https://github.com/xiawenke/AstroScheduller/blob/Dev/PyInterface.py). 
+If you already have a "Source List" for project [AstroScheduller.py](https://github.com/AstroScheduller/AstroScheduller), the list can be converted to the XML style observation parameters by [PyInterface.py](https://github.com/AstroScheduller/AstroScheduller/blob/Dev/PyInterface.py). 
 
 ### Generate Observation Plans
 
-1. Get a latest pre-built AstroSchedullerGo Program (or build a version based on the source code) from [releases](https://github.com/xiawenke/AstroSchedullerGo/releases) after preparing a nice observation parameters. 
+1. Get a latest pre-built AstroSchedullerGo Program (or build a version based on the source code) from [releases](https://github.com/AstroScheduller/AstroSchedullerGo/releases) after preparing a nice observation parameters. 
 
 2. Open a new command line tools and switch to the current directory.
 
@@ -81,7 +81,7 @@ If you already have a "Source List" for project [AstroScheduller.py](https://git
 
 ### PyInterface.py
 
-[PyInterface.py](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/PyInterface.py) is a python script with class "scheduller()" can be used to run the program in a neat way. To use the script, Get a latest pre-built AstroSchedullerGo Program from [releases](https://github.com/xiawenke/AstroSchedullerGo/releases) and save it in the same directory as the script. 
+[PyInterface.py](https://github.com/AstroScheduller/AstroSchedullerGo/blob/Dev/PyInterface.py) is a python script with class "scheduller()" can be used to run the program in a neat way. To use the script, Get a latest pre-built AstroSchedullerGo Program from [releases](https://github.com/AstroScheduller/AstroSchedullerGo/releases) and save it in the same directory as the script. 
 
 There are some scripts can be added after the declared class as below. 
 
@@ -97,7 +97,7 @@ There are some scripts can be added after the declared class as below.
    schedullerHandle.load_from_xml("./tests/psr_list_debug.xml")
    ```
 
-   or, a "Source List" from project [AstroScheduller.py](https://github.com/xiawenke/AstroScheduller) can be also imported (or converted):
+   or, a "Source List" from project [AstroScheduller.py](https://github.com/AstroScheduller/AstroScheduller) can be also imported (or converted):
 
    ```python
    schedullerHandle.load_from_json("./tests/psr_list_debug.json")
@@ -125,14 +125,14 @@ There are some scripts can be added after the declared class as below.
 
    
 
-There is an exmple available at the end of the [PyInterface.py](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/PyInterface.py). 
+There is an exmple available at the end of the [PyInterface.py](https://github.com/AstroScheduller/AstroSchedullerGo/blob/Dev/PyInterface.py). 
 
 ## License
 
-AstroSchedullerGo is released as an open source project under the MIT license. See [LICENSE](https://github.com/xiawenke/AstroSchedullerGo/blob/Dev/LICENSE) for more information. 
+AstroSchedullerGo is released as an open source project under the MIT license. See [LICENSE](https://github.com/AstroScheduller/AstroSchedullerGo/blob/Dev/LICENSE) for more information. 
 
 ## Acknowledgement
 
 We are deeply grateful to the researchers and students at the Shanghai Astronomical Observatory of the Chinese Academy of Sciences for their thoughtful discussions and works on testing the algorithm.
 
-AstroSchedullerGo was taken from a previous project [AstroScheduller.py](https://github.com/xiawenke/AstroScheduller).
+AstroSchedullerGo was taken from a previous project [AstroScheduller.py](https://github.com/AstroScheduller/AstroScheduller).
