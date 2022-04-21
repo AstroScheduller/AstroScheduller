@@ -4,7 +4,7 @@ import astroscheduller as ash
 # Test core functions          #
 ################################
 ash.core().update()
-coreToInstall = "/Users/wenky/Documents/GitHub/AstroSchedullerGo/releases_latest/_scheduller_darwin_amd64.so"
+coreToInstall = "/Users/wenky/Documents/GitHub/AstroScheduller/releases_latest/_scheduller_darwin_amd64.so"
 ash.core().install(coreToInstall)
 
 if(open(coreToInstall, "rb").read() == open(ash.core().coreInfo["corePath"], "rb").read()):
