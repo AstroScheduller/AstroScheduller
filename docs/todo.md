@@ -42,7 +42,7 @@
 
 
 
-### Type II Todo (w/o steps in detail & to be discussed)
+### Type II Todo (w/o steps in detail & to bo discussed)
 
  - [ ] Optimize sch.set_xxx() functions. Instead of always update all parameters, users can use the function to update one of parameter, such that: 
 
@@ -60,6 +60,14 @@
    sch.update.elevation(minimal = 20)
    sch.update.elevation(minimal = 30)
    ```
+
+ - [ ] Escape from Moon and other celestial objects. Set the default value of those objects as their angular size instead of 0. 
+
+   ```python
+   sch.set_escape(sun = 5, moon = 2)
+   ```
+
+   
 
  - [ ] Pre-built versions of AstroSchedullerGo Module for more platforms. 
 
