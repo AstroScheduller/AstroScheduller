@@ -23,6 +23,15 @@ sleep 3
 
 echo
 
+# If platform is MacOSX
+if [ "$(uname)" = "Darwin" ]; then
+    # Check if brew is installed
+    if [ ! -f /usr/local/bin/brew ]; then
+        echo "Installing Homebrew..."
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+fi
+
 echo "Installing Go..."
 # If platform is Mac OS X
 if [ "$(uname)" = "Darwin" ]; then
