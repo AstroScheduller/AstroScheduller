@@ -27,7 +27,7 @@ echo
 if [ "$(uname)" = "Darwin" ]; then
     # Check if brew is installed
     if [ ! -f /usr/local/bin/brew ]; then
-        echo "Installing Homebrew..."
+        echo "Installing Homebrew... "
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 fi
