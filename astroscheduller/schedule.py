@@ -79,6 +79,24 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
             }
         }
 
+    def __call__(self):
+        '''
+        Get the schedule.
+
+        return: The schedule.
+        '''
+
+        return self.to_dict()
+    
+    def __str__(self):
+        '''
+        Get the schedule as string.
+
+        return: The schedule as string.
+        '''
+
+        return self.to_table()
+
     def set_duration(self, begin, end, format = "timestamp"):
         '''
         Set the duration of the observation. 
