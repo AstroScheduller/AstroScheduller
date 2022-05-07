@@ -18,7 +18,7 @@ See [todo.md](./docs/todo.md).
 
 ## Documentations
 
- - [AstroScheduller Tutorial & Documentations on Github Wiki](https://github.com/AstroScheduller/AstroScheduller/wiki)
+ - [AstroScheduller Documentation Homepage](https://astroscheduller.github.io/)
  - [Appendix: Technical Documentation for AstroSchedullerGo](./docs/app_astroschedullergo_tech.md)
 
 ## License
