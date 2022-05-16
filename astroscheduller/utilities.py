@@ -100,6 +100,15 @@ class device():
             return "unknown_arch"
 
 class utilities():
+    def package_dir(self):
+        '''
+        Get the directory of the package.
+        
+        return: The directory.
+        '''
+        
+        return self.get_dir(__file__)
+        
     def get_dir(self, filename):
         '''
         Get the directory of a file.

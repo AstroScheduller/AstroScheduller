@@ -2,6 +2,7 @@ from .scheduller import *
 from .schedule import *
 from .core import *
 from .config import *
+from .utilities import *
 from .example import example
 
 # Clean up old temporary files.
