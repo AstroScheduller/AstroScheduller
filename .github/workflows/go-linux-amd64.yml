@@ -1,4 +1,4 @@
-name: CI
+name: scheduller_linux_amd64
 
 # Controls when the workflow will run
 on:
