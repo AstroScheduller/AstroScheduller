@@ -37,3 +37,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: Dev
           
+      - name: test
+        run: ./build.sh
