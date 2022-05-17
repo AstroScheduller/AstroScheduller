@@ -28,9 +28,8 @@ jobs:
       
       - name: Build Go Module
         run: |
-          go build -o ./releases_latest/scheduller_windows_amd64 ./*.go
-          go build -buildmode=c-shared -o ./releases_latest/_scheduller_windows_amd64.dll ./*.go
-          ls ./releases_latest
+          go build -o ./releases_latest/scheduller_windows_amd64
+          go build -buildmode=c-shared -o ./releases_latest/_scheduller_windows_amd64.dll
       
       - name: Push changes
         # You may pin to the exact commit or the version.
