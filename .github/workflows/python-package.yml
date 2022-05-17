@@ -37,7 +37,7 @@ jobs:
         uses: pypa/gh-action-pypi-publish@v1.5.0
         with:
           # PyPI user
-          # user: xiawenke # optional, default is __token__
+          user: __token__
           # Password for your PyPI user or an access token
           password: pypi-AgEIcHlwaS5vcmcCJDk1MmQ3Zjc4LTE0MGQtNDdjOS1hYzYyLWUzZDEzMTA2ZTBiOAACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgc2GrBH5Bvuny2qV31R2kyn_oDbIVRQE0DhvCe_rGunc
           # The repository URL to use
