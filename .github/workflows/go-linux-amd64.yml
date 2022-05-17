@@ -40,6 +40,6 @@ jobs:
           # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
           github_token: $\{{ secrets.GITHUB_TOKEN }}
           # Destination branch to push changes
-          branch: Dev # optional, default is master
+          branch: Dev-test # optional, default is master
           
           
