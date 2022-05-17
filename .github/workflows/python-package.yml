@@ -1,1 +1,46 @@
+name: python_package
 
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  # push:
+  #   branches: [ Dev ]
+  # pull_request:
+  #   branches: [ Dev ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+          
+      - name: Setup Python
+        uses: actions/setup-python@v3.1.2
+        
+      - name: Build Package
+        run: python setup.py bdist_wheel
+      
+      - name: pypi-publish
+        # You may pin to the exact commit or the version.
+        # uses: pypa/gh-action-pypi-publish@717ba43cfbb0387f6ce311b169a825772f54d295
+        uses: pypa/gh-action-pypi-publish@v1.5.0
+        with:
+          # PyPI user
+          user: xiawenke # optional, default is __token__
+          # Password for your PyPI user or an access token
+          password: pypi-AgEIcHlwaS5vcmcCJDk1MmQ3Zjc4LTE0MGQtNDdjOS1hYzYyLWUzZDEzMTA2ZTBiOAACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgc2GrBH5Bvuny2qV31R2kyn_oDbIVRQE0DhvCe_rGunc
+          # The repository URL to use
+          repository_url: https://github.com/AstroScheduller/AstroScheduller # optional
+          # The target directory for distribution
+          packages_dir: dist # optional, default is dist
+          
+          
