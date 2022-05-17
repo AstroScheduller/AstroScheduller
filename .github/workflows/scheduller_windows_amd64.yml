@@ -1,0 +1,42 @@
+name: scheduller_windows_amd64
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ Dev ]
+  pull_request:
+    branches: [ Dev ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+          
+      - name: Setup Go environment
+        uses: actions/setup-go@v3.1.0
+      
+      - name: Build Go Module
+        run: |
+          go env -w GO111MODULE=off
+          go build -o ./releases_latest/scheduller_windows_amd64.exe
+          go build -buildmode=c-shared -o ./releases_latest/_scheduller_windows_amd64.dll
+      
+      - name: push
+        run: |
+          git config --global user.email "actions-go@users.noreply.github.com"
+          git config --global user.name "Github Actions"
+          git add .
+          git commit -m "Build windows_amd64"
+          git push
+          

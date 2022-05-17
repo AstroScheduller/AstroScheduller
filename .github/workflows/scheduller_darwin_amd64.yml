@@ -1,4 +1,4 @@
-name: scheduller_linux_amd64
+name: scheduller_darwin_amd64
 
 # Controls when the workflow will run
 on:
@@ -16,7 +16,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,8 +28,8 @@ jobs:
       
       - name: Build Go Module
         run: |
-          go build -o ./releases_latest/scheduller_linux_amd64 ./*.go
-          go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64.so ./*.go
+          go build -o ./releases_latest/scheduller_darwin_amd64 ./*.go
+          go build -buildmode=c-shared -o ./releases_latest/_scheduller_darwin_amd64.so ./*.go
           ls ./releases_latest
       
       - name: Push changes
@@ -44,6 +44,6 @@ jobs:
           # A coma separated list of files to add to commit in addition to already staged ones. If not provided, all tracked files are committed.
           # commit-files: ./releases_latest/scheduller_linux_amd64, ./releases_latest/_scheduller_linux_amd64.so # optional
           # The commit message used when changes needs to be committed
-          commit-message: Build linux_amd64
+          commit-message: Build darwin_amd64
           
           
