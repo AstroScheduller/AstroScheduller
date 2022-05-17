@@ -1,5 +1,9 @@
 import json
 import pickle
+import datetime
+import os
+import random
+from sqlite3 import Timestamp
 
 from .utilities import utilities
 from xml.dom import minidom
@@ -403,7 +407,116 @@ class schedule_to():
             return open(filename, "w+").write(latex)
 
         return latex
+    
+    def to_user_defined(self, format = "", filename = False):
+        '''
+        Saves the schedule to a user defined format.
+        format: filename to the definition of the format
+        filename: filename
 
+        return: userDefinedText
+        '''
+
+        if(format == ""):
+            raise Exception("No format defined.")
+        
+        formatPath = format
+        if(not os.path.isfile(formatPath)):
+            formatPath = self.config.userDefinedIOFormatsPath + "/" + format
+            if(not os.path.isfile(formatPath)):
+                raise Exception("Format file not found.")
+        
+        userDefined = ""
+        userDefined = open(formatPath, "r").read()
+
+        userDefined = userDefined.replace("'''", "```").replace('"""', "```")
+        userDefined = userDefined.replace("\\```", "\\'''")
+        try:
+            objectTextDefinedRaw = userDefined.split("```")[1]
+            objectTextDefined = objectTextDefinedRaw.strip()
+            if(objectTextDefined[0:6] == "object"):
+                objectTextDefined = objectTextDefined[6:]
+
+            if(len(objectTextDefined.split("\n")) > 2): # If the object text is defined in more than one line, append a newline at the end of the object text
+                objectTextDefined = objectTextDefined + "\n"
+
+        except Exception as e:
+            objectTextDefined = ""
+            print("Warning: No object definition found in format file.", formatPath)
+        
+        objectText = ""
+        for thisObj in self.objects:
+            thisObjectText = objectTextDefined
+            thisObjectText = thisObjectText.replace("$OBJECT_IDENTIFIER$", thisObj["identifier"])
+            thisObjectText = thisObjectText.replace("$OBJECT_RA$", str(thisObj["ra"]))
+            thisObjectText = thisObjectText.replace("$OBJECT_DEC$", str(thisObj["dec"]))
+            thisObjectText = thisObjectText.replace("$OBJECT_DURATION$", str(thisObj["duration"]))
+            thisObjectText = thisObjectText.replace("$OBJECT_WEIGHT$", str(thisObj["weight"]))
+            thisObjectText = thisObjectText.replace("$OBJECT_IMPORTANT$", str(thisObj["important"]))
+            thisObjectText = thisObjectText.replace("$OBJECT_WAIT$", str(thisObj["wait"]))
+            objectText += thisObjectText
+            
+        datetimeStart = datetime.datetime.fromtimestamp(self.observation["duration"]["begin"], datetime.timezone.utc).strftime("%Y%m%d%H%M%S")
+        datetimeEnd = datetime.datetime.fromtimestamp(self.observation["duration"]["end"], datetime.timezone.utc).strftime("%Y%m%d%H%M%S")
+        datetimeDuration = datetime.datetime.fromtimestamp(self.observation["duration"]["end"] - self.observation["duration"]["begin"], datetime.timezone.utc).strftime("%Y%m%d%H%M%S")
+
+        datetimeDuration = str(int(datetimeDuration) - 19700101000000)
+        if(len(datetimeStart) < 14):
+            datetimeStart = "0" * (14 - len(datetimeStart)) + datetimeStart
+        if(len(datetimeEnd) < 14):
+            datetimeEnd = "0" * (14 - len(datetimeEnd)) + datetimeEnd
+        if(len(datetimeDuration) < 14):
+            datetimeDuration = "0" * (14 - len(datetimeDuration)) + datetimeDuration
+
+        userDefined = userDefined.replace("```" + objectTextDefinedRaw + "```", objectText)
+        userDefined = userDefined.replace("$TELESCOPE_LATITUDE$", str(self.observation["telescope"]["latitude"]))
+        userDefined = userDefined.replace("$TELESCOPE_LONGITUDE$", str(self.observation["telescope"]["longitude"]))
+        userDefined = userDefined.replace("$TELESCOPE_ALTITUDE$", str(self.observation["telescope"]["altitude"]))
+        userDefined = userDefined.replace("$TELESCOPE_ELEVATION_MAXIMAL$", str(self.observation["elevation"]["maximal"]))
+        userDefined = userDefined.replace("$TELESCOPE_ELEVATION_MINIMAL$", str(self.observation["elevation"]["minimal"]))
+        userDefined = userDefined.replace("$TELESCOPE_ESCAPE_SUN$", str(self.observation["escape"]["sun"]))
+        userDefined = userDefined.replace("$OBS_BEGIN$", str(self.observation["duration"]["begin"]))
+        userDefined = userDefined.replace("$OBS_BEGIN_YEAR$", str(datetimeStart[0:4]))
+        userDefined = userDefined.replace("$OBS_BEGIN_MONTH$", str(datetimeStart[4:6]))
+        userDefined = userDefined.replace("$OBS_BEGIN_DAY$", str(datetimeStart[6:8]))
+        userDefined = userDefined.replace("$OBS_BEGIN_HOUR$", str(datetimeStart[8:10]))
+        userDefined = userDefined.replace("$OBS_BEGIN_MINUTE$", str(datetimeStart[10:12]))
+        userDefined = userDefined.replace("$OBS_BEGIN_SECOND$", str(datetimeStart[12:14]))
+        userDefined = userDefined.replace("$OBS_END$", str(self.observation["duration"]["end"]))
+        userDefined = userDefined.replace("$OBS_END_YEAR$", str(datetimeEnd[0:4]))
+        userDefined = userDefined.replace("$OBS_END_MONTH$", str(datetimeEnd[4:6]))
+        userDefined = userDefined.replace("$OBS_END_DAY$", str(datetimeEnd[6:8]))
+        userDefined = userDefined.replace("$OBS_END_HOUR$", str(datetimeEnd[8:10]))
+        userDefined = userDefined.replace("$OBS_END_MINUTE$", str(datetimeEnd[10:12]))
+        userDefined = userDefined.replace("$OBS_END_SECOND$", str(datetimeEnd[12:14]))
+        userDefined = userDefined.replace("$OBS_DURATION$", str(self.observation["duration"]["end"] - self.observation["duration"]["begin"]))
+        userDefined = userDefined.replace("$OBS_DURATION_YEAR$", str(datetimeDuration[0:4]))
+        userDefined = userDefined.replace("$OBS_DURATION_MONTH$", str(datetimeDuration[4:6]))
+        userDefined = userDefined.replace("$OBS_DURATION_DAY$", str(datetimeDuration[6:8]))
+        userDefined = userDefined.replace("$OBS_DURATION_HOUR$", str(datetimeDuration[8:10]))
+        userDefined = userDefined.replace("$OBS_DURATION_MINUTE$", str(datetimeDuration[10:12]))
+        userDefined = userDefined.replace("$OBS_DURATION_SECOND$", str(datetimeDuration[12:14]))
+        userDefined = userDefined.replace("$FORMAT_NAME$", str(format))
+
+        userDefined = userDefined.replace("\\$", "$")
+        userDefined = userDefined.replace("\\'''", "```")
+
+        if(filename != False):
+            return open(filename, "w+").write(userDefined)
+            
+        return userDefined
+
+    def to_defined(self, format = "", filename = ""):
+        '''
+        Saves the schedule to a user defined format. 
+        The same as to_user_defined, as a shortcut.
+        format: filename to the definition of the format
+        filename: filename
+
+        return: userDefinedText
+        '''
+
+        return self.to_user_defined(format, filename)
 # scheduller session IO functions
 class scheduller_io():
     def save(self, filename):

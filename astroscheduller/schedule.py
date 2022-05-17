@@ -17,6 +17,7 @@ class schedule_scheduller():
 
         self.xml = self.to_xml()
         self.core = core()
+        self.config = config()
 
         self.importPath = self.c.tempPath + "/" + self.core.prefix + self.u.md5(self.xml.encode()) + ".xml"
         self.exportPath = self.c.tempPath + "/" + self.core.prefix + self.u.md5(self.xml.encode()) + ".export.xml"

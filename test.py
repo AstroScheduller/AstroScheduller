@@ -1,3 +1,4 @@
+import sched
 import astroscheduller as ash
 
 ################################
@@ -63,6 +64,8 @@ schedule.to_csv("./tests/csv_export.csv")
 schedule.to_table("./tests/table_export.txt")
 schedule.to_html("./tests/html_export.html")
 schedule.to_latex("./tests/latex_export.tex")
+schedule.to_defined("example.txt", "./tests/use_defined_export_example.txt")
+schedule.to_defined("./tests/sched_format_definition.txt", "./tests/use_defined_export_example_sched.txt")
 print("🟢 Schedule IO: OK 👌")
 
 

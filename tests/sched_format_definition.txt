@@ -1,0 +1,8 @@
+year=$OBS_BEGIN_YEAR$
+month=$OBS_BEGIN_MONTH$
+day=$OBS_BEGIN_DAY$
+start=$OBS_BEGIN_HOUR$:$OBS_BEGIN_MINUTE$:$OBS_BEGIN_SECOND$
+
+``` object
+source = $OBJECT_IDENTIFIER$		dur = $OBJECT_DURATION$	gap = $OBJECT_WAIT$ setup = 'pfb20cm2'	/
+```

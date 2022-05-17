@@ -1,0 +1,69 @@
+year=2021
+month=07
+day=24
+start=04:00:00
+
+
+source = J2150+5247		dur = 1200	gap = 0 setup = 'pfb20cm2'	/
+source = J2149+6329		dur = 1200	gap = 0 setup = 'pfb20cm2'	/
+source = J2206+6151		dur = 1800	gap = 17 setup = 'pfb20cm2'	/
+source = J2337+6151		dur = 3600	gap = 8 setup = 'pfb20cm2'	/
+source = J2354+6155		dur = 900	gap = 45 setup = 'pfb20cm2'	/
+source = J2325+6316		dur = 1800	gap = 8 setup = 'pfb20cm2'	/
+source = J2321+6024		dur = 900	gap = 14 setup = 'pfb20cm2'	/
+source = J2326+6113		dur = 600	gap = 4 setup = 'pfb20cm2'	/
+source = J2305+3100		dur = 1200	gap = 2 setup = 'pfb20cm2'	/
+source = J2313+4253		dur = 600	gap = 50 setup = 'pfb20cm2'	/
+source = J2346-0609		dur = 1800	gap = 19 setup = 'pfb20cm2'	/
+source = J2229+6205		dur = 2400	gap = 81 setup = 'pfb20cm2'	/
+source = J2330-2005		dur = 1800	gap = 113 setup = 'pfb20cm2'	/
+source = PSR B0320+39		dur = 2400	gap = 136 setup = 'pfb20cm2'	/
+source = J2240+5832		dur = 600	gap = 603 setup = 'pfb20cm2'	/
+source = J2257+5909		dur = 1800	gap = 578 setup = 'pfb20cm2'	/
+source = J2113+2754		dur = 600	gap = 8 setup = 'pfb20cm2'	/
+source = J2108+4441		dur = 900	gap = 52 setup = 'pfb20cm2'	/
+source = J2113+4644		dur = 600	gap = 27 setup = 'pfb20cm2'	/
+source = J2157+4017		dur = 900	gap = 3 setup = 'pfb20cm2'	/
+source = J2219+4754		dur = 1800	gap = 21 setup = 'pfb20cm2'	/
+source = J2055+3630		dur = 900	gap = 12 setup = 'pfb20cm2'	/
+source = J0612+3721		dur = 900	gap = 42 setup = 'pfb20cm2'	/
+source = J0525+1115		dur = 1800	gap = 441 setup = 'pfb20cm2'	/
+source = J0614+2229		dur = 600	gap = 43 setup = 'pfb20cm2'	/
+source = J0629+2415		dur = 900	gap = 24 setup = 'pfb20cm2'	/
+source = J0454+5543		dur = 900	gap = 7 setup = 'pfb20cm2'	/
+source = J0502+4654		dur = 1200	gap = 52 setup = 'pfb20cm2'	/
+source = J0450-1248		dur = 2400	gap = 14 setup = 'pfb20cm2'	/
+source = J0826+2637		dur = 600	gap = 99 setup = 'pfb20cm2'	/
+source = J0601-0527		dur = 1200	gap = 108 setup = 'pfb20cm2'	/
+source = J0823+0159		dur = 600	gap = 72 setup = 'pfb20cm2'	/
+source = J0621+0336		dur = 2400	gap = 70 setup = 'pfb20cm2'	/
+source = J0922+0638		dur = 480	gap = 60 setup = 'pfb20cm2'	/
+source = J1115+5030		dur = 1200	gap = 90 setup = 'pfb20cm2'	/
+source = J0943+1631		dur = 1200	gap = 73 setup = 'pfb20cm2'	/
+source = J0953+0755		dur = 300	gap = 56 setup = 'pfb20cm2'	/
+source = J1022+1001		dur = 3600	gap = 14 setup = 'pfb20cm2'	/
+source = J1136+1551		dur = 300	gap = 14 setup = 'pfb20cm2'	/
+source = J0908-1739		dur = 600	gap = 36 setup = 'pfb20cm2'	/
+source = J1024-0719		dur = 3600	gap = 73 setup = 'pfb20cm2'	/
+source = J1239+2453		dur = 600	gap = 38 setup = 'pfb20cm2'	/
+source = J1041-1942		dur = 900	gap = 67 setup = 'pfb20cm2'	/
+source = J1041-1942		dur = 1800	gap = 74 setup = 'pfb20cm2'	/
+source = J1509+5531		dur = 900	gap = 0 setup = 'pfb20cm2'	/
+source = J1518+4904		dur = 3600	gap = 133 setup = 'pfb20cm2'	/
+source = J1532+2745		dur = 1200	gap = 10 setup = 'pfb20cm2'	/
+source = J1257-1027		dur = 1800	gap = 35 setup = 'pfb20cm2'	/
+source = PSR B1541+09		dur = 2400	gap = 77 setup = 'pfb20cm2'	/
+source = J1543-0620		dur = 1200	gap = 83 setup = 'pfb20cm2'	/
+source = J1607-0032		dur = 900	gap = 26 setup = 'pfb20cm2'	/
+source = J1713+0747		dur = 600	gap = 11 setup = 'pfb20cm2'	/
+source = J1740+1311		dur = 600	gap = 33 setup = 'pfb20cm2'	/
+source = J1741+1351		dur = 1800	gap = 13 setup = 'pfb20cm2'	/
+source = J0814+7429		dur = 600	gap = 1 setup = 'pfb20cm2'	/
+source = J1955+5059		dur = 1500	gap = 283 setup = 'pfb20cm2'	/
+source = J2002+4050		dur = 1200	gap = 350 setup = 'pfb20cm2'	/
+source = J2022+5154		dur = 480	gap = 16 setup = 'pfb20cm2'	/
+source = J2023+5037		dur = 480	gap = 18 setup = 'pfb20cm2'	/
+source = J2027+4557		dur = 1800	gap = 2 setup = 'pfb20cm2'	/
+source = J2037+3621		dur = 1200	gap = 7 setup = 'pfb20cm2'	/
+source = J1954+2923		dur = 900	gap = 16 setup = 'pfb20cm2'	/
+source = J1932+1059		dur = 300	gap = 21 setup = 'pfb20cm2'	/
