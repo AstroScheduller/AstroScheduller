@@ -41,7 +41,7 @@ jobs:
           # Password for your PyPI user or an access token
           password: pypi-AgEIcHlwaS5vcmcCJDk1MmQ3Zjc4LTE0MGQtNDdjOS1hYzYyLWUzZDEzMTA2ZTBiOAACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgc2GrBH5Bvuny2qV31R2kyn_oDbIVRQE0DhvCe_rGunc
           # The repository URL to use
-          repository_url: https://github.com/AstroScheduller/AstroScheduller # optional
+          repository_url: https://github.com/AstroScheduller/AstroScheduller.git # optional
           # The target directory for distribution
           packages_dir: dist # optional, default is dist
           
