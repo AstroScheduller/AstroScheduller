@@ -28,7 +28,7 @@ jobs:
       
       - name: Build Go Module
         run: |
-          go build -o ./releases_latest/scheduller_linux_amd64_test ./*.go
+          go build -o ./releases_latest/scheduller_linux_amd64 ./*.go
           go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64.so ./*.go
           ls ./releases_latest
       
