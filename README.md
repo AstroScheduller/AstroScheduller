@@ -1,4 +1,4 @@
-![astro_scheduller](./docs/astro_scheduller.jpg)
+![astro_scheduller](https://raw.githubusercontent.com/AstroScheduller/AstroScheduller/Dev/docs/astro_scheduller.jpg)
 
 # AstroScheduller 0.9.3
 
@@ -19,7 +19,7 @@ See [todo.md](./docs/todo.md).
 ## Documentations
 
  - [AstroScheduller Documentation Homepage](https://astroscheduller.github.io/)
- - [Appendix: Technical Documentation for AstroSchedullerGo](./docs/app_astroschedullergo_tech.md)
+ - [Appendix: Technical Documentation for AstroSchedullerGo](https://github.com/AstroScheduller/AstroScheduller/blob/Dev/docs/app_astroschedullergo_tech.md)
 
 ## License
 
