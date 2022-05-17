@@ -32,8 +32,8 @@ jobs:
           go build -o ./releases_latest/scheduller_windows_amd64.exe
           go build -buildmode=c-shared -o ./releases_latest/_scheduller_windows_amd64.dll
       
-      - name: action-push
-        # You may pin to the exact commit or the version.
-        # uses: ludeeus/action-push@0b7c1175655379c008f42bbaf524caa79cf89ec1
-        uses: ludeeus/action-push@0.0.1
+      - name: push
+        run: |
+          git add .
+          git commit -m "Build windows_amd64"
           
