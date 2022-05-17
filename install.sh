@@ -32,29 +32,6 @@ if [ "$(uname)" = "Darwin" ]; then
     fi
 fi
 
-echo "Installing Go..."
-# If platform is Mac OS X
-if [ "$(uname)" = "Darwin" ]; then
-    # Install Go - MacOS
-    echo "=========================="
-    brew install go
-    echo "=========================="
-    echo "Finished."
-fi
-# If platform is Linux
-if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-    # Install Go - Linux
-    echo "=========================="
-    # Check if sudo is installed
-    if [ -z "$(which sudo)" ]; then
-        sudo apt-get install -y golang
-    else
-        apt-get install -y golang
-    fi
-    echo "=========================="
-    echo "Finished."
-fi
-
 echo
 
 # Check if Python is installed
@@ -141,23 +118,62 @@ echo "Finished."
 
 echo
 
-# Build AstroSchedullerGo Module
-echo "Building AstroSchedullerGo Module..."
-echo "=========================="
-go build -buildmode=c-shared -o ./_scheduller.so ./*.go
-echo "=========================="
-echo "Finished."
+# Check if Go Module is installed
+interpreter = python
+getReturn = "python -c \"import astroscheduller as ash; ash.core().create_repo();\""
+interpreter $getReturn
+result = $?
 
-echo
+# Get last 4 characters of the result, check if it equals True
+result = ${result: -4}
+if [ "$result" = "True" ]; then
+    echo "AstroScheduler is successfully installed."
+else
+    echo "AstroScheduler is not installed."
 
-# Install AstroSchedullerGo Module
-echo "Installing AstroSchedullerGo Module..."
-echo "=========================="
-cd ../
-python -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
-python3 -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
-echo "=========================="
-echo "Finished."
+    echo "Installing Go..."
+    # If platform is Mac OS X
+    if [ "$(uname)" = "Darwin" ]; then
+        # Install Go - MacOS
+        echo "=========================="
+        brew install go
+        echo "=========================="
+        echo "Finished."
+    fi
+    # If platform is Linux
+    if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+        # Install Go - Linux
+        echo "=========================="
+        # Check if sudo is installed
+        if [ -z "$(which sudo)" ]; then
+            sudo apt-get install -y golang
+        else
+            apt-get install -y golang
+        fi
+        echo "=========================="
+        echo "Finished."
+    fi
+
+    echo
+
+    # Build AstroSchedullerGo Module
+    echo "Building AstroSchedullerGo Module..."
+    echo "=========================="
+    go build -buildmode=c-shared -o ./_scheduller.so ./*.go
+    echo "=========================="
+    echo "Finished."
+
+    echo
+
+    # Install AstroSchedullerGo Module
+    echo "Installing AstroSchedullerGo Module..."
+    echo "=========================="
+    cd ../
+    python -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
+    python3 -c 'import astroscheduller as ash; ash.core().install("./AstroScheduller/_scheduller.so")'
+    echo "=========================="
+    echo "Finished."
+fi
 
 echo
 
