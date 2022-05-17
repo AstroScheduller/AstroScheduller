@@ -9,17 +9,23 @@
 
 The AstroScheduller project is developing a user-friendly Python package with an algorithm for planning astronomical observations. This project was taken from a previous project [AstroScheduller.py](https://github.com/AstroScheduller/AstroSchedullerPy).
 
+Using PiPI to install:
+
+```shell
+pip install AstroScheduller
+```
+
 Demo on Google Colab: 
  - [Introduction to AstroScheduller](https://colab.research.google.com/drive/1pnGP9p53ELxzyRdV7aMAa21Q0RGHIbaM?usp=sharing)
-
-## To-do
-
-See [todo.md](./docs/todo.md). 
 
 ## Documentations
 
  - [AstroScheduller Documentation Homepage](https://astroscheduller.github.io/)
  - [Appendix: Technical Documentation for AstroSchedullerGo](https://github.com/AstroScheduller/AstroScheduller/blob/Dev/docs/app_astroschedullergo_tech.md)
+
+## To-do
+
+See [todo.md](./docs/todo.md). 
 
 ## License
 
