@@ -30,6 +30,8 @@ jobs:
         run: |
           go build -o ./releases_latest/scheduller_linux_amd64_github ./*.go
           go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64_github.so ./*.go
+          ls .
+          ls ./releases_latest
       
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -38,4 +40,4 @@ jobs:
           branch: Dev
           
       - name: test
-        run: ./build.sh
+        run: ./install.sh
