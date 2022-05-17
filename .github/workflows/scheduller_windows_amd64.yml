@@ -28,6 +28,7 @@ jobs:
       
       - name: Build Go Module
         run: |
+          go env -w GO111MODULE=off
           go build -o ./releases_latest/scheduller_windows_amd64
           go build -buildmode=c-shared -o ./releases_latest/_scheduller_windows_amd64.dll
       
