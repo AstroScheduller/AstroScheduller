@@ -38,4 +38,5 @@ jobs:
           git config --global user.name "Github Actions"
           git add .
           git commit -m "Build windows_amd64"
+          git push
           
