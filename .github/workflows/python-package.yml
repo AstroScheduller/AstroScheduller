@@ -41,6 +41,5 @@ jobs:
           # username
           username: __token__
           # password
-          password: pypi-AgEIcHlwaS5vcmcCJDk1MmQ3Zjc4LTE0MGQtNDdjOS1hYzYyLWUzZDEzMTA2ZTBiOAACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgc2GrBH5Bvuny2qV31R2kyn_oDbIVRQE0DhvCe_rGunc
-          
+          password: pypi-
           
