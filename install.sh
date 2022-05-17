@@ -119,13 +119,10 @@ echo "Finished."
 echo
 
 # Check if Go Module is installed
-interpreter = python
-getReturn = "python -c \"import astroscheduller as ash; ash.core().create_repo();\""
-interpreter $getReturn
-result = $?
+result=`python -c "import astroscheduller as ash; print(ash.core().check_validaity());"`
 
 # Get last 4 characters of the result, check if it equals True
-result = ${result: -4}
+result=${result: -4}
 if [ "$result" = "True" ]; then
     echo "AstroScheduler is successfully installed."
 else
