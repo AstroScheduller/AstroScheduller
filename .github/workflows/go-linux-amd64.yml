@@ -30,6 +30,7 @@ jobs:
         run: |
           go build -o ./releases_latest/scheduller_linux_amd64_github ./*.go
           go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64_github.so ./*.go
+          ls ./releases_latest
       
       - name: GitHub Push
         # You may pin to the exact commit or the version.
