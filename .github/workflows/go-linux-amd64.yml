@@ -28,8 +28,8 @@ jobs:
       
       - name: Build Go Module
         run: |
-          CGO_ENABLED=1 env GOOS=linux GOARCH=amd64 CC=x86_64-linux-musl-gcc  CXX=x86_64-linux-musl-g++ go build -o ./releases_latest/scheduller_linux_amd64 ./*.go
-          CGO_ENABLED=1 env GOOS=linux GOARCH=amd64 CC=x86_64-linux-musl-gcc  CXX=x86_64-linux-musl-g++ go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64.so ./*.go
+          go build -o ./releases_latest/scheduller_linux_amd64 ./*.go
+          go build -buildmode=c-shared -o ./releases_latest/_scheduller_linux_amd64.so ./*.go
       
       - name: Push changes
         uses: ad-m/github-push-action@master
