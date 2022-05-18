@@ -15,6 +15,8 @@ Using PiPI to install:
 pip install AstroScheduller
 ```
 
+For more information about the installation, see [Getting Started: Installation](https://astroscheduller.github.io/tutorials-docs/getting-started.html#installation)
+
 Demo on Google Colab: 
  - [Introduction to AstroScheduller](https://colab.research.google.com/drive/1pnGP9p53ELxzyRdV7aMAa21Q0RGHIbaM?usp=sharing)
 
