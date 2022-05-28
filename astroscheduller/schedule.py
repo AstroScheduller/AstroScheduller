@@ -200,7 +200,7 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
 
         return self.observation["escape"]
     
-    def add_object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, wait = 0):
+    def add_object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, SkyCoord = False, wait = 0):
         '''
         Add an object to the observation.
         identifier: The identifier of the object.(e.g. "M31")
@@ -210,9 +210,24 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         weight: The weight of the object. (0 - 1.0, default: 1.0)
         important: Is the object important? (True/False, default: False).
         wait: The wait time in seconds. (e.g. "3600")
+        SkyCoord (optional): Import the SkyCoord object. (astropy SkyCoord object).
 
         return: True if the object was added, False if not.
         '''
+
+        if(SkyCoord != False):
+            try:
+                ra = SkyCoord.ra.deg
+                dec = SkyCoord.dec.deg
+            except:
+                raise Exception("SkyCoord", SkyCoord, "not an astropy SkyCoord object")
+
+        if(identifier == ""):
+            try:
+                identifier = SkyCoord.name + str(ra) + "-" + str(dec)
+            except:
+                identifier = "unknown-" + str(ra) + "-" + str(dec)
+            
 
         identifier = self.u.str_format(str(identifier))
         ra = float(ra)

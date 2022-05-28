@@ -36,6 +36,24 @@ s.add_object(
     weight= "0.2", 
     important= True
 )
+
+from astropy.coordinates import SkyCoord
+s.add_object(
+    SkyCoord = SkyCoord.from_name("PSR J1012+5307"),
+    duration= "800", 
+    weight= "0.2", 
+    important= True
+)
+s.add_object(
+    SkyCoord = SkyCoord.from_name("PSR J1012+5307"),
+    identifier= "SkyCoord J1012+5307",
+    duration= "800", 
+    weight= "0.2", 
+    important= True
+)
+
+print(s.to_table())
+
 print("🟢 ash.schedule: OK 👌")
 
 ################################
