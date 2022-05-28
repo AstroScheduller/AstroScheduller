@@ -6,6 +6,7 @@ from .stats import schedule_stats
 from .io import schedule_from, schedule_to
 from .schedule_edit import schedule_edit
 from .plot import schedule_plot
+from .time import time_converter
 
 class schedule_scheduller():
     def schedule(self):
@@ -108,20 +109,17 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         return: The duration of the observation.
         '''
 
-        begin = int(begin)
-        end = int(end)
+        begin = time_converter(begin).to_timestamp()
+        end = time_converter(end).to_timestamp()
 
-        if(format == "timestamp"):
-            if(begin < 0):
-                raise Exception("begin", begin)
+        if(begin < 0):
+            raise Exception("begin", begin)
 
-            if(end < 0):
-                raise Exception("begin", end)
+        if(end < 0):
+            raise Exception("begin", end)
 
-            self.observation["duration"]["begin"] = begin
-            self.observation["duration"]["end"] = end
-        else:
-            raise Exception("format", format)
+        self.observation["duration"]["begin"] = int(begin)
+        self.observation["duration"]["end"] = int(end)
         
         return self.observation["duration"]
 
