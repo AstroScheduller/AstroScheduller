@@ -2,9 +2,9 @@
 
 ### Type I Todo (w/ steps in details)
 
- - [ ] schedule_edit.item() find by index
+ - [x] schedule_edit.item() find by index
 
-      - [ ] schedule.plot() display the index of each object on the figure
+      - [x] schedule.plot() display the index of each object on the figure
 
            (E.g. for "B1740-28", display "41. B1740-28" instead of simply "B1740-28". )
 
