@@ -2,9 +2,23 @@
 
 ### Type I Todo (w/ steps in details)
 
- - [ ] Compatible with Astropy
+ - [ ] schedule_edit.item() find by index
 
-      - [ ] Add Objects from [Astropy SkyCoords](https://docs.astropy.org/en/stable/coordinates/index.html)
+      - [ ] schedule.plot() display the index of each object on the figure
+
+           (E.g. for "B1740-28", display "41. B1740-28" instead of simply "B1740-28". )
+
+      - [x] schedule_edit.item() find by index
+
+           Example:
+
+           ```python
+           schedule.item(index = 41)
+           ```
+
+ - [x] Compatible with Astropy
+
+      - [x] Add Objects from [Astropy SkyCoords](https://docs.astropy.org/en/stable/coordinates/index.html)
         
         Example: 
         
@@ -25,20 +39,6 @@
           format = "astropy"
         )
         ```
-
- - [ ] schedule_edit.item() find by index
-
-      - [ ] schedule.plot() display the index of each object on the figure
-
-           (E.g. for "B1740-28", display "41. B1740-28" instead of simply "B1740-28". )
-
-      - [x] schedule_edit.item() find by index
-
-           Example:
-
-           ```python
-           schedule.item(index = 41)
-           ```
 
 
 
