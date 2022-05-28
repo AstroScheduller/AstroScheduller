@@ -79,7 +79,7 @@ class core():
             with open(self.coreInfo["corePath"], 'wb') as f:
                 f.write(req.content)
         except Exception as e:
-            raise Exception(str(e), "AstroSchedullerGo Module does not exists. Try again after check the internet connection. (If you are working offline, see https://github.com/AstroScheduller/AstroScheduller for more information.)")
+            print(str(e), "Failed to download the AstroSchedullerGo Module. Try again after check the internet connection. (If you are working offline, see https://github.com/AstroScheduller/AstroScheduller for more information.)")
         
         print("Downloading AstroSchedullerGo Module... Done.")
         return True

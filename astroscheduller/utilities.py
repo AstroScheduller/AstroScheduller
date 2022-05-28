@@ -136,8 +136,13 @@ class utilities():
         
         return: The formatted string.
         '''
+
+        if(type(content) is float):
+            content = int(content)
+        elif(type(content) is bool):
+            content = int(content)
         
-        return content.replace("\n", "").replace("\r", "").replace("\t", "").strip()
+        return str(content).replace("\n", "").replace("\r", "").replace("\t", "").strip()
     
     def get_platform(self):
         '''

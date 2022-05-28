@@ -54,7 +54,7 @@ print("🟢 ash.scheduller: OK 👌")
 s4 = ash.scheduller()
 objects = s4.objects
 objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
-objects.from_xml(open("./tests/psr_list_long.xml").read())
+# objects.from_xml(open("./tests/psr_list_long.xml").read())
 s4.get_schedule()
 schedule = s4.schedule
 schedule.to_xml("./tests/xml_export.xml")
@@ -100,8 +100,13 @@ print("🟢 ash.plot: OK 👌")
 ################################
 # Test edit functions          #
 ################################
-'''
 print(s4.schedule.to_dict())
+print(s4.schedule.item(identifier = "PSR B0834+06", ra = 129.27350833, dec = 6.17071111, duration = 2400, weight = 1))
+print(s4.schedule.item(identifier = "PSR B0834+06", ra = 129.27350833, dec = 6.17071111, duration = 2400, weight = 1, important = False))
+print(s4.schedule.item(identifier = "PSR B0834+06", ra = 129.27350833, dec = 6.17071111, duration = 2400, weight = 1, important = 0))
+print(s4.schedule.item(identifier = "PSR B0834+06", ra = 129.27350833, dec = 6.17071111, duration = 2400, weight = 1.0, important = False))
+print(s4.schedule.item(identifier = "PSR B0834+06", ra = 129.27350833, dec = 6.17071111, duration = 2400.0, weight = 1.0, important = False))
+print(s4.schedule.item(index = 1))
 print(s4.schedule.item(identifier = "PSR J1012+5307").move_forward(1))
 print(s4.schedule.to_dict())
 print(s4.schedule.item(identifier = "PSR J1012+5307").move_backward(1))
@@ -129,5 +134,4 @@ s4.schedule.insert(
     3
 )
 print(s4.schedule.to_dict())
-'''
 print("🟢 ash.edit: OK 👌")

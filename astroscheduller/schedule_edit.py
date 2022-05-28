@@ -27,23 +27,39 @@ class schedule_edit():
         If more than one object is found, exception will be raised.
         '''
 
-        itemKeys = ["identifier", "ra", "dec", "duration", "weight", "important"]
+        itemKeys = ["identifier", "ra", "dec", "duration", "weight", "important", "index"]
 
         for kwargsKey in kwargs:
             if(kwargsKey not in itemKeys):
                 raise Exception("itemKey", kwargsKey)
 
-        findedItem = list()
+        gradedItems = list()
         for i in range(len(self.objects_all())):
+            thisGrade = 0
             thisObj = self.objects_all()[i]
             for thisKey in kwargs:
-                if(self.u.str_format(kwargs[thisKey]) == self.u.str_format(thisObj[thisKey])):
-                    findedItem.append(i)
+                if(thisKey == "index"):
+                    if(i == (kwargs[thisKey] - 1)):
+                        thisGrade += 1
+                elif(self.u.str_format(kwargs[thisKey]) == self.u.str_format(thisObj[thisKey])):
+                    thisGrade += 1
+
+            gradedItems.append({"index": i, "grade": thisGrade})
+        
+        gradedItems.sort(key=lambda x: x["grade"], reverse=True)
+
+        findedItem = list()
+        for gradedItem in gradedItems:
+            if(gradedItem["grade"] != len(kwargs)):
+                break
+            findedItem.append(gradedItem["index"])
         
         if(len(findedItem) == 1):
             return item_operation(self, findedItem[0])
+        elif(len(findedItem) > 1):
+            raise Exception("item", findedItem, "more than one item has been founded.")
         else:
-            raise Exception("item", findedItem, "not found or more than one")
+            raise Exception("item", findedItem, "item not found.")
     
     def append(self, item):
         '''
@@ -67,6 +83,20 @@ class item_operation():
 
         self.self_upper = self_upper
         self.index = index
+
+    def __str__(self):
+        '''
+        Get the string of the item.
+        '''
+
+        return str(self.self_upper.objects_all()[self.index])
+    
+    def __repr__(self):
+        '''
+        Get the representation of the item.
+        '''
+
+        return str(self.self_upper.objects_all()[self.index])
     
     def wait(self, waitTime):
         '''
