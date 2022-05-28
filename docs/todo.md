@@ -14,7 +14,7 @@
         )
         ```
         
-      - [ ] Add TimeObject from [Astropy Time](https://docs.astropy.org/en/stable/time/index.html)
+      - [x] Add TimeObject from [Astropy Time](https://docs.astropy.org/en/stable/time/index.html)
 
         Example:
 
@@ -32,7 +32,7 @@
 
            (E.g. for "B1740-28", display "41. B1740-28" instead of simply "B1740-28". )
 
-      - [ ] schedule_edit.item() find by index
+      - [x] schedule_edit.item() find by index
 
            Example:
 
