@@ -77,15 +77,16 @@ class plot():
         time = 0
         duration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
 
-        for thisObj in self.objects_all():
+        for i in range(len(self.objects_all())):
+            thisObj = self.objects_all()[i]
             thisObjAltAz = self.c.go_AltAz(self.observation, thisObj, self.timestamps)
-            range = [math.floor(time * self.slices / duration), math.floor((time + thisObj["wait"]) * self.slices / duration)]
-            plt.hlines(thisObjAltAz[0][range[1]], self.timestamps[range[0]], self.timestamps[range[1]], colors="k", linewidth=1)
+            interval = [math.floor(time * self.slices / duration), math.floor((time + thisObj["wait"]) * self.slices / duration)]
+            plt.hlines(thisObjAltAz[0][interval[1]], self.timestamps[interval[0]], self.timestamps[interval[1]], colors="k", linewidth=1)
             time = time + thisObj["wait"]
 
-            range = [math.floor(time * self.slices / duration), math.floor((time + thisObj["duration"]) * self.slices / duration)]
-            plt.plot(self.timestamps[range[0]: range[1]], thisObjAltAz[0][range[0]: range[1]], label=thisObj["identifier"], linewidth=3)
-            plt.text(self.timestamps[range[0]], thisObjAltAz[0][range[0]], thisObj["identifier"], fontsize=5, rotation=0)
+            interval = [math.floor(time * self.slices / duration), math.floor((time + thisObj["duration"]) * self.slices / duration)]
+            plt.plot(self.timestamps[interval[0]: interval[1]], thisObjAltAz[0][interval[0]: interval[1]], label=thisObj["identifier"], linewidth=3)
+            plt.text(self.timestamps[interval[0]], thisObjAltAz[0][interval[0]], "#" + str(i+1) + " " + thisObj["identifier"], fontsize=5, rotation=0)
             time = time + thisObj["duration"]
         
         return True
