@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="AstroScheduller",
-    version="0.9.3.210517",
+    version="0.9.3.2205",
     author="Wenky",
     author_email="wxia1@fandm.edu",
     description="AstroScheduller algorithms and packages for planning astronomical observations.",
