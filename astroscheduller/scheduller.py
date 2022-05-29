@@ -175,7 +175,7 @@ class schedule_add():
 
         self.upper = upper_self
     
-    def object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, wait = 0):
+    def object(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, SkyCoord = False, wait = 0):
         '''
         Add an object to the observation.
         identifier: The identifier of the object.(e.g. "M31")
@@ -185,13 +185,23 @@ class schedule_add():
         weight: The weight of the object. (0 - 1.0, default: 1.0)
         important: Is the object important? (True/False, default: False).
         wait: The wait time in seconds. (e.g. "3600")
+        SkyCoord (optional): Import from the SkyCoord object. (astropy SkyCoord object, e.g. SkyCoord(ra = 50.0, dec = 10.0, unit = "deg")).
 
         return: True if the object was added, False if not.
         '''
 
-        return self.upper.add_object(identifier, ra, dec, duration, weight, important, wait)
+        return self.upper.add_object(
+            identifier = identifier,
+            ra = ra,
+            dec = dec,
+            duration = duration,
+            weight = weight,
+            important = important,
+            SkyCoord = SkyCoord,
+            wait = wait
+        )
 
-    def item(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, wait = 0):
+    def item(self, identifier = "", ra = 0, dec = 0, duration = 0, weight = 1, important = False, SkyCoord = False, wait = 0):
         '''
         Add an object to the observation.
         identifier: The identifier of the object.(e.g. "M31")
@@ -201,11 +211,21 @@ class schedule_add():
         weight: The weight of the object. (0 - 1.0, default: 1.0)
         important: Is the object important? (True/False, default: False).
         wait: The wait time in seconds. (e.g. "3600")
+        SkyCoord (optional): Import from the SkyCoord object. (astropy SkyCoord object, e.g. SkyCoord(ra = 50.0, dec = 10.0, unit = "deg")).
 
         return: True if the object was added, False if not.
         '''
 
-        return self.object(identifier, ra, dec, duration, weight, important, wait)
+        return self.object(
+            identifier = identifier,
+            ra = ra,
+            dec = dec,
+            duration = duration,
+            weight = weight,
+            important = important,
+            SkyCoord = SkyCoord,
+            wait = wait
+        )
     
 class scheduller(scheduller_stats, scheduller_io):
     def __init__(self):

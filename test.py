@@ -86,9 +86,25 @@ s1ShortcutTest.add.object(
     weight= "0.2", 
     important= True
 )
+s1ShortcutTest.add.object(
+    SkyCoord = SkyCoord.from_name("PSR J1012+5307"),
+    duration= "800", 
+    weight= "0.2", 
+    important= True
+)
+s1ShortcutTest.add.item(
+    SkyCoord = SkyCoord.from_name("PSR J1012+5307"),
+    identifier= "SkyCoord J1012+5307",
+    duration= "800", 
+    weight= "0.2", 
+    important= True
+)
+
 if(s1.objects.to_json() == s1ShortcutTest.objects.to_json()):
     print("🟢 ash.scheduller: OK 👌")
 else:
+    print(s1.objects.to_json())
+    print(s1ShortcutTest.objects.to_json())
     print("🔴 ash.scheduller: FAILED ❌")
 
 ################################
@@ -111,30 +127,23 @@ else:
     print(iso_timestamp, datetime_timestamp, astropytime_timestamp)
     print("🔴 ash.time part 1: FAILED ❌")
 
-s1ShortcutTest = ash.scheduller()
-s1ShortcutTest.set.duration(begin = astropy.time.Time("2021-07-24 07:00:01"), end = datetime.datetime.fromtimestamp(1627196340))
-s1ShortcutTest.update.duration(begin = "2021-7-24 07:00:00")
-s1ShortcutTest.set.telescope(latitude = 32.7016, longitude = -109.891284, altitude = 3185, velocity = [0.5, 0.6])
-s1ShortcutTest.update.telescope(latitude = 32.7015)
-s1ShortcutTest.set.elevation(minimal = 31, maximal = 80)
-s1ShortcutTest.update.elevation(minimal = 30)
-s1ShortcutTest.set.escape(sun = 21)
-s1ShortcutTest.update.escape(sun = 20)
-s1ShortcutTest.add.object(
-    identifier= "J0437–4715", 
-    ra= "69.3167",
-    dec= "-47.2527", 
-    duration= "3555"
-)
-s1ShortcutTest.add.object(
-    identifier= "J1012+5307", 
-    ra= "153.13930897",
-    dec= "53.11737904", 
-    duration= "800", 
-    weight= "0.2", 
-    important= True
-)
-if(s1.objects.to_json() == s1ShortcutTest.objects.to_json()):
+timeTest1 = ash.scheduller()
+timeTest1.set.duration(begin = astropy.time.Time("2021-07-24 07:00:01"), end = datetime.datetime.fromtimestamp(1627196340))
+timeTest1.update.duration(begin = "2021-7-24 07:00:00")
+timeTest1.set.telescope(latitude = 32.7016, longitude = -109.891284, altitude = 3185, velocity = [0.5, 0.6])
+timeTest1.update.telescope(latitude = 32.7015)
+timeTest1.set.elevation(minimal = 31, maximal = 80)
+timeTest1.update.elevation(minimal = 30)
+timeTest1.set.escape(sun = 21)
+timeTest1.update.escape(sun = 20)
+
+timeTest2 = ash.scheduller()
+timeTest2.set.duration(begin = 1627110000, end = 1627196340)
+timeTest2.set.telescope(latitude = 32.7015, longitude = -109.891284, altitude = 3185, velocity = [0.5, 0.6])
+timeTest2.set.elevation(minimal = 30, maximal = 80)
+timeTest2.set.escape(sun = 20)
+
+if(timeTest1.objects.to_json() == timeTest2.objects.to_json()):
     print("🟢 ash.time part 2: OK 👌")
 else:
     print(s1.objects.to_json())
@@ -145,9 +154,12 @@ s4 = ash.scheduller()
 objects = s4.objects
 objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
 s4.get_schedule()
-print(s4.objects.to_json())
-print(s4.schedule.to_json())
-print("🟢 ash.time part 3: OK 👌")
+if(s4.objects.to_dict()["observation"] == s4.schedule.to_dict()["observation"]):
+    print("🟢 ash.time part 3: OK 👌")
+else:
+    print(s4.objects.to_json())
+    print(s4.schedule.to_json())
+    print("🔴 ash.time part 3: FAILED ❌")
 
 ################################
 # Test Schedule IO functions   #
@@ -196,10 +208,10 @@ print("🟢 ash.stats: OK 👌")
 s4 = ash.scheduller()
 objects = s4.objects
 s4.objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
-print(s4.objects.to_json())
+# print(s4.objects.to_json())
 s4.get_schedule()
-print(s4.objects.to_json())
-print(s4.schedule.to_json())
+# print(s4.objects.to_json())
+# print(s4.schedule.to_json())
 ashPlot = s4.plot()
 ashPlot.show()
 ashPlot.save("./tests/plot_export.pdf")

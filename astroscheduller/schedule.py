@@ -210,7 +210,7 @@ class schedule(schedule_from, schedule_to, schedule_scheduller, schedule_stats, 
         weight: The weight of the object. (0 - 1.0, default: 1.0)
         important: Is the object important? (True/False, default: False).
         wait: The wait time in seconds. (e.g. "3600")
-        SkyCoord (optional): Import the SkyCoord object. (astropy SkyCoord object).
+        SkyCoord (optional): Import from the SkyCoord object. (astropy SkyCoord object, e.g. SkyCoord(ra = 50.0, dec = 10.0, unit = "deg")).
 
         return: True if the object was added, False if not.
         '''
