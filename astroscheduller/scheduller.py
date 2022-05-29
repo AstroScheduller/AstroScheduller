@@ -7,6 +7,22 @@ from .config import config
 from .io import scheduller_io
 from .time import time_converter
 
+class schedule_observation():
+    def __init__(self, self_upper):
+        self.upper = self_upper
+    
+    def __call__(self):
+        return self.upper.observation
+    
+    def __str__(self):
+        string = ""
+        for key in self.upper.observation:
+            string += key + ": " + str(self.upper.observation[key]) + "\n"
+        return string
+    
+    def __repr__(self):
+        return self.upper.observation
+
 class schedule_set():
     def __init__(self, upper_self):
         '''
@@ -239,6 +255,7 @@ class scheduller(scheduller_stats, scheduller_io):
         self.set = schedule_set(self.objects)
         self.update = schedule_update(self.objects)
         self.add = schedule_add(self.objects)
+        self.observation = schedule_observation(self.objects)
 
     def get_schedule(self):
         '''

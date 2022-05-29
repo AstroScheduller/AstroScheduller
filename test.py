@@ -100,6 +100,9 @@ s1ShortcutTest.add.item(
     important= True
 )
 
+print(s1.observation())
+print(str(s1.observation))
+
 if(s1.objects.to_json() == s1ShortcutTest.objects.to_json()):
     print("🟢 ash.scheduller: OK 👌")
 else:
