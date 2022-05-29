@@ -19,6 +19,7 @@ For more information about the installation, see [Getting Started: Installation]
 
 Demo on Google Colab: 
  - [Introduction to AstroScheduller](https://colab.research.google.com/drive/1pnGP9p53ELxzyRdV7aMAa21Q0RGHIbaM?usp=sharing)
+ - [AstroScheduller Examples](https://colab.research.google.com/drive/1fHDBcop4ZaMf3P7huPEB-w_y5VkIsI2X?usp=sharing)
 
 ## Documentations
 
