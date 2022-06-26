@@ -269,11 +269,11 @@ class scheduller(scheduller_stats, scheduller_io):
 
         return self.schedule
     
-    def plot(self):
+    def plot(self, **kwargs):
         '''
         Plot the schedule.
 
         return: plot object.
         '''
 
-        return self.schedule.plot()
+        return self.schedule.plot(**kwargs)

@@ -5,7 +5,7 @@ import time
 from .core import core
 
 class plot():
-    def __init__(self, self_upper):
+    def __init__(self, self_upper, quality="high"):
         '''
         Initialize the plotter.
         '''
@@ -15,9 +15,13 @@ class plot():
         self.objects_all = self_upper.objects_all
 
         self.c = core()
+
         self.slices = 1000
+        self.bkgSlices = 1000
         self.tickes = 10
-        self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
+        self.timestamps = []
+        self.bkgTimestamps = []
+        self.set_quality(quality)
 
         self.plot()
 
@@ -27,13 +31,71 @@ class plot():
         '''
 
         self.plot()        
+    
+    def figsize(self):
+        '''
+        Get the figure size.
+        '''
+
+        obsDuration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
+        return [int(obsDuration/60/60), 8]
+    
+    def set_quality(self, quality):
+        '''
+        Set the quality of the plot.
+        quality: quality of the plot, max, high, med, low, and quick.
+        '''
+
+        if(quality == "maximal" or quality == "maximum"):
+            quality = "max"
+        elif(quality == "medium"):
+            quality = "med"
+
+        self.quality = quality
+        obeDuration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
+
+        if(self.quality == "max"):
+            self.slices = int(obeDuration/60)
+            self.bkgSlices = int(obeDuration/60)
+            self.tickes = 10
+            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+        elif(self.quality == "high"):
+            self.slices = int(obeDuration/300)
+            self.bkgSlices = int(obeDuration/600)
+            self.tickes = 10
+            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+        elif(self.quality == "med"):
+            self.slices = int(obeDuration/600)
+            self.bkgSlices = int(obeDuration/1200)
+            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+        elif(self.quality == "low"):
+            self.slices = int(obeDuration / 900)
+            self.bkgSlices = int(obeDuration / 2000)
+            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+        elif(self.quality == "quick"):
+            self.slices = int(obeDuration/1200)
+            self.bkgSlices = 0
+            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+        else:
+            print("Error: quality not recognized.")
+            return False
+            
+        print("Plotting Quality: " + self.quality)
+        return True
 
     def plot(self, save=False):
         '''
         Plot the schedule.
         save: filename to save the plot to.
+        quality: quality of the plot, max, high, med, low.
         '''
-        plt.figure(figsize=[18, 8])
+
+        plt.figure(figsize=self.figsize())
 
         self.plot_settings()
         self.plot_altitudes()
@@ -97,8 +159,8 @@ class plot():
         '''
 
         for thisObj in self.objects_all():
-            thisObjAltAz = self.c.go_AltAz(self.observation, thisObj, self.timestamps)
-            plt.plot(self.timestamps, thisObjAltAz[0], "k-", linewidth=1, alpha=0.2)
+            thisObjAltAz = self.c.go_AltAz(self.observation, thisObj, self.bkgTimestamps)
+            plt.plot(self.bkgTimestamps, thisObjAltAz[0], "k-", linewidth=1, alpha=0.2)
         
         return True
     
@@ -128,9 +190,10 @@ class plot():
         return self.save(savePath)
 
 class schedule_plot():
-    def plot(self):
+    def plot(self, **kwargs):
         '''
         Plot the schedule.
+        quality: quality of the plot, max, high, med, low.
         '''
 
-        return plot(self)
+        return plot(self, **kwargs)
