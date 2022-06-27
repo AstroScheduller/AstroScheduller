@@ -212,7 +212,7 @@ s4 = ash.scheduller()
 objects = s4.objects
 s4.objects.from_xml(open("./tests/psr_list_debug_short.xml").read())
 #s4.objects.from_xml(open("./tests/psr_list_debug.xml").read())
-#s4.objects.from_xml(open("./tests/psr_list_debug.xml").read())
+#s4.objects.from_xml(open("./tests/psr_list_long.xml").read())
 # print(s4.objects.to_json())
 s4.get_schedule()
 # print(s4.objects.to_json())

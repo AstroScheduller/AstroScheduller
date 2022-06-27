@@ -73,11 +73,11 @@ class plot():
             self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
         elif(self.quality == "low"):
             self.slices = int(obeDuration / 900)
-            self.bkgSlices = int(obeDuration / 2000)
+            self.bkgSlices = int(obeDuration / 2400)
             self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
             self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
         elif(self.quality == "quick"):
-            self.slices = int(obeDuration/1200)
+            self.slices = int(obeDuration/600)
             self.bkgSlices = 0
             self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
             self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
@@ -88,7 +88,7 @@ class plot():
         print("Plotting Quality: " + self.quality)
         return True
 
-    def plot(self, save=False):
+    def plot(self, save=False, **kwargs):
         '''
         Plot the schedule.
         save: filename to save the plot to.
@@ -110,13 +110,15 @@ class plot():
                 timeTickes.append(thisTime)
                 timeStrings.append(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(thisTime)))
                 timeInt = int(self.slices / self.tickes)
+                
+        if(kwargs.get("grid", False)):
+            plt.grid(True, which = "major", alpha = 0.5, linestyle = "-")
+            plt.grid(True, which = "minor", alpha = 0.2, linestyle = "--")
         
         plt.xticks(timeTickes, timeStrings, rotation=30, fontsize=5)
         plt.xlabel("Time (s)")
         plt.ylabel("Altitude (deg)")
         plt.title("Altitude vs. Time")
-        plt.grid(True, which = "major", alpha = 0.5, linestyle = "-")
-        plt.grid(True, which = "minor", alpha = 0.2, linestyle = "--")
         plt.ylim(0, 90)
 
     def plot_settings(self):
@@ -124,8 +126,8 @@ class plot():
         Plot the settings.
         '''
 
-        plt.vlines(self.observation["duration"]["begin"], 0, 90, colors="r", linewidth=2)
-        plt.vlines(self.observation["duration"]["end"], 0, 90, colors="r", linewidth=2)
+        plt.vlines(self.observation["duration"]["begin"], 0, 90, colors="r", linewidth=1.5)
+        plt.vlines(self.observation["duration"]["end"], 0, 90, colors="r", linewidth=1.5)
         plt.fill_between([self.observation["duration"]["begin"], self.observation["duration"]["end"]], self.observation["elevation"]["maximal"], 90, color="k", alpha=0.2)
         plt.fill_between([self.observation["duration"]["begin"], self.observation["duration"]["end"]], 0, self.observation["elevation"]["minimal"], color="k", alpha=0.2)
         
@@ -148,7 +150,18 @@ class plot():
 
             interval = [math.floor(time * self.slices / duration), math.floor((time + thisObj["duration"]) * self.slices / duration)]
             plt.plot(self.timestamps[interval[0]: interval[1]], thisObjAltAz[0][interval[0]: interval[1]], label=thisObj["identifier"], linewidth=3)
-            plt.text(self.timestamps[interval[0]], thisObjAltAz[0][interval[0]], "#" + str(i+1) + " " + thisObj["identifier"], fontsize=5, rotation=0)
+
+            plt.vlines(self.timestamps[interval[0]], 0, 90, colors="k", linewidth=1, alpha=0.2, linestyles="dotted")
+            plt.vlines(self.timestamps[interval[1]], 0, 90, colors="k", linewidth=1, alpha=0.2, linestyles="dotted")
+
+            # plt.text(self.timestamps[interval[0]], thisObjAltAz[0][interval[0]], "#" + str(i+1) + " " + thisObj["identifier"], fontsize=5, rotation=0)
+            if(thisObjAltAz[0][interval[0]] < (self.observation["elevation"]["maximal"] - 10)):
+                plt.text(self.timestamps[interval[0]] + 35, self.observation["elevation"]["maximal"] - 0.5, "(" + str(i+1) + ") " + thisObj["identifier"], fontsize=5, rotation=90, horizontalalignment="left", verticalalignment="top")
+            elif(thisObjAltAz[0][interval[0]] < (self.observation["elevation"]["maximal"] - 5)):
+                plt.text(self.timestamps[interval[0]] + 35, thisObjAltAz[0][interval[0]] - 0.5, "(" + str(i+1) + ") " + thisObj["identifier"], fontsize=5, rotation=90, horizontalalignment="left", verticalalignment="bottom")
+            else:
+                plt.text(self.timestamps[interval[0]] + 35, thisObjAltAz[0][interval[0]] - 0.5, "(" + str(i+1) + ") " + thisObj["identifier"], fontsize=5, rotation=90, horizontalalignment="left", verticalalignment="top")
+
             time = time + thisObj["duration"]
         
         return True
