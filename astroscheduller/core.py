@@ -7,6 +7,11 @@ import requests
 import ctypes
 import shutil
 
+try:
+    import astropy
+except ImportError:
+    pass
+
 from .utilities import utilities
 from .config import config
 
@@ -244,4 +249,28 @@ class core():
             Alts.append(thisRes[0])
             Azs.append(thisRes[1])
             
+        return [Alts, Azs]
+
+    def astropy_AltAz(self, observation, object, timestamps):
+        '''
+        Astropy AltAz
+        observation: observation object
+        object: "object" object
+        timestamps: timestamps in unix time (list)
+
+        Return: [alts, azs]
+        '''
+
+        Alts = list()
+        Azs = list()
+
+        coord = astropy.coordinates.SkyCoord(ra = object["ra"], dec = object["dec"], unit = "deg", frame = "icrs")
+        loc = astropy.coordinates.EarthLocation(lat = observation["telescope"]["latitude"], lon = observation["telescope"]["longitude"], height = observation["telescope"]["altitude"])
+        times = astropy.time.Time(timestamps, format = "unix")
+        altAzFrame = astropy.coordinates.AltAz(obstime = times, location = loc)
+
+        altAz = coord.transform_to(altAzFrame)
+        Alts = altAz.alt.deg
+        Azs = altAz.az.deg
+        
         return [Alts, Azs]

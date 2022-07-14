@@ -5,7 +5,7 @@ import time
 from .core import core
 
 class plot():
-    def __init__(self, self_upper, quality="high"):
+    def __init__(self, self_upper, quality="high", engine="ashGo"):
         '''
         Initialize the plotter.
         '''
@@ -23,6 +23,9 @@ class plot():
         self.bkgTimestamps = []
         self.set_quality(quality)
 
+        self.AltAz = self.c.go_AltAz
+        self.set_engine(engine)
+
         self.plot()
 
     def __call__(self):
@@ -39,6 +42,24 @@ class plot():
 
         obsDuration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
         return [int(obsDuration/60/60), 8]
+    
+    def set_engine(self, engine='ashGo'):
+        '''
+        Set the engine to use.
+        engine: astroschedullerGo or astropy.
+        '''
+
+        if("ash" in engine.lower() or "astroscheduller" in engine.lower() or "go" in engine.lower()):
+            self.AltAz = self.c.go_AltAz
+            print("Plotting Engine: astroschedullerGo")
+        elif(engine.lower() == "astropy" or "py" in engine.lower()):
+            self.AltAz = self.c.astropy_AltAz
+            print("Plotting Engine: astropy")
+        else:
+            print("Error: engine not recognized.")
+            return False
+            
+        return True
     
     def set_quality(self, quality):
         '''
@@ -143,7 +164,7 @@ class plot():
 
         for i in range(len(self.objects_all())):
             thisObj = self.objects_all()[i]
-            thisObjAltAz = self.c.go_AltAz(self.observation, thisObj, self.timestamps)
+            thisObjAltAz = self.AltAz(self.observation, thisObj, self.timestamps)
             interval = [math.floor(time * self.slices / duration), math.floor((time + thisObj["wait"]) * self.slices / duration)]
             plt.hlines(thisObjAltAz[0][interval[1]], self.timestamps[interval[0]], self.timestamps[interval[1]], colors="k", linewidth=1)
             time = time + thisObj["wait"]
@@ -172,7 +193,7 @@ class plot():
         '''
 
         for thisObj in self.objects_all():
-            thisObjAltAz = self.c.go_AltAz(self.observation, thisObj, self.bkgTimestamps)
+            thisObjAltAz = self.AltAz(self.observation, thisObj, self.bkgTimestamps)
             plt.plot(self.bkgTimestamps, thisObjAltAz[0], "k-", linewidth=1, alpha=0.2)
         
         return True
