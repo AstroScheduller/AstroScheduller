@@ -1,4 +1,5 @@
 import astroscheduller as ash
+print(ash.package_info())
 
 ################################
 # Test core functions          #
@@ -109,6 +110,18 @@ else:
     print(s1.objects.to_json())
     print(s1ShortcutTest.objects.to_json())
     print("🔴 ash.scheduller: FAILED ❌")
+
+################################
+# Test editor functions          #
+################################
+s4 = ash.scheduller()
+objects = s4.objects
+objects.from_xml(open("./tests/psr_list_debug.xml").read())
+# objects.from_xml(open("./tests/psr_list_long.xml").read())
+s4.get_schedule()
+s4.edit()
+exit()
+print("🟢 ash.editor: OK 👌")
 
 ################################
 # Test time functions          #

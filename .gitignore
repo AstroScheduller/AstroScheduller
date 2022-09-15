@@ -45,3 +45,4 @@ build/lib/astroscheduller/scheduller.py
 build/lib/astroscheduller/stats.py
 build/lib/astroscheduller/utilities.py
 dist/AstroScheduller-0.9.3-py3.8.egg
+*.pyc

@@ -17,6 +17,18 @@ setuptools.setup(
     install_requires=[
         'numpy',
         'matplotlib',
-        'requests'
-    ]
+        'requests',
+        'tkinter',
+        'astropy',
+        'Pillow'
+    ],
+    package_data={
+        'astroscheduller': [
+            'ashrel/*.png',
+            'ashrel/*.ico',
+            'ashrel/*.json',
+            'ashrel/*.txt',
+            'ashrel/*.ash'
+        ]
+    }
 )

@@ -1,20 +1,35 @@
+from turtle import color
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import math
 import time
+import copy
 from .core import core
 
 class plot():
-    def __init__(self, self_upper, quality="high", engine="ashGo"):
+    def __init__(self, self_upper, quality="high", engine="ashGo", guimode=False):
         '''
         Initialize the plotter.
         '''
 
+        self.guimode = guimode
+        
         self.observation = self_upper.observation
         self.objects = self_upper.objects
         self.objects_all = self_upper.objects_all
 
         self.c = core()
+        self.plt = plt.figure(figsize=self.figsize())
+        self.fig = self.plt.subplots()
+        self.fontsize = 5
+
+        if(self.guimode):
+            print("Plotting in GUI mode. ")
+            matplotlib.use("Agg")
+            self.plt = plt.figure(facecolor=(236/255, 236/255, 236/255))
+            self.fig = self.plt.subplots()
+            self.fontsize = 6
 
         self.slices = 1000
         self.bkgSlices = 1000
@@ -41,6 +56,7 @@ class plot():
         '''
 
         obsDuration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
+
         return [int(obsDuration/60/60), 8]
     
     def set_engine(self, engine='ashGo'):
@@ -115,9 +131,7 @@ class plot():
         save: filename to save the plot to.
         quality: quality of the plot, max, high, med, low.
         '''
-
-        plt.figure(figsize=self.figsize())
-
+        
         self.plot_settings()
         self.plot_altitudes()
         self.plot_schedules()
@@ -133,24 +147,29 @@ class plot():
                 timeInt = int(self.slices / self.tickes)
                 
         if(kwargs.get("grid", False)):
-            plt.grid(True, which = "major", alpha = 0.5, linestyle = "-")
-            plt.grid(True, which = "minor", alpha = 0.2, linestyle = "--")
+            self.fig.grid(True, which = "major", alpha = 0.5, linestyle = "-")
+            self.fig.grid(True, which = "minor", alpha = 0.2, linestyle = "--")
+        
+        self.fig.set_xlabel("Time (s)")
+        self.fig.set_ylabel("Altitude (deg)")
+        self.fig.set_title("Altitude vs. Time")
+        self.fig.set_ylim(0, 90)
         
         plt.xticks(timeTickes, timeStrings, rotation=30, fontsize=5)
-        plt.xlabel("Time (s)")
-        plt.ylabel("Altitude (deg)")
-        plt.title("Altitude vs. Time")
-        plt.ylim(0, 90)
+
+        if(self.guimode):
+            self.fig.patch.set_alpha(0.25)
+            plt.tight_layout()
 
     def plot_settings(self):
         '''
         Plot the settings.
         '''
 
-        plt.vlines(self.observation["duration"]["begin"], 0, 90, colors="r", linewidth=1.5)
-        plt.vlines(self.observation["duration"]["end"], 0, 90, colors="r", linewidth=1.5)
-        plt.fill_between([self.observation["duration"]["begin"], self.observation["duration"]["end"]], self.observation["elevation"]["maximal"], 90, color="k", alpha=0.2)
-        plt.fill_between([self.observation["duration"]["begin"], self.observation["duration"]["end"]], 0, self.observation["elevation"]["minimal"], color="k", alpha=0.2)
+        self.fig.vlines(self.observation["duration"]["begin"], 0, 90, colors="r", linewidth=1.5)
+        self.fig.vlines(self.observation["duration"]["end"], 0, 90, colors="r", linewidth=1.5)
+        self.fig.fill_between([self.observation["duration"]["begin"], self.observation["duration"]["end"]], self.observation["elevation"]["maximal"], 90, color="k", alpha=0.2)
+        self.fig.fill_between([self.observation["duration"]["begin"], self.observation["duration"]["end"]], 0, self.observation["elevation"]["minimal"], color="k", alpha=0.2)
         
         return True
 
@@ -166,23 +185,26 @@ class plot():
             thisObj = self.objects_all()[i]
             thisObjAltAz = self.AltAz(self.observation, thisObj, self.timestamps)
             interval = [math.floor(time * self.slices / duration), math.floor((time + thisObj["wait"]) * self.slices / duration)]
-            plt.hlines(thisObjAltAz[0][interval[1]], self.timestamps[interval[0]], self.timestamps[interval[1]], colors="k", linewidth=1)
+            self.fig.hlines(thisObjAltAz[0][interval[1]], self.timestamps[interval[0]], self.timestamps[interval[1]], colors="k", linewidth=1)
             time = time + thisObj["wait"]
 
             interval = [math.floor(time * self.slices / duration), math.floor((time + thisObj["duration"]) * self.slices / duration)]
-            plt.plot(self.timestamps[interval[0]: interval[1]], thisObjAltAz[0][interval[0]: interval[1]], label=thisObj["identifier"], linewidth=3)
+            schedLine, = self.fig.plot(self.timestamps[interval[0]: interval[1]], thisObjAltAz[0][interval[0]: interval[1]], label=thisObj["identifier"], linewidth=3)
 
-            plt.vlines(self.timestamps[interval[0]], 0, 90, colors="k", linewidth=1, alpha=0.2, linestyles="dotted")
-            plt.vlines(self.timestamps[interval[1]], 0, 90, colors="k", linewidth=1, alpha=0.2, linestyles="dotted")
+            self.fig.vlines(self.timestamps[interval[0]], 0, 90, colors="k", linewidth=1, alpha=0.2, linestyles="dotted")
+            self.fig.vlines(self.timestamps[interval[1]], 0, 90, colors="k", linewidth=1, alpha=0.2, linestyles="dotted")
 
-            # plt.text(self.timestamps[interval[0]], thisObjAltAz[0][interval[0]], "#" + str(i+1) + " " + thisObj["identifier"], fontsize=5, rotation=0)
+            # self.fig.text(self.timestamps[interval[0]], thisObjAltAz[0][interval[0]], "#" + str(i+1) + " " + thisObj["identifier"], fontsize=self.fontsize, rotation=0)
             if(thisObjAltAz[0][interval[0]] < (self.observation["elevation"]["maximal"] - 10)):
-                plt.text(self.timestamps[interval[0]] + 35, self.observation["elevation"]["maximal"] - 0.5, "(" + str(i+1) + ") " + thisObj["identifier"], fontsize=5, rotation=90, horizontalalignment="left", verticalalignment="top")
+                self.fig.text(self.timestamps[interval[0]] + 35, self.observation["elevation"]["maximal"] - 0.5, "(" + str(i) + ") " + thisObj["identifier"], fontsize=self.fontsize, rotation=90, horizontalalignment="left", verticalalignment="top", color="k")
             elif(thisObjAltAz[0][interval[0]] < (self.observation["elevation"]["maximal"] - 5)):
-                plt.text(self.timestamps[interval[0]] + 35, thisObjAltAz[0][interval[0]] - 0.5, "(" + str(i+1) + ") " + thisObj["identifier"], fontsize=5, rotation=90, horizontalalignment="left", verticalalignment="bottom")
+                self.fig.text(self.timestamps[interval[0]] + 35, thisObjAltAz[0][interval[0]] - 0.5, "(" + str(i) + ") " + thisObj["identifier"], fontsize=self.fontsize, rotation=90, horizontalalignment="left", verticalalignment="bottom", color="k")
             else:
-                plt.text(self.timestamps[interval[0]] + 35, thisObjAltAz[0][interval[0]] - 0.5, "(" + str(i+1) + ") " + thisObj["identifier"], fontsize=5, rotation=90, horizontalalignment="left", verticalalignment="top")
+                self.fig.text(self.timestamps[interval[0]] + 35, thisObjAltAz[0][interval[0]] - 0.5, "(" + str(i) + ") " + thisObj["identifier"], fontsize=self.fontsize, rotation=90, horizontalalignment="left", verticalalignment="top", color="k")
 
+            if(self.guimode):
+                self.fig.fill_between(self.timestamps[interval[0]: interval[1]], self.observation["elevation"]["minimal"], self.observation["elevation"]["maximal"], color=schedLine.get_color(), alpha=0.2)
+            
             time = time + thisObj["duration"]
         
         return True
@@ -194,7 +216,7 @@ class plot():
 
         for thisObj in self.objects_all():
             thisObjAltAz = self.AltAz(self.observation, thisObj, self.bkgTimestamps)
-            plt.plot(self.bkgTimestamps, thisObjAltAz[0], "k-", linewidth=1, alpha=0.2)
+            self.fig.plot(self.bkgTimestamps, thisObjAltAz[0], "k-", linewidth=1, alpha=0.2)
         
         return True
     
@@ -203,7 +225,7 @@ class plot():
         Show the plot.
         '''
 
-        plt.show()
+        self.plt.show()
 
         return True
 
@@ -213,7 +235,7 @@ class plot():
         savePath: path to save the plot to.
         '''
         
-        return plt.savefig(savePath)
+        return self.plt.savefig(savePath)
     
     def savefig(self, savePath):
         '''

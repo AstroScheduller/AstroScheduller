@@ -6,6 +6,8 @@ from .schedule import schedule
 from .config import config
 from .io import scheduller_io
 from .time import time_converter
+from .editor import editor
+from .info import package_info
 
 class schedule_observation():
     def __init__(self, self_upper):
@@ -249,6 +251,7 @@ class scheduller(scheduller_stats, scheduller_io):
         Initialize the scheduller.
         '''
 
+        self.info = package_info()
         self.config = config()
         self.objects = schedule()
         self.schedule = schedule()
@@ -277,3 +280,10 @@ class scheduller(scheduller_stats, scheduller_io):
         '''
 
         return self.schedule.plot(**kwargs)
+
+    def edit(self):
+        '''
+        Edit the schedule using AstroScheduller Editor.
+        '''
+
+        editor(self)
