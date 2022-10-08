@@ -75,6 +75,7 @@ class objectsInterface():
             return indexes[0], contents[0], selections[0]
     
     def move_up(self):
+
         indexes, _, selections = self.selected(multiple=True)
 
         if(min(indexes) > 0):
@@ -87,6 +88,7 @@ class objectsInterface():
         self.upper.events.on_objects_list_changed()
     
     def move_down(self):
+
         indexes, _, selections = self.selected(multiple=True)
 
         if(max(indexes) < (len(self.view.get_children())-1)):

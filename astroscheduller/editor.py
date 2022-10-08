@@ -59,10 +59,10 @@ class editor():
         self.menu = tkinter.Menu(self.root)
 
         self.setup_file_menu = tkinter.Menu(self.menu)
-        self.setup_file_menu.add_command(label="Save", command=self.save)
-        self.setup_file_menu.add_command(label="Export", command=self.export)
+        self.setup_file_menu.add_command(label="Save [Ctrl/Cmd S]", command=self.save)
+        self.setup_file_menu.add_command(label="Export [Ctrl/Cmd E]", command=self.export)
         self.setup_file_menu.add_separator()
-        self.setup_file_menu.add_command(label="Close", command=self.close)
+        self.setup_file_menu.add_command(label="Close [Ctrl/Cmd Q]", command=self.close)
 
         self.setup_edit_menu = tkinter.Menu(self.menu)
         #self.setup_edit_menu.add_command(label="Undo", command=self.undo)
@@ -71,17 +71,17 @@ class editor():
         self.setup_edit_menu.add_command(label="Add Object", command=self.add_object)
         self.setup_edit_menu.add_command(label="Remove Object", command=self.remove_object)
         self.setup_edit_menu.add_separator()
-        self.setup_edit_menu.add_command(label="Object Move Up", command=self.move_up)
-        self.setup_edit_menu.add_command(label="Object Move Down", command=self.move_down)
+        self.setup_edit_menu.add_command(label="Object Move Up [W]", command=self.move_up)
+        self.setup_edit_menu.add_command(label="Object Move Down [S]", command=self.move_down)
         self.setup_edit_menu.add_separator()
         self.setup_edit_menu.add_command(label="Object To Top", command=self.to_top)
         self.setup_edit_menu.add_command(label="Object To Bottom", command=self.to_bottom)
         self.setup_edit_menu.add_separator()
-        self.setup_edit_menu.add_command(label="Generate a Plan", command=self.get_schedule)
-        self.setup_edit_menu.add_command(label="Get Object Information", command=self.get_info)
+        self.setup_edit_menu.add_command(label="Generate a Plan [Ctrl/Cmd L]", command=self.get_schedule)
+        self.setup_edit_menu.add_command(label="Get Object Information [Ctrl/Cmd I]", command=self.get_info)
 
         self.setup_plot_menu = tkinter.Menu(self.menu)
-        self.setup_plot_menu.add_command(label="Plot", command=self.actions.plot)
+        self.setup_plot_menu.add_command(label="Plot [Ctrl/Cmd P]", command=self.actions.plot)
         #self.setup_plot_menu.add_command(label="Save Plot", command=self.plot_save)
         self.setup_edit_menu.add_separator()
         self.setup_plot_menu.add_command(label="Refresh Information", command=self.actions.update_info)
@@ -107,22 +107,24 @@ class editor():
             "<Escape>": self.close,
             "<Control-q>": self.close,
             "<Control-Q>": self.close,
-            "<Control-w>": self.close,
-            "<Control-W>": self.close,
-            "<Control-x>": self.close,
-            "<Control-X>": self.close,
-            "<Control-c>": self.close,
-            "<Control-C>": self.close,
-            "<Control-s>": self.actions.plot,
-            "<Control-S>": self.actions.plot,
+            "<Control-e>": self.export,
+            "<Control-E>": self.export,
+            "<Control-s>": self.save,
+            "<Control-S>": self.export,
             "<Control-p>": self.actions.plot,
             "<Control-P>": self.actions.plot,
+            "<Control-l>": self.actions.get_schedule,
+            "<Control-L>": self.actions.get_schedule,
+            "<Control-i>": self.actions.get_info,
+            "<Control-I>": self.actions.get_info,
             "<Control-z>": self.undo,
             "<Control-Z>": self.undo,
             "<Control-y>": self.redo,
             "<Control-Y>": self.redo,
-            "<Control-Up>": self.move_up,
-            "<Control-Down>": self.move_down,
+            "<KeyPress-w>": self.move_up,
+            "<KeyPress-W>": self.move_up,
+            "<KeyPress-s>": self.move_down,
+            "<KeyPress-S>": self.move_down,
         }
 
         for key in keys:

@@ -21,7 +21,7 @@ class actions():
 
     def object_move_down(self, event=None):
         self.upper.objectsInterfaceHandle.move_down()
-
+        
     def object_to_top(self, event=None):
         self.upper.objectsInterfaceHandle.to_top()
 
