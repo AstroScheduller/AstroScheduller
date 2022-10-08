@@ -81,13 +81,20 @@ class object_actions_edit():
         self.load()
     
     def load(self):
-        self.buttonDone = tkinter.Button(self.upper.actionsInterface, text="Done", command=self.done)
-        self.buttonDone.pack(side="right", fill="x")
+        if(self.upper.mode == "new"):
+            self.buttonDone = tkinter.Button(self.upper.actionsInterface, text="Add", command=self.done)
+            self.buttonDone.pack(side="right", fill="x")
 
-        self.buttonSave = tkinter.Button(self.upper.actionsInterface, text="Save", command=self.save)
-        self.buttonSave.pack(side="left", fill="x")
-        self.buttonPreview = tkinter.Button(self.upper.actionsInterface, text="Preview", command=self.preview)
-        self.buttonPreview.pack(side="left", fill="x")
+            self.buttonPreview = tkinter.Button(self.upper.actionsInterface, text="Preview", command=self.preview)
+            self.buttonPreview.pack(side="left", fill="x")
+        else:
+            self.buttonDone = tkinter.Button(self.upper.actionsInterface, text="Done", command=self.done)
+            self.buttonDone.pack(side="right", fill="x")
+
+            self.buttonSave = tkinter.Button(self.upper.actionsInterface, text="Save", command=self.save)
+            self.buttonSave.pack(side="left", fill="x")
+            self.buttonPreview = tkinter.Button(self.upper.actionsInterface, text="Preview", command=self.preview)
+            self.buttonPreview.pack(side="left", fill="x")
     
     def input(self):
         return {
@@ -108,16 +115,25 @@ class object_actions_edit():
         self.previewInterfaceHandle = object_preview(self.upper)
 
     def save(self):
-        self.upper.upper.objectsInterfaceHandle.objects[self.upper.index] = self.input()
-        self.upper.upper.objectsInterfaceHandle.update_contents()
+        if(self.upper.mode == "edit"):
+            self.upper.upper.objectsInterfaceHandle.objects[self.upper.index] = self.input()
+            self.upper.upper.objectsInterfaceHandle.update_contents()
+        elif(self.upper.mode == "new"):
+            self.upper.upper.objectsInterfaceHandle.objects.append(self.input())
+            self.upper.upper.objectsInterfaceHandle.append_object(self.input())
+            
 
     def done(self):
-        inputOriginal = self.upper.upper.objectsInterfaceHandle.objects[self.upper.index]
-        inputUser = self.input()
-        if(inputOriginal != inputUser):
-            if(messagebox.askyesno("Save", "Do you want to save the changes?")):
-                self.save()
-        self.upper.close()
+        if(self.upper.mode == "edit"):
+            inputOriginal = self.upper.upper.objectsInterfaceHandle.objects[self.upper.index]
+            inputUser = self.input()
+            if(inputOriginal != inputUser):
+                if(messagebox.askyesno("Save", "Do you want to save the changes?")):
+                    self.save()
+            self.upper.close()
+        elif(self.upper.mode == "new"):
+            self.save()
+            self.upper.close()
     
     def format(self, data, format=""):
         if(type(data) == str):
@@ -178,7 +194,7 @@ class notice_outdated():
         tkinter.Button(self.upper.actionsInterface, text="Done", command=self.upper.close).pack(side="right", fill="x")
 
 class get_info():
-    def __init__(self, upper, info, mode, index=0):
+    def __init__(self, upper, info, mode="edit", index=0):
         self.upper = upper
         self.info = info
         self.mode = mode
@@ -233,7 +249,7 @@ class get_info():
         self.upper.root.focus_force()
     
     def _plot_update_check(self):
-        if(self.upper.updated.object_indexes("check", self.indexes_updated)):
+        if(self.upper.updated.object_indexes("check", self.indexes_updated) and self.mode == "edit"):
             for widget in self.actionsInterface.winfo_children():
                 widget.destroy()
             self.actionsInterfaceHandle = notice_outdated(self)

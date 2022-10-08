@@ -136,6 +136,7 @@ class task_runner():
                     "error": str(e),
                     "traceback": traceback.format_exc()
                 }
+                print("[AshGUI]", self.task.error["traceback"])
                 return False
             return True
         

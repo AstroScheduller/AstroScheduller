@@ -231,6 +231,20 @@ class objectsInterface():
         
         self.upper.events.on_objects_list_changed()
     
+    def append_object(self, object):
+        items = self.view.get_children()
+
+        self.view.insert("", "end", text=len(items), values=[
+            self.format(object["identifier"], "Identifier"), 
+            self.format(object["ra"], "RA"),
+            self.format(object["dec"], "Dec"),
+            self.format(object["duration"], "Duration"),
+            self.format(object["weight"], "Weight"),
+            self.format(object["important"], "Important")
+        ])
+
+        self.upper.events.on_objects_list_changed()
+    
     def format(self, value, key):
         if(key == "Important"):
             if(value == 1):
@@ -689,7 +703,7 @@ class toolBarInterface():
         self.viewMiddleUpper.bottom = tkinter.Button(self.viewMiddleUpper, image=self.iconBottom, command=self.upper.actions.object_to_bottom)
         self.viewMiddleUpper.bottom.pack(side="top", fill="x", expand=True)
 
-        self.viewMiddleLower.plus = tkinter.Button(self.viewMiddleLower, image=self.iconPlus, command=self.action)
+        self.viewMiddleLower.plus = tkinter.Button(self.viewMiddleLower, image=self.iconPlus, command=self.upper.actions.add_object)
         self.viewMiddleLower.plus.pack(side="top", fill="x", expand=True)
         self.viewMiddleLower.minus = tkinter.Button(self.viewMiddleLower, image=self.iconMinus, command=self.upper.actions.object_remove)
         self.viewMiddleLower.minus.pack(side="top", fill="x", expand=True)

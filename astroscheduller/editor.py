@@ -67,20 +67,29 @@ class editor():
         self.setup_file_menu.add_command(label="Close", command=self.close)
 
         self.setup_edit_menu = tkinter.Menu(self.menu)
-        self.setup_edit_menu.add_command(label="Undo", command=self.undo)
-        self.setup_edit_menu.add_command(label="Redo", command=self.redo)
+        #self.setup_edit_menu.add_command(label="Undo", command=self.undo)
+        #self.setup_edit_menu.add_command(label="Redo", command=self.redo)
+        #self.setup_edit_menu.add_separator()
+        self.setup_edit_menu.add_command(label="Add Object", command=self.add_object)
+        self.setup_edit_menu.add_command(label="Remove Object", command=self.remove_object)
         self.setup_edit_menu.add_separator()
-        self.setup_edit_menu.add_command(label="Move Up", command=self.move_up)
-        self.setup_edit_menu.add_command(label="Move Down", command=self.move_down)
+        self.setup_edit_menu.add_command(label="Object Move Up", command=self.move_up)
+        self.setup_edit_menu.add_command(label="Object Move Down", command=self.move_down)
+        self.setup_edit_menu.add_separator()
+        self.setup_edit_menu.add_command(label="Object To Top", command=self.to_top)
+        self.setup_edit_menu.add_command(label="Object To Bottom", command=self.to_bottom)
+        self.setup_edit_menu.add_separator()
+        self.setup_edit_menu.add_command(label="Generate a Plan", command=self.get_schedule)
+        self.setup_edit_menu.add_command(label="Get Object Information", command=self.get_info)
 
         self.setup_plot_menu = tkinter.Menu(self.menu)
         self.setup_plot_menu.add_command(label="Plot", command=self.actions.plot)
-        self.setup_plot_menu.add_command(label="Save Plot", command=self.plot_save)
+        #self.setup_plot_menu.add_command(label="Save Plot", command=self.plot_save)
         self.setup_edit_menu.add_separator()
         self.setup_plot_menu.add_command(label="Refresh Information", command=self.actions.update_info)
         
-        self.setup_view_menu = tkinter.Menu(self.menu)
-        self.setup_view_menu.add_command(label="Always On Top", command=self.always_on_top)
+        #self.setup_view_menu = tkinter.Menu(self.menu)
+        #self.setup_view_menu.add_command(label="Always On Top", command=self.always_on_top)
 
         self.setup_help_menu = tkinter.Menu(self.menu)
         self.setup_help_menu.add_command(label="Documentations", command=self.documentation)
@@ -89,8 +98,8 @@ class editor():
 
         self.menu.add_cascade(label="File", menu=self.setup_file_menu)
         self.menu.add_cascade(label="Edit", menu=self.setup_edit_menu)
-        self.menu.add_cascade(label="Plot", menu=self.setup_plot_menu)
-        self.menu.add_cascade(label="View", menu=self.setup_view_menu)
+        self.menu.add_cascade(label="View", menu=self.setup_plot_menu)
+        #self.menu.add_cascade(label="View", menu=self.setup_view_menu)
         self.menu.add_cascade(label="Help", menu=self.setup_help_menu)
 
         self.root.config(menu=self.menu)
@@ -114,7 +123,7 @@ class editor():
             "<Control-Z>": self.undo,
             "<Control-y>": self.redo,
             "<Control-Y>": self.redo,
-            "<Control-Up>": self.actions.object_move_up,
+            "<Control-Up>": self.move_up,
             "<Control-Down>": self.move_down,
         }
 
@@ -195,10 +204,28 @@ class editor():
         self.actions.quit()
 
     def move_up(self, event=None):
-        pass
+        self.actions.object_move_up()
 
     def move_down(self, event=None):
-        pass
+        self.actions.object_move_down()
+
+    def to_top(self, event=None):
+        self.actions.object_to_top()
+
+    def to_bottom(self, event=None):
+        self.actions.object_to_bottom()
+
+    def get_info(self, event=None):
+        self.actions.get_info()
+
+    def add_object(self, event=None):
+        self.actions.object_add()
+
+    def remove_object(self, event=None):
+        self.actions.object_remove()
+
+    def get_schedule(self, event=None):
+        self.actions.get_schedule()
 
     def undo(self, event=None):
         pass
@@ -207,10 +234,10 @@ class editor():
         pass
     
     def save(self, event=None):
-        pass
+        interfaces.file_actions.save(self)
 
     def export(self, event=None):
-        pass
+        interfaces.file_actions.export(self)
     
     def plot_save(self, event=None):
         pass

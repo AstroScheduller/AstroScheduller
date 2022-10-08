@@ -1,4 +1,4 @@
-from . import _funcs, object_info, get_schedule
+from . import _funcs, object_info, get_schedule, add_object
 from tkinter import ttk, messagebox
 
 class actions():
@@ -62,3 +62,9 @@ class actions():
             )
         else:
             messagebox.showinfo("No Object Selected", "There is no object selected. \n\nTo get information about an object, select it by clicking on it in the list, then click the \"Get Info\" button.")
+    
+    def add_object(self, event=None):
+        add_object.add_object(self.upper)
+    
+    def object_add(self, event=None):
+        self.add_object()

@@ -120,7 +120,6 @@ objects.from_xml(open("./tests/psr_list_debug.xml").read())
 # objects.from_xml(open("./tests/psr_list_long.xml").read())
 s4.get_schedule()
 s4.edit()
-exit()
 print("🟢 ash.editor: OK 👌")
 
 ################################
