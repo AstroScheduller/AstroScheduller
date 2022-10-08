@@ -1,8 +1,8 @@
 import os
-from PIL import Image, ImageTk
 
 try:
     import tkinter
+    from PIL import Image, ImageTk
 except ImportError:
     pass
 
