@@ -1,6 +1,6 @@
 ![astro_scheduller](https://raw.githubusercontent.com/AstroScheduller/AstroScheduller/Dev/docs/astro_scheduller.jpg)
 
-# AstroScheduller 0.9.3
+# AstroScheduller 1.0.x
 
 [![](https://img.shields.io/badge/license-MIT-green)](https://github.com/AstroScheduller/AstroScheduller/blob/Dev/LICENSE)
 [![](https://img.shields.io/badge/release-v0.9.3-informational)](https://github.com/AstroScheduller/AstroScheduller/releases)
