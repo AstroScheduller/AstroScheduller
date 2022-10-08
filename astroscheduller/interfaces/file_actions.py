@@ -1,8 +1,14 @@
-import tkinter
 import os
 import datetime
 import webbrowser
-from tkinter.filedialog import askopenfilename, asksaveasfilename
+
+try:
+    import tkinter
+    from tkinter import ttk, messagebox
+    from tkinter.filedialog import askopenfilename, asksaveasfilename
+except ImportError:
+    pass
+
 
 from . import _srcs
 

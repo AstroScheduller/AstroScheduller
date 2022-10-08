@@ -1,5 +1,9 @@
 from . import _funcs, object_info, get_schedule, add_object
-from tkinter import ttk, messagebox
+
+try:
+    from tkinter import ttk, messagebox
+except ImportError:
+    pass
 
 class actions():
     def __init__(self, upper):

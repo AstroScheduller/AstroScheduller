@@ -1,5 +1,10 @@
-import tkinter
-from tkinter import ttk, messagebox
+try:
+    import tkinter
+    from tkinter import ttk, messagebox
+    from tkinter.filedialog import askopenfilename, asksaveasfilename
+except ImportError:
+    pass
+
 
 class get_schedule():
     def __init__(self, upper):

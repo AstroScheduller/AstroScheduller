@@ -1,6 +1,10 @@
 import os
-import tkinter
 from PIL import Image, ImageTk
+
+try:
+    import tkinter
+except ImportError:
+    pass
 
 class icons():
     def __init__(self):

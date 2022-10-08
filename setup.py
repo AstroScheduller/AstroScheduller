@@ -18,7 +18,6 @@ setuptools.setup(
         'numpy',
         'matplotlib',
         'requests',
-        'tk',
         'astropy',
         'Pillow'
     ],

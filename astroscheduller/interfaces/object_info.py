@@ -1,5 +1,10 @@
-import tkinter
-from tkinter import ttk, messagebox
+try:
+    import tkinter
+    from tkinter import ttk, messagebox
+    from tkinter.filedialog import askopenfilename, asksaveasfilename
+except ImportError:
+    pass
+
 
 from . import main
 from .. import scheduller

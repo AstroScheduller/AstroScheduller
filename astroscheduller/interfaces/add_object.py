@@ -1,7 +1,12 @@
-import tkinter
-from tkinter import ttk, messagebox
 from urllib import response
 from . import object_info
+
+try:
+    import tkinter
+    from tkinter import ttk, messagebox
+except ImportError:
+    pass
+
 
 class add_object():
     def __init__(self, upper):
