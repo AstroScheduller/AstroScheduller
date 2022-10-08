@@ -10,6 +10,8 @@ from . import interfaces
             
 class editor():
     def __init__(self, scheduller):
+        print("Starting AstroScheduller Editor... ")
+        
         self.scheduller = scheduller
         self.root = tkinter.Tk()
         self.settings = interfaces.settings.settings()

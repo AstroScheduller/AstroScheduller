@@ -48,12 +48,13 @@ class actions():
             self.plot()
     
     def quit(self, event=None):
-        if(self.upper.primary_tasks.empty() == False or self.upper.threading_tasks.empty() == False):
+        if(self.upper.threading_tasks.empty() == False):
             messagebox.showwarning("Tasks Still Running", "There are still background tasks running. Please wait for them to finish before quitting the editor.")
         else:
-            self.upper.threading_tasks.quit()
-            self.upper.threadloopHandle.join()
-            self.upper.root.destroy()
+            if(messagebox.askokcancel("Quit", "Are you sure you want to quit?")):
+                self.upper.threading_tasks.quit()
+                self.upper.threadloopHandle.join()
+                self.upper.root.destroy()
         
     def get_info(self, event=None):
         _, contents, _ = self.upper.objectsInterfaceHandle.selected(multiple=True)
