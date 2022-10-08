@@ -1,11 +1,8 @@
 from urllib import response
 from . import object_info
 
-try:
-    import tkinter
-    from tkinter import ttk, messagebox
-except ImportError:
-    pass
+import tkinter
+from tkinter import ttk, messagebox
 
 
 class add_object():

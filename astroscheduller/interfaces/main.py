@@ -4,12 +4,9 @@ import multiprocessing
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.pyplot import text, switch_backend
 
-try:
-    import tkinter
-    from tkinter import ttk, messagebox
-    from tkinter.filedialog import askopenfilename, asksaveasfilename
-except ImportError:
-    pass
+import tkinter
+from tkinter import ttk, messagebox
+from tkinter.filedialog import askopenfilename, asksaveasfilename
 
 
 from . import _structs, _funcs, _srcs

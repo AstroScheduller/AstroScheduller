@@ -1,9 +1,6 @@
-try:
-    import tkinter
-    from tkinter import ttk, messagebox
-    from tkinter.filedialog import askopenfilename, asksaveasfilename
-except ImportError:
-    pass
+import tkinter
+from tkinter import ttk, messagebox
+from tkinter.filedialog import askopenfilename, asksaveasfilename
 
 
 class get_schedule():

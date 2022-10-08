@@ -1,10 +1,7 @@
 import os
 
-try:
-    import tkinter
-    from PIL import Image, ImageTk
-except ImportError:
-    pass
+import tkinter
+from PIL import Image, ImageTk
 
 class icons():
     def __init__(self):
@@ -16,7 +13,7 @@ class icons():
             if file.startswith("icon") and file.endswith(".png"):
                 self.__dict__["icons"][file.split("_")[1]] = self.__dict__["ashrel"] + "/" + file
 
-    def load(self, path: str):
+    def load(self, path: str) -> tkinter.PhotoImage:
         return tkinter.PhotoImage(file=path)
     
     def __getattr__(self, __name: str) -> any:

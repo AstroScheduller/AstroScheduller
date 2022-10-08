@@ -3,11 +3,8 @@ import ctypes
 from queue import Queue
 from threading import Thread
 
-try:
-    import tkinter
-    from tkinter import ttk, messagebox
-except ImportError:
-    print("Notice that tkinter is not installed. To use the AshGUI function, please install tkinter. For more information, please visit https://tkdocs.com/tutorial/install.html")
+import tkinter
+from tkinter import ttk, messagebox
 
 from . import interfaces
             
