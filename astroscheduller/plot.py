@@ -91,36 +91,54 @@ class plot():
         self.quality = quality
         obeDuration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
 
+        self.realObsDuration = {
+            "begin": self.observation["duration"]["begin"], 
+            "end": 0,
+            "length": 0
+        }
+
+        for thisObj in self.objects:
+            self.realObsDuration["length"] = self.realObsDuration["length"] + thisObj["duration"] + thisObj["wait"]
+
+        self.realObsDuration["end"] = self.realObsDuration["begin"] + self.realObsDuration["length"]
+
+        if(self.realObsDuration["end"] < self.observation["duration"]["end"]):
+            self.realObsDuration["end"] = self.observation["duration"]["end"]
+
+        self.realObsDuration["end"] = self.realObsDuration["end"] + 1
+        self.realObsDuration["length"] = self.realObsDuration["end"] - self.realObsDuration["begin"]
+
         if(self.quality == "max"):
-            self.slices = int(obeDuration/60)
-            self.bkgSlices = int(obeDuration/60)
+            self.slices = int(self.realObsDuration["length"]/60)
+            self.bkgSlices = int(self.realObsDuration["length"]/60)
             self.tickes = 10
-            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
-            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+            self.timestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.bkgSlices)
         elif(self.quality == "high"):
-            self.slices = int(obeDuration/300)
-            self.bkgSlices = int(obeDuration/600)
+            self.slices = int(self.realObsDuration["length"]/300)
+            self.bkgSlices = int(self.realObsDuration["length"]/600)
             self.tickes = 10
-            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
-            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+            self.timestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.bkgSlices)
         elif(self.quality == "med"):
-            self.slices = int(obeDuration/600)
-            self.bkgSlices = int(obeDuration/1200)
-            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
-            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+            self.slices = int(self.realObsDuration["length"]/600)
+            self.bkgSlices = int(self.realObsDuration["length"]/1200)
+            self.timestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.bkgSlices)
         elif(self.quality == "low"):
-            self.slices = int(obeDuration / 900)
-            self.bkgSlices = int(obeDuration / 2400)
-            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
-            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+            self.slices = int(self.realObsDuration["length"] / 900)
+            self.bkgSlices = int(self.realObsDuration["length"] / 2400)
+            self.timestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.bkgSlices)
         elif(self.quality == "quick"):
-            self.slices = int(obeDuration/600)
+            self.slices = int(self.realObsDuration["length"]/600)
             self.bkgSlices = 0
-            self.timestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.slices)
-            self.bkgTimestamps = np.linspace(self.observation["duration"]["begin"], self.observation["duration"]["end"], self.bkgSlices)
+            self.timestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.slices)
+            self.bkgTimestamps = np.linspace(self.realObsDuration["begin"], self.realObsDuration["end"], self.bkgSlices)
         else:
             print("Error: quality not recognized.")
             return False
+
             
         print("Plotting Quality: " + self.quality)
         return True
@@ -179,7 +197,7 @@ class plot():
         '''
 
         time = 0
-        duration = self.observation["duration"]["end"] - self.observation["duration"]["begin"]
+        duration = self.realObsDuration["end"] - self.realObsDuration["begin"]
 
         for i in range(len(self.objects_all())):
             thisObj = self.objects_all()[i]
