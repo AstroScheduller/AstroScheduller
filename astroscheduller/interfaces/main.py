@@ -1,6 +1,3 @@
-from cProfile import run
-from email import message
-from re import S
 import tkinter
 import datetime
 import threading
@@ -8,7 +5,6 @@ import multiprocessing
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.pyplot import text, switch_backend
-from numpy import pad
 
 from . import _structs, _funcs, _srcs
 from .. import scheduller

@@ -1,12 +1,9 @@
 import os
 import tkinter
 import ctypes
-import inspect
 from tkinter import ttk, messagebox
 from queue import Queue
 from threading import Thread
-
-from async_timeout import timeout
 
 from . import interfaces
             
