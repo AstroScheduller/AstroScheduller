@@ -16,7 +16,7 @@ class icons():
             if file.startswith("icon") and file.endswith(".png"):
                 self.__dict__["icons"][file.split("_")[1]] = self.__dict__["ashrel"] + "/" + file
 
-    def load(self, path: str) -> tkinter.PhotoImage:
+    def load(self, path: str):
         return tkinter.PhotoImage(file=path)
     
     def __getattr__(self, __name: str) -> any:
