@@ -11,12 +11,12 @@ The AstroScheduller project is developing a user-friendly Python package with an
 
 ## Package Compatibility
 
-| Platform  | Tested         | Notes                                            |
-| --------- | -------------- | ------------------------------------------------ |
-| MacOS     | ✅ OSX Monterey |                                                  |
-| Linux     | ✅ Ubuntu 20.04 |                                                  |
-| Chrome OS | ✅ Google Colab | The GUI editor may behave differently.           |
-| Windows   | ❌              | The AshGo module may needs to be built manually. |
+| Platform | Tested         | Notes                                            |
+| -------- | -------------- | ------------------------------------------------ |
+| MacOS    | ✅ OSX Monterey |                                                  |
+| Linux    | ✅ Ubuntu 20.04 |                                                  |
+| ChromeOS | ✅ Google Colab | The GUI editor may behave differently.           |
+| Windows  | ❌              | The AshGo module may needs to be built manually. |
 
 ## Installation
 
