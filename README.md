@@ -9,6 +9,17 @@
 
 The AstroScheduller project is developing a user-friendly Python package with an algorithm for planning astronomical observations. This project was taken from a previous project [AstroScheduller.py](https://github.com/AstroScheduller/AstroSchedullerPy).
 
+## Package Compatibility
+
+| Platform | Tested         | Notes                                            |
+| -------- | -------------- | ------------------------------------------------ |
+| MacOS    | ✅ OSX Monterey |                                                  |
+| Linux    | ✅ Ubuntu 20.04 |                                                  |
+| ChromeOS | ✅ Google Colab | The GUI editor may behave differently.           |
+| Windows  | ❌              | The AshGo module may needs to be built manually. |
+
+## Installation
+
 Using PiPI to install:
 
 The most recent stable version of  AstroScheduller Package is available on PyPI. Using the following command to install the package and the required packages will automatically be installed: 
